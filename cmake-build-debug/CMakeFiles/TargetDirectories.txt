@@ -1,0 +1,3 @@
+C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim.dir
+C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/rebuild_cache.dir
