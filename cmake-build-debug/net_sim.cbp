@@ -94,6 +94,9 @@
 		<Unit filename="C:/Informatyka/net_sim/src/nodes.cpp">
 			<Option target="net_sim"/>
 		</Unit>
+		<Unit filename="C:/Informatyka/net_sim/src/package.cpp">
+			<Option target="net_sim"/>
+		</Unit>
 		<Unit filename="C:/Informatyka/net_sim/src/reports.cpp">
 			<Option target="net_sim"/>
 		</Unit>

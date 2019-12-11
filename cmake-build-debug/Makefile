@@ -230,6 +230,33 @@ src/nodes.cpp.s:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/nodes.cpp.s
 .PHONY : src/nodes.cpp.s
 
+src/package.obj: src/package.cpp.obj
+
+.PHONY : src/package.obj
+
+# target to build an object file
+src/package.cpp.obj:
+	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/package.cpp.obj
+.PHONY : src/package.cpp.obj
+
+src/package.i: src/package.cpp.i
+
+.PHONY : src/package.i
+
+# target to preprocess a source file
+src/package.cpp.i:
+	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/package.cpp.i
+.PHONY : src/package.cpp.i
+
+src/package.s: src/package.cpp.s
+
+.PHONY : src/package.s
+
+# target to generate assembly for a file
+src/package.cpp.s:
+	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/package.cpp.s
+.PHONY : src/package.cpp.s
+
 src/reports.obj: src/reports.cpp.obj
 
 .PHONY : src/reports.obj
@@ -359,6 +386,9 @@ help:
 	@echo ... src/nodes.obj
 	@echo ... src/nodes.i
 	@echo ... src/nodes.s
+	@echo ... src/package.obj
+	@echo ... src/package.i
+	@echo ... src/package.s
 	@echo ... src/reports.obj
 	@echo ... src/reports.i
 	@echo ... src/reports.s

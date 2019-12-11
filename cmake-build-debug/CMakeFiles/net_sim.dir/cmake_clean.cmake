@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/net_sim.dir/main.cpp.obj"
+  "CMakeFiles/net_sim.dir/src/package.cpp.obj"
   "CMakeFiles/net_sim.dir/src/factory.cpp.obj"
   "CMakeFiles/net_sim.dir/src/helpers.cpp.obj"
   "CMakeFiles/net_sim.dir/src/nodes.cpp.obj"
