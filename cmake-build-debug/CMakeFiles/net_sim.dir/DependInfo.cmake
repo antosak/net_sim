@@ -13,16 +13,22 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Informatyka/net_sim/src/simulation.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim.dir/src/simulation.cpp.obj"
   "C:/Informatyka/net_sim/src/storage_types.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim.dir/src/storage_types.cpp.obj"
   "C:/Informatyka/net_sim/src/types.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim.dir/src/types.cpp.obj"
+  "C:/Informatyka/net_sim/test/gtest_main.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim.dir/test/gtest_main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
+  "../src"
+  "../googletest-master/googlemock/include"
+  "../googletest-master/googletest/include"
+  "../googletest-master/googletest"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "C:/Informatyka/net_sim/cmake-build-debug/googletest-master/googlemock/gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
