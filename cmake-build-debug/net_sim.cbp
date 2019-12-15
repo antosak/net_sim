@@ -361,7 +361,7 @@
 		<Unit filename="C:/Informatyka/net_sim/src/types.cpp">
 			<Option target="net_sim"/>
 		</Unit>
-		<Unit filename="C:/Informatyka/net_sim/test/gtest_main.cpp">
+		<Unit filename="C:/Informatyka/net_sim/test/test_all.cpp">
 			<Option target="net_sim"/>
 		</Unit>
 		<Unit filename="C:/Informatyka/net_sim/CMakeLists.txt">

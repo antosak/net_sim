@@ -8,7 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/net_sim.dir/src/simulation.cpp.obj"
   "CMakeFiles/net_sim.dir/src/storage_types.cpp.obj"
   "CMakeFiles/net_sim.dir/src/types.cpp.obj"
-  "CMakeFiles/net_sim.dir/test/gtest_main.cpp.obj"
+  "CMakeFiles/net_sim.dir/test/test_all.cpp.obj"
   "libnet_sim.dll.a"
   "net_sim.exe"
   "net_sim.exe.manifest"

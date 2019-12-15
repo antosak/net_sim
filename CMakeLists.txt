@@ -11,15 +11,15 @@ include_directories(googletest-master/googlemock/include)
 include_directories(googletest-master/googletest/include)
 
 add_executable(net_sim main.cpp src/package.cpp src/factory.cpp src/helpers.cpp src/nodes.cpp src/reports.cpp
-        src/simulation.cpp src/types.cpp src/storage_types.cpp test/gtest_main.cpp)
+        src/simulation.cpp src/types.cpp src/storage_types.cpp test/test_all.cpp)
 
 target_link_libraries(net_sim gtest)
 #============================== stara wersja
 
 #set(SOURCES_FILES_TESTS
-#        test/test_all.cpp test/gtest_main.cpp)
+#        test/test_all.cpp test/test_all.cpp)
 
-#add_executable(net_sim__test ${SOURCE_FILES} ${SOURCES_FILES_TESTS} test/gtest_main.cpp)
+#add_executable(net_sim__test ${SOURCE_FILES} ${SOURCES_FILES_TESTS} test/test_all.cpp)
 
 #target_include_directories(net_sim__test PUBLIC
 #googletest-master/googlemock/include

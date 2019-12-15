@@ -13,7 +13,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Informatyka/net_sim/src/simulation.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim.dir/src/simulation.cpp.obj"
   "C:/Informatyka/net_sim/src/storage_types.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim.dir/src/storage_types.cpp.obj"
   "C:/Informatyka/net_sim/src/types.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim.dir/src/types.cpp.obj"
-  "C:/Informatyka/net_sim/test/gtest_main.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim.dir/test/gtest_main.cpp.obj"
+  "C:/Informatyka/net_sim/test/test_all.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim.dir/test/test_all.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -463,32 +463,32 @@ src/types.cpp.s:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/types.cpp.s
 .PHONY : src/types.cpp.s
 
-test/gtest_main.obj: test/gtest_main.cpp.obj
+test/test_all.obj: test/test_all.cpp.obj
 
-.PHONY : test/gtest_main.obj
+.PHONY : test/test_all.obj
 
 # target to build an object file
-test/gtest_main.cpp.obj:
-	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/test/gtest_main.cpp.obj
-.PHONY : test/gtest_main.cpp.obj
+test/test_all.cpp.obj:
+	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/test/test_all.cpp.obj
+.PHONY : test/test_all.cpp.obj
 
-test/gtest_main.i: test/gtest_main.cpp.i
+test/test_all.i: test/test_all.cpp.i
 
-.PHONY : test/gtest_main.i
+.PHONY : test/test_all.i
 
 # target to preprocess a source file
-test/gtest_main.cpp.i:
-	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/test/gtest_main.cpp.i
-.PHONY : test/gtest_main.cpp.i
+test/test_all.cpp.i:
+	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/test/test_all.cpp.i
+.PHONY : test/test_all.cpp.i
 
-test/gtest_main.s: test/gtest_main.cpp.s
+test/test_all.s: test/test_all.cpp.s
 
-.PHONY : test/gtest_main.s
+.PHONY : test/test_all.s
 
 # target to generate assembly for a file
-test/gtest_main.cpp.s:
-	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/test/gtest_main.cpp.s
-.PHONY : test/gtest_main.cpp.s
+test/test_all.cpp.s:
+	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/test/test_all.cpp.s
+.PHONY : test/test_all.cpp.s
 
 # Help Target
 help:
@@ -534,9 +534,9 @@ help:
 	@echo ... src/types.obj
 	@echo ... src/types.i
 	@echo ... src/types.s
-	@echo ... test/gtest_main.obj
-	@echo ... test/gtest_main.i
-	@echo ... test/gtest_main.s
+	@echo ... test/test_all.obj
+	@echo ... test/test_all.i
+	@echo ... test/test_all.s
 .PHONY : help
 
 

@@ -182,19 +182,19 @@ CMakeFiles/net_sim.dir/src/storage_types.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim.dir/src/storage_types.cpp.s"
 	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Informatyka\net_sim\src\storage_types.cpp -o CMakeFiles\net_sim.dir\src\storage_types.cpp.s
 
-CMakeFiles/net_sim.dir/test/gtest_main.cpp.obj: CMakeFiles/net_sim.dir/flags.make
-CMakeFiles/net_sim.dir/test/gtest_main.cpp.obj: CMakeFiles/net_sim.dir/includes_CXX.rsp
-CMakeFiles/net_sim.dir/test/gtest_main.cpp.obj: ../test/gtest_main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Informatyka\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/net_sim.dir/test/gtest_main.cpp.obj"
-	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim.dir\test\gtest_main.cpp.obj -c C:\Informatyka\net_sim\test\gtest_main.cpp
+CMakeFiles/net_sim.dir/test/test_all.cpp.obj: CMakeFiles/net_sim.dir/flags.make
+CMakeFiles/net_sim.dir/test/test_all.cpp.obj: CMakeFiles/net_sim.dir/includes_CXX.rsp
+CMakeFiles/net_sim.dir/test/test_all.cpp.obj: ../test/test_all.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Informatyka\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/net_sim.dir/test/test_all.cpp.obj"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim.dir\test\test_all.cpp.obj -c C:\Informatyka\net_sim\test\test_all.cpp
 
-CMakeFiles/net_sim.dir/test/gtest_main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net_sim.dir/test/gtest_main.cpp.i"
-	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Informatyka\net_sim\test\gtest_main.cpp > CMakeFiles\net_sim.dir\test\gtest_main.cpp.i
+CMakeFiles/net_sim.dir/test/test_all.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net_sim.dir/test/test_all.cpp.i"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Informatyka\net_sim\test\test_all.cpp > CMakeFiles\net_sim.dir\test\test_all.cpp.i
 
-CMakeFiles/net_sim.dir/test/gtest_main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim.dir/test/gtest_main.cpp.s"
-	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Informatyka\net_sim\test\gtest_main.cpp -o CMakeFiles\net_sim.dir\test\gtest_main.cpp.s
+CMakeFiles/net_sim.dir/test/test_all.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim.dir/test/test_all.cpp.s"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Informatyka\net_sim\test\test_all.cpp -o CMakeFiles\net_sim.dir\test\test_all.cpp.s
 
 # Object files for target net_sim
 net_sim_OBJECTS = \
@@ -207,7 +207,7 @@ net_sim_OBJECTS = \
 "CMakeFiles/net_sim.dir/src/simulation.cpp.obj" \
 "CMakeFiles/net_sim.dir/src/types.cpp.obj" \
 "CMakeFiles/net_sim.dir/src/storage_types.cpp.obj" \
-"CMakeFiles/net_sim.dir/test/gtest_main.cpp.obj"
+"CMakeFiles/net_sim.dir/test/test_all.cpp.obj"
 
 # External object files for target net_sim
 net_sim_EXTERNAL_OBJECTS =
@@ -221,7 +221,7 @@ net_sim.exe: CMakeFiles/net_sim.dir/src/reports.cpp.obj
 net_sim.exe: CMakeFiles/net_sim.dir/src/simulation.cpp.obj
 net_sim.exe: CMakeFiles/net_sim.dir/src/types.cpp.obj
 net_sim.exe: CMakeFiles/net_sim.dir/src/storage_types.cpp.obj
-net_sim.exe: CMakeFiles/net_sim.dir/test/gtest_main.cpp.obj
+net_sim.exe: CMakeFiles/net_sim.dir/test/test_all.cpp.obj
 net_sim.exe: CMakeFiles/net_sim.dir/build.make
 net_sim.exe: googletest-master/googlemock/gtest/libgtestd.a
 net_sim.exe: CMakeFiles/net_sim.dir/linklibs.rsp

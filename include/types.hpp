@@ -4,5 +4,6 @@
 
 #ifndef NET_SIM_TYPES_HPP
 #define NET_SIM_TYPES_HPP
+typedef int ElementID;
 
 #endif //NET_SIM_TYPES_HPP
