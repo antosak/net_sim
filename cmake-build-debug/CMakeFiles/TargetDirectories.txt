@@ -1,4 +1,5 @@
 C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim.dir
+C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim__test.dir
 C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/install/local.dir
 C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/install.dir
 C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/edit_cache.dir

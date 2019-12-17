@@ -3,3 +3,9 @@
 //
 
 #include "gtest/gtest.h"
+#include "gmock/gmock.h"
+
+
+TEST(simpleTest, sub){
+    EXPECT_EQ(2, 4 - 2);
+}

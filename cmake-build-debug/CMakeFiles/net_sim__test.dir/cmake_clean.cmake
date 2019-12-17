@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/net_sim__test.dir/test/gtest_main.cpp.obj"
+  "CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.obj"
   "CMakeFiles/net_sim__test.dir/test/test_all.cpp.obj"
   "libnet_sim__test.dll.a"
   "net_sim__test.exe"

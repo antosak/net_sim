@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Informatyka/net_sim/test/gtest_main.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim__test.dir/test/gtest_main.cpp.obj"
+  "C:/Informatyka/net_sim/test/main_gtest.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.obj"
   "C:/Informatyka/net_sim/test/test_all.cpp" "C:/Informatyka/net_sim/cmake-build-debug/CMakeFiles/net_sim__test.dir/test/test_all.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

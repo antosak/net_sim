@@ -169,6 +169,19 @@ net_sim/fast:
 .PHONY : net_sim/fast
 
 #=============================================================================
+# Target rules for targets named net_sim__test
+
+# Build rule for target.
+net_sim__test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 net_sim__test
+.PHONY : net_sim__test
+
+# fast build rule for target.
+net_sim__test/fast:
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/build
+.PHONY : net_sim__test/fast
+
+#=============================================================================
 # Target rules for targets named gmock_main
 
 # Build rule for target.
@@ -463,13 +476,40 @@ src/types.cpp.s:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/types.cpp.s
 .PHONY : src/types.cpp.s
 
+test/main_gtest.obj: test/main_gtest.cpp.obj
+
+.PHONY : test/main_gtest.obj
+
+# target to build an object file
+test/main_gtest.cpp.obj:
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.obj
+.PHONY : test/main_gtest.cpp.obj
+
+test/main_gtest.i: test/main_gtest.cpp.i
+
+.PHONY : test/main_gtest.i
+
+# target to preprocess a source file
+test/main_gtest.cpp.i:
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.i
+.PHONY : test/main_gtest.cpp.i
+
+test/main_gtest.s: test/main_gtest.cpp.s
+
+.PHONY : test/main_gtest.s
+
+# target to generate assembly for a file
+test/main_gtest.cpp.s:
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.s
+.PHONY : test/main_gtest.cpp.s
+
 test/test_all.obj: test/test_all.cpp.obj
 
 .PHONY : test/test_all.obj
 
 # target to build an object file
 test/test_all.cpp.obj:
-	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/test/test_all.cpp.obj
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/test/test_all.cpp.obj
 .PHONY : test/test_all.cpp.obj
 
 test/test_all.i: test/test_all.cpp.i
@@ -478,7 +518,7 @@ test/test_all.i: test/test_all.cpp.i
 
 # target to preprocess a source file
 test/test_all.cpp.i:
-	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/test/test_all.cpp.i
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/test/test_all.cpp.i
 .PHONY : test/test_all.cpp.i
 
 test/test_all.s: test/test_all.cpp.s
@@ -487,7 +527,7 @@ test/test_all.s: test/test_all.cpp.s
 
 # target to generate assembly for a file
 test/test_all.cpp.s:
-	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/test/test_all.cpp.s
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/test/test_all.cpp.s
 .PHONY : test/test_all.cpp.s
 
 # Help Target
@@ -497,6 +537,7 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... net_sim
+	@echo ... net_sim__test
 	@echo ... install/local
 	@echo ... install
 	@echo ... edit_cache
@@ -534,6 +575,9 @@ help:
 	@echo ... src/types.obj
 	@echo ... src/types.i
 	@echo ... src/types.s
+	@echo ... test/main_gtest.obj
+	@echo ... test/main_gtest.i
+	@echo ... test/main_gtest.s
 	@echo ... test/test_all.obj
 	@echo ... test/test_all.i
 	@echo ... test/test_all.s

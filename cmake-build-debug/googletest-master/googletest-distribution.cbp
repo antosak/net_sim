@@ -24,6 +24,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
@@ -49,6 +50,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
@@ -74,6 +76,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
@@ -99,6 +102,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
@@ -124,6 +128,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
@@ -147,6 +152,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
@@ -170,6 +176,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
@@ -193,6 +200,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>

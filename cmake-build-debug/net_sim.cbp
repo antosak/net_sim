@@ -25,10 +25,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="C:/Informatyka/net_sim/include"/>
-					<Add directory="C:/Informatyka/net_sim/src"/>
-					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
-					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
-					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
@@ -51,10 +47,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="C:/Informatyka/net_sim/include"/>
-					<Add directory="C:/Informatyka/net_sim/src"/>
-					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
-					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
-					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
@@ -64,6 +56,58 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 net_sim/fast"/>
+					<CompileFile command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="net_sim__test">
+				<Option output="C:/Informatyka/net_sim/cmake-build-debug/net_sim__test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Informatyka/net_sim/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
+					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
+					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
+					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock"/>
+					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 net_sim__test"/>
+					<CompileFile command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="net_sim__test/fast">
+				<Option output="C:/Informatyka/net_sim/cmake-build-debug/net_sim__test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Informatyka/net_sim/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
+					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
+					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
+					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock"/>
+					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 net_sim__test/fast"/>
 					<CompileFile command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Informatyka/net_sim/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -136,6 +180,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
@@ -161,6 +206,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
@@ -186,6 +232,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
@@ -211,6 +258,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googlemock"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
@@ -236,6 +284,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
@@ -259,6 +308,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
@@ -282,6 +332,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
@@ -305,6 +356,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="C:/Informatyka/net_sim/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest/include"/>
 					<Add directory="C:/Informatyka/net_sim/googletest-master/googletest"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
@@ -361,8 +413,11 @@
 		<Unit filename="C:/Informatyka/net_sim/src/types.cpp">
 			<Option target="net_sim"/>
 		</Unit>
+		<Unit filename="C:/Informatyka/net_sim/test/main_gtest.cpp">
+			<Option target="net_sim__test"/>
+		</Unit>
 		<Unit filename="C:/Informatyka/net_sim/test/test_all.cpp">
-			<Option target="net_sim"/>
+			<Option target="net_sim__test"/>
 		</Unit>
 		<Unit filename="C:/Informatyka/net_sim/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

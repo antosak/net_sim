@@ -1,1 +1,1 @@
--isystem C:/Informatyka/net_sim/googletest-master/googletest/include -isystem C:/Informatyka/net_sim/googletest-master/googletest 
+-IC:/Informatyka/net_sim/include -isystem C:/Informatyka/net_sim/googletest-master/googletest/include -isystem C:/Informatyka/net_sim/googletest-master/googletest 
