@@ -7,6 +7,7 @@
 
 #include "types.hpp"
 #include "package.hpp"
+#include <list>
 
 enum class PackageQueueType {
     FIFO, LIFO
@@ -14,13 +15,15 @@ enum class PackageQueueType {
 
 class IPackageStockpile {
 public:
+    using container = std::list<Package>::const_iterator;
     virtual int size() const = 0;
     virtual bool empty() const = 0;
-    virtual ~IPackageStockpile() {}; // zzawsze trzeba dekonstruktor czy nie?
+    virtual ~IPackageStockpile() {};
     virtual void push(Package&& package_) = 0;
-    // jeszcze trzeba napisać cytuję:: "metody pozwalające na uzyskanie dostępu “tylko do odczytu” do kontenera
-    // przechowującego półprodukty (tj. metody [c]begin(), [c]end() – łącznie 4 metody)",
-    // ale nie bardzo wiem jak
+    virtual container cbegin() const = 0;
+    virtual container cend() const = 0;
+    virtual container begin() const = 0;
+    virtual container end() const = 0;
 };
 
 class IPackageQueue : public IPackageStockpile {
@@ -32,9 +35,10 @@ public:
 
 class PackageQueue : public IPackageQueue {
 public:
-
+    void push(Package&& package_) override {collection.emplace_back(package_);}
 private:
     PackageQueueType Type;
+    std::list<Package> collection;
 
 
 };
