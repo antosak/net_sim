@@ -1,5 +1,5 @@
-libdir=C:/Program Files (x86)/c___semestr_III/lib
-includedir=C:/Program Files (x86)/c___semestr_III/include
+libdir=C:/Program Files (x86)/net_sim/lib
+includedir=C:/Program Files (x86)/net_sim/include
 
 Name: gtest
 Description: GoogleTest (without main() function)

@@ -9,6 +9,11 @@
 
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    std::string str ="Hello, World!";
+    std::cout << str << std::endl;
     return 0;
+
+
+
+
 }

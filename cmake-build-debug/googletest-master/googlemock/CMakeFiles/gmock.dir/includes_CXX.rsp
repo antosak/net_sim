@@ -1,1 +1,1 @@
--IC:/Informatyka/net_sim/include -IC:/Informatyka/net_sim/googletest-master/googlemock/include -IC:/Informatyka/net_sim/googletest-master/googlemock -isystem C:/Informatyka/net_sim/googletest-master/googletest/include -isystem C:/Informatyka/net_sim/googletest-master/googletest 
+-IE:/Projects/C++/net_sim/include -IE:/Projects/C++/net_sim/googletest-master/googlemock/include -IE:/Projects/C++/net_sim/googletest-master/googlemock -isystem E:/Projects/C++/net_sim/googletest-master/googletest/include -isystem E:/Projects/C++/net_sim/googletest-master/googletest 

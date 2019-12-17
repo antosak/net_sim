@@ -6,3 +6,25 @@
 
 #IncludeRegexTransform: 
 
+../include/package.hpp
+types.hpp
+../include/types.hpp
+set
+-
+list
+-
+
+../include/storage_types.hpp
+types.hpp
+../include/types.hpp
+package.hpp
+../include/package.hpp
+list
+-
+
+../include/types.hpp
+
+E:/Projects/C++/net_sim/src/storage_types.cpp
+storage_types.hpp
+E:/Projects/C++/net_sim/src/storage_types.hpp
+
