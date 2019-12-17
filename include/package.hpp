@@ -1,8 +1,8 @@
 #ifndef C___SEMESTR_III_PACKAGE_HPP
 #define C___SEMESTR_III_PACKAGE_HPP
 
-
 #include "types.hpp"
+#include <set>
 
 class Package {
 public:
@@ -12,5 +12,6 @@ public:
 private:
     ElementID id_ = 0;
     static int number_;
+    static std::set<int> set_;
 };
 #endif //C___SEMESTR_III_PACKAGE_HPP
