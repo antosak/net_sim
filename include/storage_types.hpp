@@ -35,7 +35,17 @@ public:
 
 class PackageQueue : public IPackageQueue {
 public:
-    void push(Package&& package_) override {collection.emplace_back(package_);}
+    PackageQueue(PackageQueueType type);
+    ~PackageQueue(){}; // ?? nadpisuje się dekonstruktor ??
+    void push(Package&& package_) override {collection.emplace_back(package_);};
+    Package&& pop() override; // nwm jak to..
+    PackageQueueType get_queue_type() const override {return Type;};
+    bool empty() const override {return collection.empty();};
+    int size() const override {return collection.size();};
+    container cbegin() const override {return collection.cbegin();};
+    container cend() const override {return collection.cend();};
+    container begin() const override { return collection.begin();};
+    container end() const override {return collection.end();};
 private:
     PackageQueueType Type;
     std::list<Package> collection;
