@@ -8,26 +8,16 @@
 
 class Package {
 public:
-    Package(ElementID id) : id_(id) {
-        bool already_assigned = (std::find(assigned_IDs.begin(), assigned_IDs.end(), id) != assigned_IDs.end());
-        if (already_assigned)
-            throw std::invalid_argument("Given ID is already in use!");
-        assigned_IDs.push_back(id);
-    }
-
-    Package() : id_(number_) {
-        if (freed_IDs.empty()) {
-            assigned_IDs.push_back(number_);
-            number_ += 1;
-        } else {
-            assigned_IDs.push_back(freed_IDs.front());
-            freed_IDs.pop_front();
-        }
-    }
-
+    Package(Package &&package);
+    Package();
     ~Package();
 
     ElementID getID() const { return id_;}
+
+    void operator = (Package &package ) {
+        freed_IDs.push_back(package.id_);
+        package.id_ = -1;
+    }
 
 private:
     ElementID id_ = 0;
