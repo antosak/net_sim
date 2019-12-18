@@ -21,6 +21,7 @@ public:
             Package::number_ += 1;
         } else {
             assigned_IDs.push_back(freed_IDs.front());
+            freed_IDs.pop_front();
         }
     }
 
