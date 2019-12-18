@@ -21,8 +21,13 @@ TEST(PackageTest, create){
     EXPECT_EQ(pack3.getID(), 3);
 }
 
+TEST(PackTest, creat){
+    Package pack1;
+}
+
 TEST(PackageTest, overwrite){
     Package pack1;
     Package pack2;
     Package pack3;
+//pack2 = pack3;
 }

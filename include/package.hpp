@@ -32,10 +32,8 @@ public:
 private:
     ElementID id_ = 0;
     static int number_;
-    std::list<int> assigned_IDs;
-    std::list<int> freed_IDs;
+    static std::list<int> assigned_IDs;
+    static std::list<int> freed_IDs;
 };
-
-
 
 #endif //C___SEMESTR_III_PACKAGE_HPP
