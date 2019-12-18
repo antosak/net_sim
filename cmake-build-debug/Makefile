@@ -38,19 +38,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:\Projects\C++\net_sim
+CMAKE_SOURCE_DIR = C:\Informatyka\net_sim
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:\Projects\C++\net_sim\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Informatyka\net_sim\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -58,31 +58,31 @@ CMAKE_BINARY_DIR = E:\Projects\C++\net_sim\cmake-build-debug
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	"E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	"C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	"E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	"C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+	"C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+	"C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -93,7 +93,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -114,20 +114,20 @@ list_install_components/fast: list_install_components
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	"C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	"C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Informatyka\net_sim\cmake-build-debug\CMakeFiles C:\Informatyka\net_sim\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Informatyka\net_sim\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -267,6 +267,7 @@ src/factory.obj: src/factory.cpp.obj
 # target to build an object file
 src/factory.cpp.obj:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/factory.cpp.obj
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/factory.cpp.obj
 .PHONY : src/factory.cpp.obj
 
 src/factory.i: src/factory.cpp.i
@@ -276,6 +277,7 @@ src/factory.i: src/factory.cpp.i
 # target to preprocess a source file
 src/factory.cpp.i:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/factory.cpp.i
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/factory.cpp.i
 .PHONY : src/factory.cpp.i
 
 src/factory.s: src/factory.cpp.s
@@ -285,6 +287,7 @@ src/factory.s: src/factory.cpp.s
 # target to generate assembly for a file
 src/factory.cpp.s:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/factory.cpp.s
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/factory.cpp.s
 .PHONY : src/factory.cpp.s
 
 src/helpers.obj: src/helpers.cpp.obj
@@ -294,6 +297,7 @@ src/helpers.obj: src/helpers.cpp.obj
 # target to build an object file
 src/helpers.cpp.obj:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/helpers.cpp.obj
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/helpers.cpp.obj
 .PHONY : src/helpers.cpp.obj
 
 src/helpers.i: src/helpers.cpp.i
@@ -303,6 +307,7 @@ src/helpers.i: src/helpers.cpp.i
 # target to preprocess a source file
 src/helpers.cpp.i:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/helpers.cpp.i
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/helpers.cpp.i
 .PHONY : src/helpers.cpp.i
 
 src/helpers.s: src/helpers.cpp.s
@@ -312,6 +317,7 @@ src/helpers.s: src/helpers.cpp.s
 # target to generate assembly for a file
 src/helpers.cpp.s:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/helpers.cpp.s
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/helpers.cpp.s
 .PHONY : src/helpers.cpp.s
 
 src/nodes.obj: src/nodes.cpp.obj
@@ -321,6 +327,7 @@ src/nodes.obj: src/nodes.cpp.obj
 # target to build an object file
 src/nodes.cpp.obj:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/nodes.cpp.obj
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/nodes.cpp.obj
 .PHONY : src/nodes.cpp.obj
 
 src/nodes.i: src/nodes.cpp.i
@@ -330,6 +337,7 @@ src/nodes.i: src/nodes.cpp.i
 # target to preprocess a source file
 src/nodes.cpp.i:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/nodes.cpp.i
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/nodes.cpp.i
 .PHONY : src/nodes.cpp.i
 
 src/nodes.s: src/nodes.cpp.s
@@ -339,6 +347,7 @@ src/nodes.s: src/nodes.cpp.s
 # target to generate assembly for a file
 src/nodes.cpp.s:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/nodes.cpp.s
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/nodes.cpp.s
 .PHONY : src/nodes.cpp.s
 
 src/package.obj: src/package.cpp.obj
@@ -348,6 +357,7 @@ src/package.obj: src/package.cpp.obj
 # target to build an object file
 src/package.cpp.obj:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/package.cpp.obj
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/package.cpp.obj
 .PHONY : src/package.cpp.obj
 
 src/package.i: src/package.cpp.i
@@ -357,6 +367,7 @@ src/package.i: src/package.cpp.i
 # target to preprocess a source file
 src/package.cpp.i:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/package.cpp.i
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/package.cpp.i
 .PHONY : src/package.cpp.i
 
 src/package.s: src/package.cpp.s
@@ -366,6 +377,7 @@ src/package.s: src/package.cpp.s
 # target to generate assembly for a file
 src/package.cpp.s:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/package.cpp.s
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/package.cpp.s
 .PHONY : src/package.cpp.s
 
 src/reports.obj: src/reports.cpp.obj
@@ -375,6 +387,7 @@ src/reports.obj: src/reports.cpp.obj
 # target to build an object file
 src/reports.cpp.obj:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/reports.cpp.obj
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/reports.cpp.obj
 .PHONY : src/reports.cpp.obj
 
 src/reports.i: src/reports.cpp.i
@@ -384,6 +397,7 @@ src/reports.i: src/reports.cpp.i
 # target to preprocess a source file
 src/reports.cpp.i:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/reports.cpp.i
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/reports.cpp.i
 .PHONY : src/reports.cpp.i
 
 src/reports.s: src/reports.cpp.s
@@ -393,6 +407,7 @@ src/reports.s: src/reports.cpp.s
 # target to generate assembly for a file
 src/reports.cpp.s:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/reports.cpp.s
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/reports.cpp.s
 .PHONY : src/reports.cpp.s
 
 src/simulation.obj: src/simulation.cpp.obj
@@ -402,6 +417,7 @@ src/simulation.obj: src/simulation.cpp.obj
 # target to build an object file
 src/simulation.cpp.obj:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/simulation.cpp.obj
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/simulation.cpp.obj
 .PHONY : src/simulation.cpp.obj
 
 src/simulation.i: src/simulation.cpp.i
@@ -411,6 +427,7 @@ src/simulation.i: src/simulation.cpp.i
 # target to preprocess a source file
 src/simulation.cpp.i:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/simulation.cpp.i
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/simulation.cpp.i
 .PHONY : src/simulation.cpp.i
 
 src/simulation.s: src/simulation.cpp.s
@@ -420,6 +437,7 @@ src/simulation.s: src/simulation.cpp.s
 # target to generate assembly for a file
 src/simulation.cpp.s:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/simulation.cpp.s
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/simulation.cpp.s
 .PHONY : src/simulation.cpp.s
 
 src/storage_types.obj: src/storage_types.cpp.obj
@@ -429,6 +447,7 @@ src/storage_types.obj: src/storage_types.cpp.obj
 # target to build an object file
 src/storage_types.cpp.obj:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/storage_types.cpp.obj
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/storage_types.cpp.obj
 .PHONY : src/storage_types.cpp.obj
 
 src/storage_types.i: src/storage_types.cpp.i
@@ -438,6 +457,7 @@ src/storage_types.i: src/storage_types.cpp.i
 # target to preprocess a source file
 src/storage_types.cpp.i:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/storage_types.cpp.i
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/storage_types.cpp.i
 .PHONY : src/storage_types.cpp.i
 
 src/storage_types.s: src/storage_types.cpp.s
@@ -447,6 +467,7 @@ src/storage_types.s: src/storage_types.cpp.s
 # target to generate assembly for a file
 src/storage_types.cpp.s:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/storage_types.cpp.s
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/storage_types.cpp.s
 .PHONY : src/storage_types.cpp.s
 
 src/types.obj: src/types.cpp.obj
@@ -456,6 +477,7 @@ src/types.obj: src/types.cpp.obj
 # target to build an object file
 src/types.cpp.obj:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/types.cpp.obj
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/types.cpp.obj
 .PHONY : src/types.cpp.obj
 
 src/types.i: src/types.cpp.i
@@ -465,6 +487,7 @@ src/types.i: src/types.cpp.i
 # target to preprocess a source file
 src/types.cpp.i:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/types.cpp.i
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/types.cpp.i
 .PHONY : src/types.cpp.i
 
 src/types.s: src/types.cpp.s
@@ -474,6 +497,7 @@ src/types.s: src/types.cpp.s
 # target to generate assembly for a file
 src/types.cpp.s:
 	$(MAKE) -f CMakeFiles\net_sim.dir\build.make CMakeFiles/net_sim.dir/src/types.cpp.s
+	$(MAKE) -f CMakeFiles\net_sim__test.dir\build.make CMakeFiles/net_sim__test.dir/src/types.cpp.s
 .PHONY : src/types.cpp.s
 
 test/main_gtest.obj: test/main_gtest.cpp.obj

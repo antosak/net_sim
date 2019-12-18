@@ -15,21 +15,17 @@ public:
         assigned_IDs.push_back(id);
     }
 
-    Package() : id_(Package::number_) {
+    Package() : id_(number_) {
         if (freed_IDs.empty()) {
             assigned_IDs.push_back(number_);
-            Package::number_ += 1;
+            number_ += 1;
         } else {
             assigned_IDs.push_back(freed_IDs.front());
             freed_IDs.pop_front();
         }
     }
 
-    ~Package() {
-        assigned_IDs.remove(id_);
-        freed_IDs.push_back(Package::number_);
-        freed_IDs.sort();
-    }
+    ~Package();
 
     ElementID getID() const { return id_; }
 
@@ -39,5 +35,7 @@ private:
     std::list<int> assigned_IDs;
     std::list<int> freed_IDs;
 };
+
+
 
 #endif //C___SEMESTR_III_PACKAGE_HPP

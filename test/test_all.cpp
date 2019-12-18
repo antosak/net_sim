@@ -14,6 +14,15 @@ TEST(simpleTest, sub){
 TEST(PackageTest, create){
     Package pack1;
     Package pack2;
+    Package pack3;
 
     EXPECT_EQ(pack1.getID(), pack2.getID() - 1);
+    EXPECT_EQ(pack2.getID(), 2);
+    EXPECT_EQ(pack3.getID(), 3);
+}
+
+TEST(PackageTest, overwrite){
+    Package pack1;
+    Package pack2;
+    Package pack3;
 }
