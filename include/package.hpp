@@ -40,4 +40,5 @@ private:
     std::list<int> freed_IDs;
 };
 
+int Package::number_ = 0;
 #endif //C___SEMESTR_III_PACKAGE_HPP
