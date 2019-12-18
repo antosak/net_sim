@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 project(net_sim)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "-Wno-deprecated-declarations")
 add_compile_options(-Wall -Wextra -Werror -Wpedantic -pedantic-errors)
 
 include_directories(include)

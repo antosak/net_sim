@@ -30,24 +30,24 @@ class IPackageQueue : public IPackageStockpile {
 public:
     virtual ~IPackageQueue() {};
     virtual PackageQueueType get_queue_type() const = 0;
-    virtual Package&& pop() = 0;
+    virtual Package pop() = 0;
 };
 
 class PackageQueue : public IPackageQueue {
 public:
-    PackageQueue(PackageQueueType type);
+    PackageQueue(PackageQueueType type) : Type(type){}
     ~PackageQueue(){}; // ?? nadpisuje się dekonstruktor ??
     void push(Package&& package_) override {collection.emplace_back(std::move(package_));};
-    Package&& pop() override; // nwm jak to..
+    Package pop() override;
     PackageQueueType get_queue_type() const override {return Type;};
     bool empty() const override {return collection.empty();};
     int size() const override {return collection.size();};
     container cbegin() const override {return collection.cbegin();};
     container cend() const override {return collection.cend();};
-    container begin() const override { return collection.begin();};
-    container end() const override {return collection.end();};
+    container begin() const override { return collection.cbegin();};
+    container end() const override {return collection.cend();};
 private:
-    PackageQueueType Type;
+    const PackageQueueType Type;
     std::list<Package> collection;
 
 

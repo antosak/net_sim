@@ -8,3 +8,17 @@
 //}
 //
 //PackageQueue::Package&&
+Package PackageQueue::pop() {
+    Package package;
+    switch (Type){
+        case PackageQueueType::FIFO:
+             package = collection.front();
+            collection.pop_front();
+            break;
+        case PackageQueueType::LIFO:
+            package = collection.back();
+            collection.pop_back();
+            break;
+    }
+    return package;
+}

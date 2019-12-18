@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+../include/factory.hpp
+
+../include/helpers.hpp
+
+../include/nodes.hpp
+
 ../include/package.hpp
 types.hpp
 ../include/types.hpp
@@ -13,6 +19,12 @@ set
 -
 list
 -
+algorithm
+-
+
+../include/reports.hpp
+
+../include/simulation.hpp
 
 ../include/storage_types.hpp
 types.hpp
@@ -23,6 +35,28 @@ list
 -
 
 ../include/types.hpp
+
+E:/Projects/C++/net_sim/main.cpp
+iostream
+-
+factory.hpp
+E:/Projects/C++/net_sim/factory.hpp
+helpers.hpp
+E:/Projects/C++/net_sim/helpers.hpp
+nodes.hpp
+E:/Projects/C++/net_sim/nodes.hpp
+reports.hpp
+E:/Projects/C++/net_sim/reports.hpp
+simulation.hpp
+E:/Projects/C++/net_sim/simulation.hpp
+types.hpp
+E:/Projects/C++/net_sim/types.hpp
+storage_types.hpp
+E:/Projects/C++/net_sim/storage_types.hpp
+
+E:/Projects/C++/net_sim/src/package.cpp
+package.hpp
+E:/Projects/C++/net_sim/src/package.hpp
 
 E:/Projects/C++/net_sim/src/storage_types.cpp
 storage_types.hpp
