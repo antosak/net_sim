@@ -27,7 +27,7 @@ public:
 
     ~Package();
 
-    ElementID getID() const { return id_; }
+    ElementID getID() const { return id_;}
 
 private:
     ElementID id_ = 0;
