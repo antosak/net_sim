@@ -1,1 +1,1 @@
--IE:/Projects/C++/net_sim/include -IE:/Projects/C++/net_sim/googletest-master/googletest/include -IE:/Projects/C++/net_sim/googletest-master/googletest 
+-IC:/Informatyka/net_sim/include -IC:/Informatyka/net_sim/googletest-master/googletest/include -IC:/Informatyka/net_sim/googletest-master/googletest 

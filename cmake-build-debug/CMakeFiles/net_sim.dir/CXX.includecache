@@ -36,29 +36,53 @@ list
 
 ../include/types.hpp
 
-E:/Projects/C++/net_sim/main.cpp
+C:/Informatyka/net_sim/main.cpp
 iostream
 -
 factory.hpp
-E:/Projects/C++/net_sim/factory.hpp
+C:/Informatyka/net_sim/factory.hpp
 helpers.hpp
-E:/Projects/C++/net_sim/helpers.hpp
+C:/Informatyka/net_sim/helpers.hpp
 nodes.hpp
-E:/Projects/C++/net_sim/nodes.hpp
+C:/Informatyka/net_sim/nodes.hpp
 reports.hpp
-E:/Projects/C++/net_sim/reports.hpp
+C:/Informatyka/net_sim/reports.hpp
 simulation.hpp
-E:/Projects/C++/net_sim/simulation.hpp
+C:/Informatyka/net_sim/simulation.hpp
 types.hpp
-E:/Projects/C++/net_sim/types.hpp
+C:/Informatyka/net_sim/types.hpp
 storage_types.hpp
-E:/Projects/C++/net_sim/storage_types.hpp
+C:/Informatyka/net_sim/storage_types.hpp
 
-E:/Projects/C++/net_sim/src/package.cpp
+C:/Informatyka/net_sim/src/factory.cpp
+factory.hpp
+C:/Informatyka/net_sim/src/factory.hpp
+
+C:/Informatyka/net_sim/src/helpers.cpp
+helpers.hpp
+C:/Informatyka/net_sim/src/helpers.hpp
+
+C:/Informatyka/net_sim/src/nodes.cpp
+nodes.hpp
+C:/Informatyka/net_sim/src/nodes.hpp
+
+C:/Informatyka/net_sim/src/package.cpp
 package.hpp
-E:/Projects/C++/net_sim/src/package.hpp
+C:/Informatyka/net_sim/src/package.hpp
 
-E:/Projects/C++/net_sim/src/storage_types.cpp
+C:/Informatyka/net_sim/src/reports.cpp
+reports.hpp
+C:/Informatyka/net_sim/src/reports.hpp
+
+C:/Informatyka/net_sim/src/simulation.cpp
+simulation.hpp
+C:/Informatyka/net_sim/src/simulation.hpp
+
+C:/Informatyka/net_sim/src/storage_types.cpp
 storage_types.hpp
-E:/Projects/C++/net_sim/src/storage_types.hpp
+C:/Informatyka/net_sim/src/storage_types.hpp
+
+C:/Informatyka/net_sim/src/types.cpp
+types.hpp
+C:/Informatyka/net_sim/src/types.hpp
 

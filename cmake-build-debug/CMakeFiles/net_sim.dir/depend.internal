@@ -10,31 +10,31 @@ CMakeFiles/net_sim.dir/main.cpp.obj
  ../include/simulation.hpp
  ../include/storage_types.hpp
  ../include/types.hpp
- E:/Projects/C++/net_sim/main.cpp
+ C:/Informatyka/net_sim/main.cpp
 CMakeFiles/net_sim.dir/src/factory.cpp.obj
  ../include/factory.hpp
- E:/Projects/C++/net_sim/src/factory.cpp
+ C:/Informatyka/net_sim/src/factory.cpp
 CMakeFiles/net_sim.dir/src/helpers.cpp.obj
  ../include/helpers.hpp
- E:/Projects/C++/net_sim/src/helpers.cpp
+ C:/Informatyka/net_sim/src/helpers.cpp
 CMakeFiles/net_sim.dir/src/nodes.cpp.obj
  ../include/nodes.hpp
- E:/Projects/C++/net_sim/src/nodes.cpp
+ C:/Informatyka/net_sim/src/nodes.cpp
 CMakeFiles/net_sim.dir/src/package.cpp.obj
  ../include/package.hpp
  ../include/types.hpp
- E:/Projects/C++/net_sim/src/package.cpp
+ C:/Informatyka/net_sim/src/package.cpp
 CMakeFiles/net_sim.dir/src/reports.cpp.obj
  ../include/reports.hpp
- E:/Projects/C++/net_sim/src/reports.cpp
+ C:/Informatyka/net_sim/src/reports.cpp
 CMakeFiles/net_sim.dir/src/simulation.cpp.obj
  ../include/simulation.hpp
- E:/Projects/C++/net_sim/src/simulation.cpp
+ C:/Informatyka/net_sim/src/simulation.cpp
 CMakeFiles/net_sim.dir/src/storage_types.cpp.obj
  ../include/package.hpp
  ../include/storage_types.hpp
  ../include/types.hpp
- E:/Projects/C++/net_sim/src/storage_types.cpp
+ C:/Informatyka/net_sim/src/storage_types.cpp
 CMakeFiles/net_sim.dir/src/types.cpp.obj
  ../include/types.hpp
- E:/Projects/C++/net_sim/src/types.cpp
+ C:/Informatyka/net_sim/src/types.cpp

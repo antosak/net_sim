@@ -28,7 +28,7 @@ public:
     ~Package() {
         assigned_IDs.remove(id_);
         freed_IDs.push_back(Package::number_);
-        freed_IDs.sort();;
+        freed_IDs.sort();
     }
 
     ElementID getID() const { return id_; }

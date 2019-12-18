@@ -33,19 +33,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "E:\Program Files\JetBrains\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:\Projects\C++\net_sim
+CMAKE_SOURCE_DIR = C:\Informatyka\net_sim
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:\Projects\C++\net_sim\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Informatyka\net_sim\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/net_sim__test.dir/depend.make
@@ -59,30 +59,30 @@ include CMakeFiles/net_sim__test.dir/flags.make
 CMakeFiles/net_sim__test.dir/test/test_all.cpp.obj: CMakeFiles/net_sim__test.dir/flags.make
 CMakeFiles/net_sim__test.dir/test/test_all.cpp.obj: CMakeFiles/net_sim__test.dir/includes_CXX.rsp
 CMakeFiles/net_sim__test.dir/test/test_all.cpp.obj: ../test/test_all.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/net_sim__test.dir/test/test_all.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim__test.dir\test\test_all.cpp.obj -c E:\Projects\C++\net_sim\test\test_all.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Informatyka\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/net_sim__test.dir/test/test_all.cpp.obj"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim__test.dir\test\test_all.cpp.obj -c C:\Informatyka\net_sim\test\test_all.cpp
 
 CMakeFiles/net_sim__test.dir/test/test_all.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net_sim__test.dir/test/test_all.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Projects\C++\net_sim\test\test_all.cpp > CMakeFiles\net_sim__test.dir\test\test_all.cpp.i
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Informatyka\net_sim\test\test_all.cpp > CMakeFiles\net_sim__test.dir\test\test_all.cpp.i
 
 CMakeFiles/net_sim__test.dir/test/test_all.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim__test.dir/test/test_all.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\C++\net_sim\test\test_all.cpp -o CMakeFiles\net_sim__test.dir\test\test_all.cpp.s
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Informatyka\net_sim\test\test_all.cpp -o CMakeFiles\net_sim__test.dir\test\test_all.cpp.s
 
 CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.obj: CMakeFiles/net_sim__test.dir/flags.make
 CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.obj: CMakeFiles/net_sim__test.dir/includes_CXX.rsp
 CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.obj: ../test/main_gtest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim__test.dir\test\main_gtest.cpp.obj -c E:\Projects\C++\net_sim\test\main_gtest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Informatyka\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.obj"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim__test.dir\test\main_gtest.cpp.obj -c C:\Informatyka\net_sim\test\main_gtest.cpp
 
 CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Projects\C++\net_sim\test\main_gtest.cpp > CMakeFiles\net_sim__test.dir\test\main_gtest.cpp.i
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Informatyka\net_sim\test\main_gtest.cpp > CMakeFiles\net_sim__test.dir\test\main_gtest.cpp.i
 
 CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim__test.dir/test/main_gtest.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\C++\net_sim\test\main_gtest.cpp -o CMakeFiles\net_sim__test.dir\test\main_gtest.cpp.s
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Informatyka\net_sim\test\main_gtest.cpp -o CMakeFiles\net_sim__test.dir\test\main_gtest.cpp.s
 
 # Object files for target net_sim__test
 net_sim__test_OBJECTS = \
@@ -100,7 +100,7 @@ net_sim__test.exe: googletest-master/googlemock/gtest/libgtestd.a
 net_sim__test.exe: CMakeFiles/net_sim__test.dir/linklibs.rsp
 net_sim__test.exe: CMakeFiles/net_sim__test.dir/objects1.rsp
 net_sim__test.exe: CMakeFiles/net_sim__test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable net_sim__test.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Informatyka\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable net_sim__test.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\net_sim__test.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -113,6 +113,6 @@ CMakeFiles/net_sim__test.dir/clean:
 .PHONY : CMakeFiles/net_sim__test.dir/clean
 
 CMakeFiles/net_sim__test.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" E:\Projects\C++\net_sim E:\Projects\C++\net_sim E:\Projects\C++\net_sim\cmake-build-debug E:\Projects\C++\net_sim\cmake-build-debug E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles\net_sim__test.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Informatyka\net_sim C:\Informatyka\net_sim C:\Informatyka\net_sim\cmake-build-debug C:\Informatyka\net_sim\cmake-build-debug C:\Informatyka\net_sim\cmake-build-debug\CMakeFiles\net_sim__test.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/net_sim__test.dir/depend
 
