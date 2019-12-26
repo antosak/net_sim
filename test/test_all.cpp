@@ -16,9 +16,9 @@ TEST(PackageTest, create){
     Package pack2;
     Package pack3;
 
-    EXPECT_EQ(pack1.getID(), pack2.getID() - 1);
-    EXPECT_EQ(pack2.getID(), 2);
-    EXPECT_EQ(pack3.getID(), 3);
+    EXPECT_EQ(pack1.get_id(), pack2.get_id() - 1);
+    EXPECT_EQ(pack2.get_id(), 2);
+    EXPECT_EQ(pack3.get_id(), 3);
 }
 
 TEST(PackTest, creat){

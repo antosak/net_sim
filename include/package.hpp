@@ -12,12 +12,9 @@ public:
     Package();
     ~Package();
 
-    ElementID getID() const { return id_;}
+    ElementID get_id() const { return id_;}
 
-    void operator = (Package &package ) {
-        freed_IDs.push_back(package.id_);
-        package.id_ = -1;
-    }
+    void operator = (Package &package );
 
 private:
     ElementID id_ = 0;

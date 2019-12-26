@@ -24,3 +24,8 @@ Package::Package() : id_(number_) {
         freed_IDs.pop_front();
     }
 }
+
+void Package::operator = (Package &package ) {
+    freed_IDs.push_back(package.id_);
+    package.id_ = -1;
+}
