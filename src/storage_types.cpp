@@ -12,11 +12,11 @@ Package PackageQueue::pop() {
     Package package;
     switch (Type){
         case PackageQueueType::FIFO:
-             package = collection.front();
+            package = static_cast<Package &&>(collection.front()); // clion wyrzucał tu błąd
             collection.pop_front();
             break;
         case PackageQueueType::LIFO:
-            package = collection.back();
+            package = static_cast<Package &&>(collection.back());
             collection.pop_back();
             break;
     }
