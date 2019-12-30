@@ -18,6 +18,8 @@ CMakeFiles/net_sim.dir/src/helpers.cpp.obj: ../include/helpers.hpp
 CMakeFiles/net_sim.dir/src/helpers.cpp.obj: ../src/helpers.cpp
 
 CMakeFiles/net_sim.dir/src/nodes.cpp.obj: ../include/nodes.hpp
+CMakeFiles/net_sim.dir/src/nodes.cpp.obj: ../include/package.hpp
+CMakeFiles/net_sim.dir/src/nodes.cpp.obj: ../include/types.hpp
 CMakeFiles/net_sim.dir/src/nodes.cpp.obj: ../src/nodes.cpp
 
 CMakeFiles/net_sim.dir/src/package.cpp.obj: ../include/package.hpp
