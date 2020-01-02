@@ -37,9 +37,15 @@ void PackageSender::send_package() {
     //std::vector<Package>::iterator ptr;
     //for (ptr = buffer.begin(); ptr = buffer.end(); ptr++) { //te referencje do r wartosc sie psuja
     //}
-    for (Package& package : buffer){
+    for (Package&& package : buffer){
         auto destiny = receiver_preferences_.choose_receiver();
         destiny->receive_package(package)
     }
     buffer.clear();
+}
+
+void Ramp::deliver_goods(Time t) {
+    if(){
+        buffer.emplace_back(Package());
+    }
 }

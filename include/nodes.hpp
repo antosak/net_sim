@@ -49,4 +49,15 @@ protected:
     std::vector<Package> buffer; //daje glowe ze ten buffer sie bedzie pieprzyl xd
 
 };
+
+class Ramp : public PackageSender {
+public:
+    Ramp(ElementID id_, TimeOffset di_) : id(id_), di(di_) {};
+    ElementID get_id() const {return id;}
+    TimeOffset get_delivery_interval() const {return di;}
+    void deliver_goods(Time t);
+private:
+    ElementID id;
+    TimeOffset di;
+};
 #endif //NET_SIM_NODES_HPP
