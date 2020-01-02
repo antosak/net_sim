@@ -10,6 +10,7 @@
 #include "package.hpp"
 #include <vector>
 #include <memory>
+#include <optional>
 #include "storage_types.hpp"
 
 enum class ReceiverType {
@@ -63,7 +64,7 @@ private:
     TimeOffset di;
 };
 
-class Worker : public IPackageReceiver, IPackageQueue {
+class Worker : public IPackageReceiver, PackageSender {
 public:
     Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<PackageQueue> q_) : id(id_), pd(pd_), q(q_.release()){}
     void do_work(Time t);
@@ -73,6 +74,7 @@ private:
     ElementID id;
     TimeOffset pd;
     std::unique_ptr<PackageQueue> q;
+    std::optional<Package> process_object;
     Time pst = 0;
 };
 #endif //NET_SIM_NODES_HPP
