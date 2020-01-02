@@ -34,7 +34,7 @@ IPackageReceiver *ReceiverPreferences::choose_receiver() {
 }
 
 void PackageSender::send_package() {
-    if(buffer){
+    if (buffer) {
         auto chuj = receiver_preferences_.choose_receiver();
         auto a = buffer.get();
         chuj->receive_package(a);
@@ -48,13 +48,12 @@ void Ramp::deliver_goods(Time t) {
 }
 
 void Worker::do_work(Time t) {
-    if(process_object){
-        bool is_product_done = (pd==(t-pst));
-        if(is_product_done){
+    if (process_object) {
+        bool is_product_done = (pd == (t - pst));
+        if (is_product_done) {
             buffer = std::move(process_object);
         }
-    }
-    else{
+    } else {
         process_object = std::make_unique<Package>(q->pop());
         pst = t;
     }
