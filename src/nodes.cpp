@@ -34,14 +34,30 @@ IPackageReceiver *ReceiverPreferences::choose_receiver() {
 }
 
 void PackageSender::send_package() {
+    if(buffer){
+        auto chuj = receiver_preferences_.choose_receiver();
+        auto a = buffer.get();
+        chuj->receive_package(a);
+    }
 }
 
 void Ramp::deliver_goods(Time t) {
-    if (t - 1 % di == 0) {
-        buffer.emplace_back(Package());
+    if ((t % di) == 0) {
+        buffer = std::make_unique<Package>(Package());
     }
 }
 
 void Worker::do_work(Time t) {
-    if ()
+    if(process_object){
+        bool is_product_done = (pd==(t-pst));
+        if(is_product_done){
+            buffer = std::move(process_object);
+        }
+    }
+    else{
+        process_object = std::make_unique<Package>(q->pop());
+        pst = t;
+    }
 }
+
+
