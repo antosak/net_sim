@@ -49,3 +49,7 @@ void Ramp::deliver_goods(Time t) {
         buffer.emplace_back(Package());
     }
 }
+
+void Worker::do_work(Time t) {
+
+}
