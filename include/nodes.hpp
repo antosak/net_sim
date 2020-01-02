@@ -8,9 +8,7 @@
 #include <map>
 #include "types.hpp"
 #include "package.hpp"
-#include "storage_types.hpp"
 #include <vector>
-#include <memory>
 
 enum class ReceiverType {
     WORKER, STOREHOUSE
@@ -52,6 +50,14 @@ protected:
 
 };
 
-
-
+class Ramp : public PackageSender {
+public:
+    Ramp(ElementID id_, TimeOffset di_) : id(id_), di(di_) {};
+    ElementID get_id() const {return id;}
+    TimeOffset get_delivery_interval() const {return di;}
+    void deliver_goods(Time t);
+private:
+    ElementID id;
+    TimeOffset di;
+};
 #endif //NET_SIM_NODES_HPP
