@@ -45,7 +45,7 @@ void PackageSender::send_package() {
 }
 
 void Ramp::deliver_goods(Time t) {
-    if(){
+    if(t-1 % di == 0){
         buffer.emplace_back(Package());
     }
 }

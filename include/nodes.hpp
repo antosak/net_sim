@@ -70,6 +70,7 @@ public:
     void do_work(Time t);
     TimeOffset get_processing_duration(){return pd;}
     Time get_package_processing_start_time(){return pst;}
+    void receive_package(Package&& p) override {q->push(p)}
 private:
     ElementID id;
     TimeOffset pd;
