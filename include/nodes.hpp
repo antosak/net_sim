@@ -8,7 +8,9 @@
 #include <map>
 #include "types.hpp"
 #include "package.hpp"
+#include "storage_types.hpp"
 #include <vector>
+#include <memory>
 
 enum class ReceiverType {
     WORKER, STOREHOUSE
@@ -49,4 +51,7 @@ protected:
     std::vector<Package> buffer; //daje glowe ze ten buffer sie bedzie pieprzyl xd
 
 };
+
+
+
 #endif //NET_SIM_NODES_HPP
