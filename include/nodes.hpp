@@ -20,7 +20,7 @@ enum class ReceiverType {
 class IPackageReceiver {
 public:
     virtual ~IPackageReceiver(){};
-    virtual void receive_package(Package&& p) = 0;
+    virtual void receive_package(Package&& p);
     virtual ElementID get_id() const = 0;
     virtual ReceiverType get_receiver_type() const = 0; //metoda 'idetyfikujaca' o której mowa we wskazowkach
 };
@@ -30,7 +30,6 @@ public:
     using preferences_t = std::map<IPackageReceiver*, double>;
     using const_iterator = preferences_t::const_iterator;
     using iterator = preferences_t::iterator;
-
     void add_receiver(IPackageReceiver* r);
     void remove_receiver(IPackageReceiver* r);
     IPackageReceiver* choose_receiver();
@@ -45,12 +44,12 @@ private:
 
 class PackageSender {
 public:
-    ReceiverPreferences receiver_preferences_;
     void send_package();
-    void push_package(Package&& package) {buffer.insert(buffer.cend(), package);}
+    std::optional<Package> get_sending_buffer();
 protected:
-    std::vector<Package> buffer; //daje glowe ze ten buffer sie bedzie pieprzyl xd
-
+    void push_package(Package&& package){}
+private:
+    ReceiverPreferences receiver_preferences_;
 };
 
 class Ramp : public PackageSender {
@@ -66,17 +65,19 @@ private:
 
 class Worker : public IPackageReceiver, PackageSender {
 public:
+    void receive_package(Package &&p) override{}
     Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<PackageQueue> q_) : id(id_), pd(pd_), q(q_.release()){}
     void do_work(Time t);
     TimeOffset get_processing_duration(){return pd;}
     Time get_package_processing_start_time(){return pst;}
-    void receive_package(Package&& p) override {q->push(p)}
+    //void receive_package(Package&& p) override {q->push(p)}
     ReceiverType get_receiver_type() const override {return ReceiverType ::WORKER;}
 private:
     ElementID id;
     TimeOffset pd;
     std::unique_ptr<PackageQueue> q;
     std::optional<Package> process_object;
+
     Time pst = 0;
 };
 #endif //NET_SIM_NODES_HPP
