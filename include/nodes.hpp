@@ -71,6 +71,7 @@ public:
     TimeOffset get_processing_duration(){return pd;}
     Time get_package_processing_start_time(){return pst;}
     void receive_package(Package&& p) override {q->push(p)}
+    ReceiverType get_receiver_type() const override {return ReceiverType ::WORKER;}
 private:
     ElementID id;
     TimeOffset pd;
