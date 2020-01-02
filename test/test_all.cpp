@@ -2,6 +2,7 @@
 // Created by MICHAŁ on 11.12.2019.
 //
 
+#include <nodes.hpp>
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 #include "package.hpp"
@@ -21,13 +22,11 @@ TEST(PackageTest, create){
     EXPECT_EQ(pack3.get_id(), 3);
 }
 
-TEST(PackTest, creat){
-    Package pack1;
-}
 
 TEST(PackageTest, overwrite){
     Package pack1;
     Package pack2;
     Package pack3;
-//pack2 = pack3;
+    Worker work1;
+    Worker work2;
 }

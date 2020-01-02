@@ -68,12 +68,25 @@ public:
     void do_work(Time t);
     TimeOffset get_processing_duration(){return pd;}
     Time get_package_processing_start_time(){return pst;}
-    ReceiverType get_receiver_type() const override {return ReceiverType ::WORKER;}
+    ReceiverType get_receiver_type() const override {return ReceiverType::WORKER;}
+    ElementID get_id() const override {return id;}
 private:
     ElementID id;
     TimeOffset pd;
     std::unique_ptr<PackageQueue> q;
     std::unique_ptr<Package> process_object;
     Time pst = 0;
+};
+
+class Storehouse : public IPackageReceiver{
+public:
+    Storehouse(ElementID id_, std::unique_ptr<IPackageStockpile> d_) : id(id_), d(d_.release()) {}
+    ElementID get_id() const override {return id;}
+    ReceiverType get_receiver_type() const override {return ReceiverType::STOREHOUSE;}
+
+private:
+    ElementID id;
+    std::unique_ptr<IPackageStockpile> d;
+
 };
 #endif //NET_SIM_NODES_HPP

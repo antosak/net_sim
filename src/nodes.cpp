@@ -7,7 +7,7 @@
 void ReceiverPreferences::add_receiver(IPackageReceiver *r) {
     probabilities[r] = 0;
     double new_prob = 1 / probabilities.size();
-    for (auto prob : probabilities) {
+    for (auto &prob : probabilities) {
         prob.second = new_prob; // utrzymywanie sumy prawdopodobieństw równa 1
     }
 }
@@ -30,7 +30,7 @@ IPackageReceiver *ReceiverPreferences::choose_receiver() {
         if (prob.second >= n)
             return prob.first;
     }
-    throw std::logic_error("Cannot draw a receiver");
+    throw std::logic_error("Cannot choose a receiver");
 }
 
 void PackageSender::send_package() {
