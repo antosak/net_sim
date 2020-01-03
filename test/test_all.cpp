@@ -30,7 +30,7 @@ TEST(RampTest, deliver_goods){
     ramp.deliver_goods(1);
     ASSERT_EQ(nullptr, ramp.buffer);
     ramp.deliver_goods(2);
-    ASSERT_FALSE(nullptr == ramp.buffer);
+    ASSERT_FALSE(std::nullopt == ramp.buffer);
 }
 
 TEST(WorkerTest, create){
