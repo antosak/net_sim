@@ -33,15 +33,28 @@ TEST(RampTest, deliver_goods){
     ASSERT_FALSE(std::nullopt == ramp.buffer);
 }
 
+TEST(RampTest, send){
+
+}
+
 TEST(WorkerTest, create){
-
-
     auto ptr_test = std::make_unique<PackageQueue>(PackageQueueType::LIFO);
     Package pack8;
     ptr_test->push(std::move(pack8));
     Worker worker(1, 2, std::move(ptr_test));
     ASSERT_EQ(1, worker.get_id());
     ASSERT_EQ(ReceiverType::WORKER, worker.get_receiver_type());
+}
+
+TEST(WorkerTest, receive){
+    auto ptr_test = std::make_unique<PackageQueue>(PackageQueueType::LIFO);
+    Worker worker(1, 2, std::move(ptr_test));
+    auto n = 4;
+    for(auto i = 0; i < n; i++){
+        worker.receive_package(Package());
+    }
+    ASSERT_EQ(worker.size(), n);
+
 }
 
 TEST(StorehouseTest, create){
@@ -53,4 +66,14 @@ TEST(StorehouseTest, create){
     Storehouse storehouse(1, std::move(ptr_test));
     ASSERT_EQ(1, storehouse.get_id());
     ASSERT_EQ(ReceiverType::STOREHOUSE, storehouse.get_receiver_type());
+}
+
+TEST(StorehouseTest, receive){
+    auto ptr_test = std::make_unique<PackageQueue>(PackageQueueType::FIFO);
+    Storehouse storehouse(1, std::move(ptr_test));
+    auto n = 4;
+    for(auto i = 0; i < n; i++){
+        storehouse.receive_package(Package());
+    }
+    ASSERT_EQ(storehouse.size(), n);
 }

@@ -31,6 +31,7 @@ public:
     using preferences_t = std::map<IPackageReceiver*, double>;
     using const_iterator = preferences_t::const_iterator;
     using iterator = preferences_t::iterator;
+
     ReceiverPreferences(ProbabilityGenerator generator = probability_generator_1) : num_generator(generator){};
     void add_receiver(IPackageReceiver* r);
     void remove_receiver(IPackageReceiver* r);
@@ -50,7 +51,6 @@ public:
     void send_package();
     std::optional<Package> buffer;
 protected:
-
 private:
     ReceiverPreferences receiver_preferences_;
 };
@@ -60,7 +60,7 @@ public:
     Ramp(ElementID id_, TimeOffset di_) : id(id_), di(di_) {};
     ElementID get_id() const {return id;}
     TimeOffset get_delivery_interval() const {return di;}
-    void deliver_goods(Time t);
+    void deliver_goods(Time t); //function puts packages into the buffer
 private:
     ElementID id;
     TimeOffset di;
@@ -69,13 +69,14 @@ private:
 class Worker : public IPackageReceiver, PackageSender {
 public:
     void receive_package(Package&& p) override {q->push(std::move(p));}
-    Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<PackageQueue> q_) : id(id_), pd(pd_), q(std::move(q_)){}
+    Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<IPackageQueue> q_) : id(id_), pd(pd_), q(std::move(q_)){}
     ~Worker(){};
     void do_work(Time t);
     TimeOffset get_processing_duration(){return pd;}
     Time get_package_processing_start_time(){return pst;}
     ReceiverType get_receiver_type() const override {return ReceiverType ::WORKER;}
     ElementID get_id()const override {return id;}
+    auto size() {return q->size();} //only for tests
 private:
     ElementID id;
     TimeOffset pd;
@@ -90,6 +91,7 @@ public:
     ElementID get_id() const override {return id;}
     ReceiverType get_receiver_type() const override {return ReceiverType::STOREHOUSE;}
     void receive_package(Package&& p) override {d->push(std::move(p));}
+    auto size() {return d->size();} //only for tests
 private:
     ElementID id;
     std::unique_ptr<IPackageStockpile> d;
