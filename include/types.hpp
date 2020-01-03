@@ -18,7 +18,7 @@ using TimeOffset = int;
 double probability_generator_1();
 
 //TODO typ funkcyjny(??) który ma zwracac losowe liczby od 0 do 1;
-using ProbabilityGenerator = std::function<double>; // w sumie to nie wiem co tu wpisac
+using ProbabilityGenerator = std::function<double()>; // w sumie to nie wiem co tu wpisac
 
 
 #endif //NET_SIM_TYPES_HPP

@@ -31,6 +31,7 @@ public:
     using preferences_t = std::map<IPackageReceiver*, double>;
     using const_iterator = preferences_t::const_iterator;
     using iterator = preferences_t::iterator;
+    ReceiverPreferences(ProbabilityGenerator generator = probability_generator_1) : num_generator(generator){};
     void add_receiver(IPackageReceiver* r);
     void remove_receiver(IPackageReceiver* r);
     IPackageReceiver* choose_receiver();
@@ -41,6 +42,7 @@ public:
     iterator end() {return probabilities.end();}
 private:
     preferences_t probabilities;
+    ProbabilityGenerator num_generator;
 };
 
 class PackageSender {
@@ -74,8 +76,6 @@ public:
     Time get_package_processing_start_time(){return pst;}
     ReceiverType get_receiver_type() const override {return ReceiverType ::WORKER;}
     ElementID get_id()const override {return id;}
-
-
 private:
     ElementID id;
     TimeOffset pd;
