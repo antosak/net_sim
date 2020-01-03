@@ -38,7 +38,7 @@ TEST(WorkerTest, create){
     Package pack8;
     pq.push(std::move(pack8));
     std::unique_ptr<PackageQueue> ptr;
-    ptr = std::make_unique<PackageQueue>(pq);
+    ptr.reset(&pq);
     Worker worker(1, 2, std::move(ptr));
     ASSERT_EQ(1, worker.get_id());
     ASSERT_EQ(ReceiverType::WORKER, worker.get_receiver_type());
@@ -51,7 +51,7 @@ TEST(StorehouseTest, create){
     pq.push(std::move(pack8));
     pq.push(std::move(pack9));
     std::unique_ptr<PackageQueue> ptr;
-    ptr = std::make_unique<PackageQueue>(pq);
+    ptr.reset(&pq);
     Storehouse storehouse(1, std::move(ptr));
     ASSERT_EQ(1, storehouse.get_id());
     ASSERT_EQ(ReceiverType::STOREHOUSE, storehouse.get_receiver_type());
