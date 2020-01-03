@@ -26,8 +26,10 @@ void ReceiverPreferences::remove_receiver(IPackageReceiver *r) {
 
 IPackageReceiver *ReceiverPreferences::choose_receiver() {
     double n = probability_generator_1();
+    double distribution = 0;
     for (const auto &prob : probabilities) {
-        if (prob.second >= n)
+        distribution += prob.second;
+        if (distribution >= n)
             return prob.first;
     }
     throw std::logic_error("Cannot choose a receiver");

@@ -2,16 +2,11 @@
 // Created by MICHAŁ on 11.12.2019.
 //
 
-#include "nodes.hpp"
+#include <nodes.hpp>
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 #include "package.hpp"
 #include "storage_types.hpp"
-
-
-TEST(simpleTest, sub){
-    EXPECT_EQ(2, 4 - 2);
-}
 
 TEST(PackageTest, create){
     Package pack1;
@@ -23,20 +18,32 @@ TEST(PackageTest, create){
     EXPECT_EQ(pack3.get_id(), 3);
 }
 
+TEST(RampTest, create){
+    Ramp ramp(1, 2);
+    ASSERT_EQ(1, ramp.get_id());
+    ASSERT_EQ(2, ramp.get_delivery_interval());
+}
 
-TEST(PackageTest, overwrite){
-    Package pack1;
-    Package pack2;
-    Package pack3;
-    PackageQueueType f = PackageQueueType::FIFO;
-    PackageQueue queue(f);
-    queue.push(std::move(pack1));
-    queue.push(std::move(pack2));
-    queue.push(std::move(pack3));
-    std::unique_ptr<PackageQueue> q;
-    q = std::make_unique<PackageQueue>(queue);
-    // Fixme Trzeba te konstruktory poprawić
+TEST(RampTest, deliver_goods){
+    Ramp ramp(1, 2);
+    ASSERT_EQ(nullptr, ramp.buffer); //żeby test przechodził buffer zmieniłem na publiczny publiczny
+    ramp.deliver_goods(1);
+    ASSERT_EQ(nullptr, ramp.buffer);
+    ramp.deliver_goods(2);
+    ASSERT_FALSE(nullptr == ramp.buffer);
+}
 
-    Worker work1(1, 2, q);
-    Worker work2(2, 3, q);
+TEST(WorkerTest, create){
+    PackageQueue pq(PackageQueueType::FIFO);
+    std::unique_ptr<PackageQueue> ptr;
+    Worker worker(1, 2, ptr); //trzeba nadpisac te metode...
+    ASSERT_EQ(1, worker.get_id());
+    ASSERT_EQ(ReceiverType::WORKER, worker.get_receiver_type());
+}
+
+TEST(StorehouseTest, create){
+    std::unique_ptr<IPackageStockpile> ptr;
+    Storehouse storehouse(1, ptr); //to samo co w workerze
+    ASSERT_EQ(1, storehouse.get_id());
+    ASSERT_EQ(ReceiverType::STOREHOUSE, storehouse.get_receiver_type());
 }

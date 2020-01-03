@@ -11,6 +11,7 @@
 #include <vector>
 #include <memory>
 #include <optional>
+#include "helpers.hpp"
 #include "storage_types.hpp"
 
 enum class ReceiverType {
@@ -84,12 +85,13 @@ private:
 
 class Storehouse : public IPackageReceiver{
 public:
-    Storehouse(ElementID id_, std::unique_ptr<IPackageStockpile> d_) : id(id_), d(d_.release()) {}
+    Storehouse(ElementID id_, std::unique_ptr<IPackageStockpile> d_) : id(id_), d(std::move(d_)) {}
     ElementID get_id() const override {return id;}
     ReceiverType get_receiver_type() const override {return ReceiverType::STOREHOUSE;}
     void receive_package(Package&& p) override {d->push(std::move(p));}
 private:
     ElementID id;
     std::unique_ptr<IPackageStockpile> d;
+
 };
 #endif //NET_SIM_NODES_HPP
