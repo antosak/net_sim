@@ -7,11 +7,6 @@
 #include "gmock/gmock.h"
 #include "package.hpp"
 
-
-TEST(simpleTest, sub){
-    EXPECT_EQ(2, 4 - 2);
-}
-
 TEST(PackageTest, create){
     Package pack1;
     Package pack2;
@@ -22,11 +17,32 @@ TEST(PackageTest, create){
     EXPECT_EQ(pack3.get_id(), 3);
 }
 
+TEST(RampTest, create){
+    Ramp ramp(1, 2);
+    ASSERT_EQ(1, ramp.get_id());
+    ASSERT_EQ(2, ramp.get_delivery_interval());
+}
 
-TEST(PackageTest, overwrite){
-    Package pack1;
-    Package pack2;
-    Package pack3;
-    Worker work1;
-    Worker work2;
+TEST(RampTest, deliver_goods){
+    Ramp ramp(1, 2);
+    ASSERT_EQ(nullptr, ramp.buffer); //żeby test przechodził buffer zmieniłem na publiczny publiczny
+    ramp.deliver_goods(1);
+    ASSERT_EQ(nullptr, ramp.buffer);
+    ramp.deliver_goods(2);
+    ASSERT_FALSE(nullptr == ramp.buffer);
+}
+
+TEST(WorkerTest, create){
+    PackageQueue pq(PackageQueueType::FIFO);
+    std::unique_ptr<PackageQueue> ptr;
+    Worker worker(1, 2, ptr); //trzeba nadpisac te metode...
+    ASSERT_EQ(1, worker.get_id());
+    ASSERT_EQ(ReceiverType::WORKER, worker.get_receiver_type());
+}
+
+TEST(StorehouseTest, create){
+    std::unique_ptr<IPackageStockpile> ptr;
+    Storehouse storehouse(1, ptr); //to samo co w workerze
+    ASSERT_EQ(1, storehouse.get_id());
+    ASSERT_EQ(ReceiverType::STOREHOUSE, storehouse.get_receiver_type());
 }

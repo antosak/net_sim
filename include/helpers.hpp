@@ -5,4 +5,6 @@
 #ifndef NET_SIM_HELPERS_HPP
 #define NET_SIM_HELPERS_HPP
 
+double probability_generator_1();
+
 #endif //NET_SIM_HELPERS_HPP

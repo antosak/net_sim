@@ -7,6 +7,7 @@
 
 #include "types.hpp"
 #include "package.hpp"
+#include "helpers.hpp"
 #include <list>
 
 enum class PackageQueueType {
