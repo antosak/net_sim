@@ -35,15 +35,14 @@ IPackageReceiver *ReceiverPreferences::choose_receiver() {
 
 void PackageSender::send_package() {
     if (buffer) {
-        auto chuj = receiver_preferences_.choose_receiver();
-        auto a = buffer.get();
-        chuj->receive_package(a);
+        auto chosen_one = receiver_preferences_.choose_receiver();
+        chosen_one->receive_package(std::move(buffer.value()));
     }
 }
 
 void Ramp::deliver_goods(Time t) {
     if ((t % di) == 0) {
-        buffer = std::make_unique<Package>(Package());
+        buffer = std::optional<Package>(Package());
     }
 }
 
@@ -54,9 +53,8 @@ void Worker::do_work(Time t) {
             buffer = std::move(process_object);
         }
     } else {
-        process_object = std::make_unique<Package>(q->pop());
+        process_object = std::optional<Package>(q->pop());
         pst = t;
     }
 }
-
 

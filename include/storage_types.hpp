@@ -36,7 +36,7 @@ public:
 class PackageQueue : public IPackageQueue {
 public:
     PackageQueue(PackageQueueType type) : Type(type){}
-    ~PackageQueue(){}; // FIXME nadpisuje się dekonstruktor ??
+    ~PackageQueue(){};
     void push(Package&& package_) override {collection.emplace_back(std::move(package_));};
     Package pop() override;
     PackageQueueType get_queue_type() const override {return Type;};
