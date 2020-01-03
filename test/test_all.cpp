@@ -34,7 +34,13 @@ TEST(RampTest, deliver_goods){
 }
 
 TEST(RampTest, send){
-
+    Ramp ramp(1, 1);
+    auto ptr_test = std::make_unique<PackageQueue>(PackageQueueType::LIFO);
+    Worker worker(1, 2, std::move(ptr_test));
+    ramp.receiver_preferences_.add_receiver(&worker);
+    ramp.deliver_goods(1);
+    ramp.send_package();
+    ASSERT_EQ(ramp.buffer, std::nullopt);
 }
 
 TEST(WorkerTest, create){

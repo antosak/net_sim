@@ -50,9 +50,10 @@ class PackageSender {
 public:
     void send_package();
     std::optional<Package> buffer;
+    ReceiverPreferences receiver_preferences_;
 protected:
 private:
-    ReceiverPreferences receiver_preferences_;
+
 };
 
 class Ramp : public PackageSender {
@@ -74,7 +75,7 @@ public:
     void do_work(Time t);
     TimeOffset get_processing_duration(){return pd;}
     Time get_package_processing_start_time(){return pst;}
-    ReceiverType get_receiver_type() const override {return ReceiverType ::WORKER;}
+    ReceiverType get_receiver_type() const override {return ReceiverType::WORKER;}
     ElementID get_id()const override {return id;}
     auto size() {return q->size();} //only for tests
 private:
