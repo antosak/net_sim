@@ -2,7 +2,7 @@
 // Created by MICHAŁ on 11.12.2019.
 //
 
-#include <nodes.hpp>
+#include "nodes.hpp"
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 #include "package.hpp"
@@ -26,7 +26,7 @@ TEST(RampTest, create){
 
 TEST(RampTest, deliver_goods){
     Ramp ramp(1, 2);
-    ASSERT_EQ(nullptr, ramp.buffer); //żeby test przechodził buffer zmieniłem na publiczny publiczny
+    ASSERT_EQ(nullptr, ramp.buffer);
     ramp.deliver_goods(1);
     ASSERT_EQ(nullptr, ramp.buffer);
     ramp.deliver_goods(2);
@@ -35,15 +35,17 @@ TEST(RampTest, deliver_goods){
 
 TEST(WorkerTest, create){
     PackageQueue pq(PackageQueueType::FIFO);
-    std::unique_ptr<PackageQueue> ptr;
-    Worker worker(1, 2, ptr); //trzeba nadpisac te metode...
+    Package pack8;
+    pq.push(std::move(pack8));
+    std::unique_ptr<PackageQueue> ptr = std::make_unique<PackageQueue>(pq);
+    Worker worker(1, 2, ptr);
     ASSERT_EQ(1, worker.get_id());
     ASSERT_EQ(ReceiverType::WORKER, worker.get_receiver_type());
 }
 
 TEST(StorehouseTest, create){
-    std::unique_ptr<IPackageStockpile> ptr;
-    Storehouse storehouse(1, ptr); //to samo co w workerze
+    std::unique_ptr<IPackageStockpile> ptr = std::make_unique<IPackageStockpile>(***); // FIXME objekt!
+    Storehouse storehouse(1, ptr);
     ASSERT_EQ(1, storehouse.get_id());
     ASSERT_EQ(ReceiverType::STOREHOUSE, storehouse.get_receiver_type());
 }
