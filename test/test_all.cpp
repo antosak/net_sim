@@ -34,25 +34,23 @@ TEST(RampTest, deliver_goods){
 }
 
 TEST(WorkerTest, create){
-    PackageQueue pq(PackageQueueType::FIFO);
+
+
+    auto ptr_test = std::make_unique<PackageQueue>(PackageQueueType::LIFO);
     Package pack8;
-    pq.push(std::move(pack8));
-    std::unique_ptr<PackageQueue> ptr;
-    ptr.reset(&pq);
-    Worker worker(1, 2, std::move(ptr));
+    ptr_test->push(std::move(pack8));
+    Worker worker(1, 2, std::move(ptr_test));
     ASSERT_EQ(1, worker.get_id());
     ASSERT_EQ(ReceiverType::WORKER, worker.get_receiver_type());
 }
 
 TEST(StorehouseTest, create){
-    PackageQueue pq(PackageQueueType::FIFO);
+    auto ptr_test = std::make_unique<PackageQueue>(PackageQueueType::LIFO);
     Package pack8;
     Package pack9;
-    pq.push(std::move(pack8));
-    pq.push(std::move(pack9));
-    std::unique_ptr<PackageQueue> ptr;
-    ptr.reset(&pq);
-    Storehouse storehouse(1, std::move(ptr));
+    ptr_test->push(std::move(pack8));
+    ptr_test->push(std::move(pack9));
+    Storehouse storehouse(1, std::move(ptr_test));
     ASSERT_EQ(1, storehouse.get_id());
     ASSERT_EQ(ReceiverType::STOREHOUSE, storehouse.get_receiver_type());
 }

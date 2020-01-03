@@ -79,7 +79,7 @@ public:
 private:
     ElementID id;
     TimeOffset pd;
-    std::unique_ptr<IPackageQueue> q;
+    std::unique_ptr<PackageQueue> q;
     std::optional<Package> process_object = std::nullopt;
     Time pst = 0;
 };
