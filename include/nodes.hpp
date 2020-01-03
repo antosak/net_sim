@@ -67,7 +67,7 @@ private:
 class Worker : public IPackageReceiver, PackageSender {
 public:
     void receive_package(Package&& p) override {q->push(std::move(p));}
-    Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<PackageQueue> q_) : id(id_), pd(pd_), q(q_.release()){}
+    Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<PackageQueue> q_) : id(id_), pd(pd_), q(std::move(q_)){}
     ~Worker(){};
     void do_work(Time t);
     TimeOffset get_processing_duration(){return pd;}

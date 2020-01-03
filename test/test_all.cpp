@@ -26,9 +26,9 @@ TEST(RampTest, create){
 
 TEST(RampTest, deliver_goods){
     Ramp ramp(1, 2);
-    ASSERT_EQ(nullptr, ramp.buffer);
+    ASSERT_EQ(std::nullopt, ramp.buffer);
     ramp.deliver_goods(1);
-    ASSERT_EQ(nullptr, ramp.buffer);
+    ASSERT_EQ(std::nullopt, ramp.buffer);
     ramp.deliver_goods(2);
     ASSERT_FALSE(std::nullopt == ramp.buffer);
 }
@@ -37,15 +37,22 @@ TEST(WorkerTest, create){
     PackageQueue pq(PackageQueueType::FIFO);
     Package pack8;
     pq.push(std::move(pack8));
-    std::unique_ptr<PackageQueue> ptr = std::make_unique<PackageQueue>(pq);
-    Worker worker(1, 2, ptr);
+    std::unique_ptr<PackageQueue> ptr;
+    ptr = std::make_unique<PackageQueue>(pq);
+    Worker worker(1, 2, std::move(ptr));
     ASSERT_EQ(1, worker.get_id());
     ASSERT_EQ(ReceiverType::WORKER, worker.get_receiver_type());
 }
 
 TEST(StorehouseTest, create){
-    std::unique_ptr<IPackageStockpile> ptr = std::make_unique<IPackageStockpile>(***); // FIXME objekt!
-    Storehouse storehouse(1, ptr);
+    PackageQueue pq(PackageQueueType::FIFO);
+    Package pack8;
+    Package pack9;
+    pq.push(std::move(pack8));
+    pq.push(std::move(pack9));
+    std::unique_ptr<PackageQueue> ptr;
+    ptr = std::make_unique<PackageQueue>(pq);
+    Storehouse storehouse(1, std::move(ptr));
     ASSERT_EQ(1, storehouse.get_id());
     ASSERT_EQ(ReceiverType::STOREHOUSE, storehouse.get_receiver_type());
 }
