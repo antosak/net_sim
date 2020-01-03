@@ -25,6 +25,11 @@
     <inspection_tool class="OCSimplifyInspection" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="RedundantCast" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="SignednessMismatch" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="SpellCheckingInspection" enabled="true" level="TYPO" enabled_by_default="true">
+      <option name="processCode" value="true" />
+      <option name="processLiterals" value="true" />
+      <option name="processComments" value="false" />
+    </inspection_tool>
     <inspection_tool class="UnreachableCode" enabled="true" level="ERROR" enabled_by_default="true" />
   </profile>
 </component>

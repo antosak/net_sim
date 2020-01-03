@@ -30,7 +30,6 @@ class ReceiverPreferences {
 public:
     using preferences_t = std::map<IPackageReceiver*, double>;
     using const_iterator = preferences_t::const_iterator;
-    using iterator = preferences_t::iterator;
 
     ReceiverPreferences(ProbabilityGenerator generator = probability_generator_1) : num_generator(generator){};
     void add_receiver(IPackageReceiver* r);
@@ -39,8 +38,8 @@ public:
     const preferences_t get_preferences() const {return probabilities;} //mozliwe ze to nie potrzebne, ale moze przydac
     const_iterator cbegin() const {return probabilities.cbegin();}
     const_iterator cend() const {return probabilities.cend();}
-    iterator begin() {return probabilities.begin();}
-    iterator end() {return probabilities.end();}
+    const_iterator begin() {return probabilities.begin();}
+    const_iterator end() {return probabilities.end();}
 private:
     preferences_t probabilities;
     ProbabilityGenerator num_generator;
@@ -49,11 +48,10 @@ private:
 class PackageSender {
 public:
     void send_package();
-    std::optional<Package> buffer;
     ReceiverPreferences receiver_preferences_;
+    std::optional<Package> buffer;
 protected:
 private:
-
 };
 
 class Ramp : public PackageSender {
@@ -67,7 +65,7 @@ private:
     TimeOffset di;
 };
 
-class Worker : public IPackageReceiver, PackageSender {
+class Worker : public IPackageReceiver, public PackageSender {
 public:
     void receive_package(Package&& p) override {q->push(std::move(p));}
     Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<IPackageQueue> q_) : id(id_), pd(pd_), q(std::move(q_)){}
