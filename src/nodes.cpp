@@ -61,8 +61,10 @@ void Worker::do_work(Time t) {
         }
     } // case where worker works on a package
     else {
-        process_object = std::optional<Package>(q->pop());
-        pst = t;
+        if(q) {
+            process_object = std::optional<Package>(q->pop());
+            pst = t;
+        }
     } // case where package has been received and nothing is being worked on
 }
 
