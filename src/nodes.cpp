@@ -47,7 +47,8 @@ void Ramp::deliver_goods(Time t) {
         throw std::logic_error("There is a different product on the ramp");
     }
     if ((t % di) == 0) {
-        buffer = std::optional<Package>(Package());
+        Package pack = Package();
+        push_package(std::move(pack));
     }
 }
 
@@ -55,7 +56,7 @@ void Worker::do_work(Time t) {
     if (process_object) {
         bool is_product_done = (get_processing_duration() == (t - get_package_processing_start_time() + 1));
         if (is_product_done) {
-            buffer = std::move(process_object);
+            push_package(std::move(process_object.value()));
             process_object.reset();
         }
     } // case where worker works on a package

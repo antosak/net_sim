@@ -22,7 +22,7 @@ public:
     virtual void receive_package(Package&& p) = 0;
     virtual ElementID get_id() const = 0;
     // TODO; co z nią?
-    // virtual ReceiverType get_receiver_type() const = 0; //metoda 'idetyfikujaca' o której mowa we wskazowkach
+    virtual ReceiverType get_receiver_type() const = 0; //metoda 'idetyfikujaca' o której mowa we wskazowkach
 };
 
 class ReceiverPreferences {
@@ -49,8 +49,9 @@ public:
     void send_package();
     std::optional<Package>& get_sending_buffer() {return buffer;};
     ReceiverPreferences receiver_preferences_;
-    std::optional<Package> buffer;
+    std::optional<Package> buffer = std::nullopt;
 protected:
+    void push_package(Package&& p){buffer = std::optional<Package>(std::move(p));}
 private:
 };
 
