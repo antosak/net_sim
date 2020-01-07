@@ -98,10 +98,13 @@ TEST(WorkerTest, send){
     Storehouse storehouse(1, std::move(ptr_test_2));
     worker.receive_package(Package());
     worker.receiver_preferences_.add_receiver(&storehouse);
+    ASSERT_TRUE(worker.get_sending_buffer() == std::nullopt);
     worker.do_work(1); // fuck! // w testach zawsze trzeba do_work wywoływać po koleji (z argumentami jako kolejne
     // liczby naturalne) jak się pominie jakąś liczbę to workera szlag trafi (chyba dlatego że przypisujemy pst = t).
     worker.do_work(2);
+    ASSERT_FALSE(worker.get_sending_buffer() == std::nullopt);
     worker.send_package();
+    ASSERT_TRUE(worker.get_sending_buffer() == std::nullopt);
     ASSERT_EQ(worker.buffer, std::nullopt);
     ASSERT_EQ(storehouse.size(), 1);
 
