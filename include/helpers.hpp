@@ -1,10 +1,16 @@
-//
-// Created by MICHAŁ on 11.12.2019.
-//
+#ifndef HELPERS_HPP_
+#define HELPERS_HPP_
 
-#ifndef NET_SIM_HELPERS_HPP
-#define NET_SIM_HELPERS_HPP
+#include <functional>
+#include <random>
 
-double probability_generator_1();
+#include "types.hpp"
 
-#endif //NET_SIM_HELPERS_HPP
+extern std::random_device rd;
+extern std::mt19937 rng;
+
+extern double default_probability_generator();
+
+extern ProbabilityGenerator probability_generator;
+
+#endif /* HELPERS_HPP_ */

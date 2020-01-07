@@ -1,13 +1,11 @@
-//
-// Created by MICHAŁ on 11.12.2019.
-//
-
+// <nr grupy>: Michał Antos (302815), Szymon Brożyna (309040)
 #ifndef NET_SIM_STORAGE_TYPES_HPP
 #define NET_SIM_STORAGE_TYPES_HPP
 
 #include "types.hpp"
 #include "package.hpp"
 #include "helpers.hpp"
+
 #include <list>
 
 enum class PackageQueueType {
@@ -53,4 +51,5 @@ private:
 
 
 };
+
 #endif //NET_SIM_STORAGE_TYPES_HPP

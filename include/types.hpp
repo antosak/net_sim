@@ -1,7 +1,4 @@
-//
-// Created by MICHAŁ on 11.12.2019.
-//
-
+// <nr grupy>: Michał Antos (302815), Szymon Brożyna (309040)
 #ifndef NET_SIM_TYPES_HPP
 #define NET_SIM_TYPES_HPP
 
@@ -18,6 +15,5 @@ using TimeOffset = int;
 double probability_generator_1();
 
 using ProbabilityGenerator = std::function<double()>;
-
 
 #endif //NET_SIM_TYPES_HPP

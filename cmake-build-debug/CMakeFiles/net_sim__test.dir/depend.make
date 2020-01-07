@@ -5,6 +5,7 @@ CMakeFiles/net_sim__test.dir/src/factory.cpp.obj: ../include/factory.hpp
 CMakeFiles/net_sim__test.dir/src/factory.cpp.obj: ../src/factory.cpp
 
 CMakeFiles/net_sim__test.dir/src/helpers.cpp.obj: ../include/helpers.hpp
+CMakeFiles/net_sim__test.dir/src/helpers.cpp.obj: ../include/types.hpp
 CMakeFiles/net_sim__test.dir/src/helpers.cpp.obj: ../src/helpers.cpp
 
 CMakeFiles/net_sim__test.dir/src/nodes.cpp.obj: ../include/helpers.hpp

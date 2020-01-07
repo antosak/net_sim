@@ -1,7 +1,9 @@
+// <nr grupy>: Michał Antos (302815), Szymon Brożyna (309040)
 #ifndef C___SEMESTR_III_PACKAGE_HPP
 #define C___SEMESTR_III_PACKAGE_HPP
 
 #include "types.hpp"
+
 #include <set>
 #include <list>
 #include <algorithm>

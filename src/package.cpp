@@ -1,5 +1,5 @@
+// <nr grupy>: Michał Antos (302815), Szymon Brożyna (309040)
 #include "package.hpp"
-
 #include <stdexcept>
 
 void insert_if_not_exists(std::set<ElementID>& s, ElementID e) {
@@ -63,7 +63,6 @@ Package& Package::operator=(Package&& other) noexcept {
 
     return *this;
 }
-
 
 Package::~Package() {
     if (id_ != BLANK_ID) {
