@@ -1,6 +1,6 @@
-/cmake-build-debug/
-/googletest-master/
-
+cmake-build-debug/
+googletest-master/
+cmake-build-*/
 # Prerequisites
 *.d
 
