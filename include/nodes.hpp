@@ -46,7 +46,7 @@ private:
 class PackageSender {
 public:
     void send_package();
-    std::optional<Package>& get_sending_buffer();
+    std::optional<Package>& get_sending_buffer() {return buffer;};
     ReceiverPreferences receiver_preferences_;
     std::optional<Package> buffer;
 protected:

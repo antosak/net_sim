@@ -42,10 +42,6 @@ void PackageSender::send_package() {
     }
 }
 
-std::optional<Package> &PackageSender::get_sending_buffer() {
-    return buffer;
-}
-
 void Ramp::deliver_goods(Time t) {
     if (buffer != std::nullopt){
         throw std::logic_error("There is a different product on the ramp");

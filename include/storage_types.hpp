@@ -14,15 +14,15 @@ enum class PackageQueueType {
 
 class IPackageStockpile {
 public:
-    using container = std::list<Package>::const_iterator;
+    using const_iterator = std::list<Package>::const_iterator;
     virtual int size() const = 0;
     virtual bool empty() const = 0;
     virtual ~IPackageStockpile() {};
     virtual void push(Package&& package_) = 0;
-    virtual container cbegin() const = 0;
-    virtual container cend() const = 0;
-    virtual container begin() const = 0;
-    virtual container end() const = 0;
+    virtual const_iterator cbegin() const = 0;
+    virtual const_iterator cend() const = 0;
+    virtual const_iterator begin() const = 0;
+    virtual const_iterator end() const = 0;
 };
 
 class IPackageQueue : public IPackageStockpile {
@@ -41,10 +41,10 @@ public:
     PackageQueueType get_queue_type() const override {return Type;};
     bool empty() const override {return collection.empty();};
     int size() const override {return collection.size();};
-    container cbegin() const override {return collection.cbegin();};
-    container cend() const override {return collection.cend();};
-    container begin() const override { return collection.cbegin();};
-    container end() const override {return collection.cend();};
+    const_iterator cbegin() const override {return collection.cbegin();};
+    const_iterator cend() const override {return collection.cend();};
+    const_iterator begin() const override { return collection.cbegin();};
+    const_iterator end() const override {return collection.cend();};
 private:
     const PackageQueueType Type;
     std::list<Package> collection;
