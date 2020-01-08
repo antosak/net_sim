@@ -12,8 +12,6 @@ using ElementID = int;
 using Time = int;
 using TimeOffset = int;
 
-double probability_generator_1();
-
 using ProbabilityGenerator = std::function<double()>;
 
 #endif //NET_SIM_TYPES_HPP

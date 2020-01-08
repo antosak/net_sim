@@ -18,11 +18,17 @@ enum class ReceiverType {
 
 class IPackageReceiver {
 public:
+    using const_iterator = IPackageStockpile::const_iterator;
+
     virtual ~IPackageReceiver(){};
     virtual void receive_package(Package&& p) = 0;
     virtual ElementID get_id() const = 0;
     // TODO; co z nią?
     virtual ReceiverType get_receiver_type() const = 0; //metoda 'idetyfikujaca' o której mowa we wskazowkach
+    virtual const_iterator cbegin() const = 0;
+    virtual const_iterator cend() const = 0;
+    virtual const_iterator begin() const = 0;
+    virtual const_iterator end() const = 0;
 };
 
 class ReceiverPreferences {
@@ -34,7 +40,7 @@ public:
     void add_receiver(IPackageReceiver* r);
     void remove_receiver(IPackageReceiver* r);
     IPackageReceiver* choose_receiver();
-    const preferences_t get_preferences() const {return probabilities;}
+    const preferences_t get_preferences() const {return probabilities;} //!!!!!!!!!
     const_iterator cbegin() const {return probabilities.cbegin();}
     const_iterator cend() const {return probabilities.cend();}
     const_iterator begin() {return probabilities.begin();}
@@ -47,7 +53,7 @@ private:
 class PackageSender {
 public:
     void send_package();
-    std::optional<Package>& get_sending_buffer() {return buffer;};
+    std::optional<Package>& get_sending_buffer() {return buffer;};//!!!!!!!!!!
     ReceiverPreferences receiver_preferences_;
     std::optional<Package> buffer = std::nullopt;
 protected:
@@ -76,7 +82,12 @@ public:
     Time get_package_processing_start_time(){return pst;}
     ReceiverType get_receiver_type() const override {return ReceiverType::WORKER;}
     ElementID get_id()const override {return id;}
-    auto size() {return q->size();} //only for tests
+    auto size() {return q->size();}
+    const_iterator cbegin() const override {return q->cbegin();}
+    const_iterator cend() const override { return q->cend();}
+    const_iterator begin() const override {return q->begin();}
+    const_iterator end() const override {return q->end();}
+
 private:
     ElementID id;
     TimeOffset pd;
@@ -84,6 +95,7 @@ private:
     std::optional<Package> process_object = std::nullopt;
     Time pst = 0;
 };
+
 
 class Storehouse : public IPackageReceiver{
 public:
