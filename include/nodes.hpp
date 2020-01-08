@@ -23,6 +23,7 @@ public:
     virtual ~IPackageReceiver(){};
     virtual void receive_package(Package&& p) = 0;
     virtual ElementID get_id() const = 0;
+    // TODO; co z nią?
     virtual ReceiverType get_receiver_type() const = 0; //metoda 'idetyfikujaca' o której mowa we wskazowkach
     virtual const_iterator cbegin() const = 0;
     virtual const_iterator cend() const = 0;
