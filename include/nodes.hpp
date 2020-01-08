@@ -23,7 +23,6 @@ public:
     virtual ~IPackageReceiver(){};
     virtual void receive_package(Package&& p) = 0;
     virtual ElementID get_id() const = 0;
-    // TODO; co z nią?
     virtual ReceiverType get_receiver_type() const = 0; //metoda 'idetyfikujaca' o której mowa we wskazowkach
     virtual const_iterator cbegin() const = 0;
     virtual const_iterator cend() const = 0;
@@ -36,7 +35,7 @@ public:
     using preferences_t = std::map<IPackageReceiver*, double>;
     using const_iterator = preferences_t::const_iterator;
 
-    ReceiverPreferences(ProbabilityGenerator generator = default_probability_generator) : num_generator(generator){};
+    ReceiverPreferences(ProbabilityGenerator pg = default_probability_generator) : num_generator(pg){};
     void add_receiver(IPackageReceiver* r);
     void remove_receiver(IPackageReceiver* r);
     IPackageReceiver* choose_receiver();
@@ -78,10 +77,10 @@ public:
     Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<IPackageQueue> q_) : id(id_), pd(pd_), q(std::move(q_)){}
     ~Worker(){};
     void do_work(Time t);
-    TimeOffset get_processing_duration(){return pd;}
-    Time get_package_processing_start_time(){return pst;}
+    TimeOffset get_processing_duration() const {return pd;}
+    Time get_package_processing_start_time() const {return pst;}
     ReceiverType get_receiver_type() const override {return ReceiverType::WORKER;}
-    ElementID get_id()const override {return id;}
+    ElementID get_id() const override {return id;}
     auto size() {return q->size();}
     const_iterator cbegin() const override {return q->cbegin();}
     const_iterator cend() const override { return q->cend();}
@@ -95,7 +94,6 @@ private:
     std::optional<Package> process_object = std::nullopt;
     Time pst = 0;
 };
-
 
 class Storehouse : public IPackageReceiver{
 public:
