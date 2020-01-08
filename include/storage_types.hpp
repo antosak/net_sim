@@ -34,7 +34,7 @@ public:
 
 class PackageQueue : public IPackageQueue {
 public:
-    PackageQueue(PackageQueueType type) : Type(type){}
+    PackageQueue(PackageQueueType type = PackageQueueType::LIFO) : Type(type){}
     ~PackageQueue(){};
     void push(Package&& package_) override {collection.emplace_back(std::move(package_));};
     Package pop() override;

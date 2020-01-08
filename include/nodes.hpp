@@ -40,7 +40,7 @@ public:
     void add_receiver(IPackageReceiver* r);
     void remove_receiver(IPackageReceiver* r);
     IPackageReceiver* choose_receiver();
-    const preferences_t get_preferences() const {return probabilities;} //!!!!!!!!!
+    const preferences_t& get_preferences() const {return probabilities;} //!!!!!!!!!
     const_iterator cbegin() const {return probabilities.cbegin();}
     const_iterator cend() const {return probabilities.cend();}
     const_iterator begin() {return probabilities.begin();}
