@@ -104,6 +104,10 @@ public:
     ReceiverType get_receiver_type() const override {return ReceiverType::STOREHOUSE;}
     void receive_package(Package&& p) override {d->push(std::move(p));}
     auto size() {return d->size();} //only for tests
+    const_iterator cbegin() const override {return d->cbegin();}
+    const_iterator cend() const override { return d->cend();}
+    const_iterator begin() const override {return d->begin();}
+    const_iterator end() const override {return d->end();}
 private:
     ElementID id;
     std::unique_ptr<IPackageStockpile> d;
