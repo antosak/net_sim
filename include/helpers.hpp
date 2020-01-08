@@ -3,6 +3,7 @@
 
 #include <functional>
 #include <random>
+#include <memory>
 
 #include "types.hpp"
 #include "storage_types.hpp"
@@ -14,6 +15,5 @@ extern double default_probability_generator();
 
 extern ProbabilityGenerator probability_generator;
 
-std::unique_ptr<PackageQueue> dom;
 
 #endif /* HELPERS_HPP_ */

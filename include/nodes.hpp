@@ -23,7 +23,6 @@ public:
     virtual ~IPackageReceiver(){};
     virtual void receive_package(Package&& p) = 0;
     virtual ElementID get_id() const = 0;
-    // TODO; co z nią?
     virtual ReceiverType get_receiver_type() const = 0; //metoda 'idetyfikujaca' o której mowa we wskazowkach
     virtual const_iterator cbegin() const = 0;
     virtual const_iterator cend() const = 0;
@@ -40,7 +39,7 @@ public:
     void add_receiver(IPackageReceiver* r);
     void remove_receiver(IPackageReceiver* r);
     IPackageReceiver* choose_receiver();
-    const preferences_t get_preferences() const {return probabilities;} //!!!!!!!!!
+    const preferences_t& get_preferences() const {return probabilities;}
     const_iterator cbegin() const {return probabilities.cbegin();}
     const_iterator cend() const {return probabilities.cend();}
     const_iterator begin() {return probabilities.begin();}
@@ -53,7 +52,7 @@ private:
 class PackageSender {
 public:
     void send_package();
-    std::optional<Package>& get_sending_buffer() {return buffer;};//!!!!!!!!!!
+    const std::optional<Package>& get_sending_buffer() const {return buffer;};
     ReceiverPreferences receiver_preferences_;
     std::optional<Package> buffer = std::nullopt;
 protected:
