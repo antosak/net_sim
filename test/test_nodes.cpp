@@ -45,7 +45,7 @@ TEST(WorkerTest, HasBuffer) {
 
 // -----------------
 
-TEST(RampTest, IsDeliveryOnTime) { //FIXME test nie działa!! (aczkolwiek ma jakieś fixme w srodku)
+TEST(RampTest, IsDeliveryOnTime) { //FIXME test nie działa!! (aczkolwiek ma jakieś fixme w srodku) UPDATE: już działa
 
     Ramp r(1, 2);
     // FIXME: poprawić w docelowej wersji (konstruktor powinien posiadać argument domyślny)

@@ -97,7 +97,10 @@ private:
 
 class Storehouse : public IPackageReceiver{
 public:
-    Storehouse(ElementID id_, std::unique_ptr<IPackageStockpile> d_) : id(id_), d(std::move(d_)) {} // TODO; musi byc argument domyślny drugiegio argumentu (test_Factory linijka 19)
+    Storehouse(ElementID id_, std::unique_ptr<IPackageStockpile> d_) : id(id_), d(std::move(d_)) {}
+    // TODO; musi byc argument domyślny drugiegio argumentu (test_Factory linijka 19).
+    //  TODO; update! 11.01 dodałem drugi konstruktor bo ten domyslny nie chce dzialac
+    Storehouse(ElementID id_) : id(id_) {}
     ElementID get_id() const override {return id;}
     //ReceiverType get_receiver_type() const override {return ReceiverType::STOREHOUSE;}
     void receive_package(Package&& p) override {d->push(std::move(p));}
