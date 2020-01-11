@@ -1,4 +1,4 @@
-// <nr grupy>: Michał Antos (302815), Szymon Brożyna (309040)
+// 35: Michał Antos (302815), Szymon Brożyna (309040)
 #include "nodes.hpp"
 
 void ReceiverPreferences::add_receiver(IPackageReceiver *r) {

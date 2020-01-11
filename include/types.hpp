@@ -1,4 +1,4 @@
-// <nr grupy>: Michał Antos (302815), Szymon Brożyna (309040)
+// 35: Michał Antos (302815), Szymon Brożyna (309040)
 #ifndef NET_SIM_TYPES_HPP
 #define NET_SIM_TYPES_HPP
 

@@ -1,4 +1,3 @@
-//
-// Created by MICHAŁ on 11.12.2019.
-//
+// 35: Michał Antos (302815), Szymon Brożyna (309040)
+
 #include "types.hpp"

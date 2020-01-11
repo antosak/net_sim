@@ -1,4 +1,4 @@
-// <nr grupy>: Michał Antos (302815), Szymon Brożyna (309040)
+// 35: Michał Antos (302815), Szymon Brożyna (309040)
 #include "storage_types.hpp"
 
 Package PackageQueue::pop() {

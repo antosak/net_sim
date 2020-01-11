@@ -45,7 +45,7 @@ TEST(WorkerTest, HasBuffer) {
 
 // -----------------
 
-TEST(RampTest, IsDeliveryOnTime) { //FIXME test nie działa!! (aczkolwiek ma jakieś fixme w srodku) UPDATE: już działa
+TEST(RampTest, IsDeliveryOnTime) {
 
     Ramp r(1, 2);
     // FIXME: poprawić w docelowej wersji (konstruktor powinien posiadać argument domyślny)
@@ -146,7 +146,6 @@ class PackageSenderFixture : public PackageSender {
 public:
     void push_package(Package&& package) { PackageSender::push_package(std::move(package)); } //TODO; ????
 };
-
 
 TEST(PackageSenderTest, SendPackage) {
     MockReceiver mock_receiver;

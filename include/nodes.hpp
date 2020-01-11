@@ -1,4 +1,4 @@
-// <nr grupy>: Michał Antos (302815), Szymon Brożyna (309040)
+// 35: Michał Antos (302815), Szymon Brożyna (309040)
 #ifndef NET_SIM_NODES_HPP
 #define NET_SIM_NODES_HPP
 
@@ -73,6 +73,8 @@ private:
 
 class Worker : public IPackageReceiver, public PackageSender {
 public:
+    Worker(Worker worker);
+
     void receive_package(Package&& p) override {q->push(std::move(p));}
     Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<IPackageQueue> q_) : id(id_), pd(pd_), q(std::move(q_)){}
     ~Worker(){};
@@ -98,9 +100,6 @@ private:
 class Storehouse : public IPackageReceiver{
 public:
     Storehouse(ElementID id_, std::unique_ptr<IPackageStockpile> d_ = std::make_unique<PackageQueue>()) : id(id_), d(std::move(d_)) {}
-    // TODO; musi byc argument domyślny drugiegio argumentu (test_Factory linijka 19).
-    //  TODO; update! 11.01 dodałem drugi konstruktor bo ten domyslny nie chce dzialac
-    //Storehouse(ElementID id_) : id(id_) {}
     ElementID get_id() const override {return id;}
     //ReceiverType get_receiver_type() const override {return ReceiverType::STOREHOUSE;}
     void receive_package(Package&& p) override {d->push(std::move(p));}
