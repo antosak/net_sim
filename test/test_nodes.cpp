@@ -49,8 +49,8 @@ TEST(RampTest, IsDeliveryOnTime) { //FIXME test nie działa!! (aczkolwiek ma jak
 
     Ramp r(1, 2);
     // FIXME: poprawić w docelowej wersji (konstruktor powinien posiadać argument domyślny)
-//    auto recv = std::make_unique<Storehouse>(1);
-    auto recv = std::make_unique<Storehouse>(1, std::make_unique<PackageQueue>(PackageQueueType::LIFO)); //nie dziala bez argumentu
+    auto recv = std::make_unique<Storehouse>(1);
+    //auto recv = std::make_unique<Storehouse>(1, std::make_unique<PackageQueue>(PackageQueueType::LIFO)); //nie dziala bez argumentu
 
     r.receiver_preferences_.add_receiver(recv.get());
 

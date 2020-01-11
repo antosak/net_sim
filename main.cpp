@@ -9,6 +9,7 @@
 
 
 int main() {
+    auto recv = std::make_unique<Storehouse>(1);
     std::cout << "Hello, World!" << std::endl;
     return 0;
 
