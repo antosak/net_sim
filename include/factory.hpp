@@ -24,9 +24,6 @@ public:
 
     void add_worker(Storehouse&& storehouse) {storehouses.emplace_back(std::move(storehouse));}
 
-
-
-    bool is_consistent(){return true;}
     void do_deliveries();
     void do_package_passing();
     void do_work();
@@ -46,6 +43,13 @@ class NodeCollection{
     using container_t = typename std::list<Node>;
     using iterator = typename container_t::iterator;
     using const_iterator = typename container_t::const_iterator;
+
+    typename std::vector<int>::const_iterator cbegin() const { return v_.cbegin(); }
+    typename std::vector<int>::const_iterator cend() const { return v_.cend(); }
+    typename std::vector<int>::iterator begin() { return v_.begin(); }
+    typename std::vector<int>::const_iterator begin() const { return v_.cbegin(); }
+    typename std::vector<int>::iterator end() { return v_.end(); }
+    typename std::vector<int>::const_iterator end() const { return v_.cend(); }
 };
 
 #endif //NET_SIM_FACTORY_HPP
