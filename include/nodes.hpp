@@ -73,8 +73,6 @@ private:
 
 class Worker : public IPackageReceiver, public PackageSender {
 public:
-    Worker(Worker worker);
-
     void receive_package(Package&& p) override {q->push(std::move(p));}
     Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<IPackageQueue> q_) : id(id_), pd(pd_), q(std::move(q_)){}
     ~Worker(){};
