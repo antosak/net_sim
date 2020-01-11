@@ -17,3 +17,15 @@ void Factory::remove_storehouse(ElementID id) {
 bool Factory::is_consistent() {
     return false;
 }
+
+void Factory::do_work() {
+
+}
+
+void Factory::do_package_passing() {
+
+}
+
+void Factory::do_deliveries() {
+
+}
