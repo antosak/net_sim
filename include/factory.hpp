@@ -12,15 +12,11 @@ public:
     void remove_ramp(ElementID id);
     NodeCollection<Node>::iterator find_ramp_by_id(ElementID id){return std::find_if(ramps.begin(), ramps.end(), [id] (Ramp&& r){return (r.get_id() == id);});}
 
-
     void add_worker(Worker&& worker) {workers.push_back(std::move(worker));}
     void remove_worker(ElementID id);
 
     void add_storehouse(Storehouse&& storehouse) {storehouses.emplace_back(std::move(storehouse));}
     void remove_storehouse(ElementID id);
-
-    bool is_consistent();
-
 
     void add_worker(Storehouse&& storehouse) {storehouses.emplace_back(std::move(storehouse));}
 
@@ -35,6 +31,7 @@ private:
 
 template <typename Node>
 class NodeCollection{
+
     //void add(Node& node){std::move(node)}
     //void remove_by_id(ElementID id_){}
     //NodeCollection<Node>::iterator find_by_id(ElementID id_){std::find_if()}
@@ -44,12 +41,14 @@ class NodeCollection{
     using iterator = typename container_t::iterator;
     using const_iterator = typename container_t::const_iterator;
 
-    typename std::vector<int>::const_iterator cbegin() const { return v_.cbegin(); }
-    typename std::vector<int>::const_iterator cend() const { return v_.cend(); }
-    typename std::vector<int>::iterator begin() { return v_.begin(); }
-    typename std::vector<int>::const_iterator begin() const { return v_.cbegin(); }
-    typename std::vector<int>::iterator end() { return v_.end(); }
-    typename std::vector<int>::const_iterator end() const { return v_.cend(); }
+    const_iterator cbegin() const { return container.cbegin(); }
+    const_iterator cend() const { return container.cend(); }
+    iterator begin() { return container.begin(); }
+    const_iterator begin() const { return container.cbegin(); }
+    iterator end() { return container.end(); }
+    const_iterator end() const { return container.cend(); }
+
+    container_t container;
 };
 
 #endif //NET_SIM_FACTORY_HPP

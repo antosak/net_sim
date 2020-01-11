@@ -6,7 +6,7 @@ void Factory::remove_ramp(ElementID id) {
 
 }
 
-void Factory::remove_worker(ElementID id) {
+void Factory::remove_worker(ElementID id) {`
 
 }
 
