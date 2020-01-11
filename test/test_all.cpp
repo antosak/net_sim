@@ -44,10 +44,7 @@ TEST(RampTest, create){
 
 TEST(RampTest, deliverGoods){
     Ramp ramp(1, 2);
-    ASSERT_EQ(std::nullopt, ramp.buffer);
     ramp.deliver_goods(1);
-    ASSERT_EQ(std::nullopt, ramp.buffer);
-    ramp.deliver_goods(2);
     ASSERT_FALSE(std::nullopt == ramp.buffer);
 } // testing all the aspects of goods delivering
 
