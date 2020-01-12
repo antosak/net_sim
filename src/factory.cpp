@@ -12,10 +12,11 @@ bool Factory::is_consistent() {
     }
     try {
         for (auto &ramp_: ramps) {
-            has_reachable_storehouse(&ramp_,node_colors);
+            has_reachable_storehouse(&ramp_, node_colors);
         }
-    } catch (const std::logic_error)
-    {return false;}
+    } catch (const std::logic_error) {
+        return false;
+    }
     return true;
 }
 
