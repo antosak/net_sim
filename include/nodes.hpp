@@ -79,7 +79,7 @@ public:
     void do_work(Time t);
     TimeOffset get_processing_duration() const {return pd;}
     Time get_package_processing_start_time() const {return pst;}
-    //ReceiverType get_receiver_type() const override {return ReceiverType::WORKER;}
+    ReceiverType get_receiver_type() const {return ReceiverType::WORKER;}
     ElementID get_id() const override {return id;}
     auto size() {return q->size();}
     const_iterator cbegin() const override {return q->cbegin();}
@@ -99,7 +99,7 @@ class Storehouse : public IPackageReceiver{
 public:
     Storehouse(ElementID id_, std::unique_ptr<IPackageStockpile> d_ = std::make_unique<PackageQueue>()) : id(id_), d(std::move(d_)) {}
     ElementID get_id() const override {return id;}
-    //ReceiverType get_receiver_type() const override {return ReceiverType::STOREHOUSE;}
+    ReceiverType get_receiver_type() const {return ReceiverType::STOREHOUSE;}
     void receive_package(Package&& p) override {d->push(std::move(p));}
     auto size() {return d->size();} //only for tests
     const_iterator cbegin() const override {return d->cbegin();}

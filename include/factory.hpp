@@ -51,7 +51,7 @@ public:
     NodeCollection<Ramp>::const_iterator ramp_cbegin() const {return ramps.cbegin();}
     NodeCollection<Ramp>::const_iterator ramp_cend() const {return ramps.cend();}
 
-    void add_worker(Worker&& worker) {workers.add(worker);}
+    //void add_worker(Worker&& worker) {workers.add(worker);}
     void remove_worker(ElementID id) {workers.remove_by_id(id);}
     NodeCollection<Worker>::iterator find_worker_by_id(ElementID id) {return workers.find_by_id(id);}
     NodeCollection<Worker>::const_iterator find_worker_by_id(ElementID id) const {return workers.find_by_id(id);}
@@ -65,16 +65,19 @@ public:
     NodeCollection<Storehouse>::const_iterator storehouse_cbegin() const {return storehouses.cbegin();}
     NodeCollection<Storehouse>::const_iterator storehouse_cend() const {return storehouses.cend();}
 
-    void do_deliveries();
-    void do_package_passing();
-    void do_work();
+    template <typename Node>
+    void do_deliveries(){
+
+    }
+//    void do_package_passing();
+//    void do_work();
 
 private:
     NodeCollection<Ramp> ramps;
     NodeCollection<Worker> workers;
     NodeCollection<Storehouse> storehouses;
-    template <typename Node>
-    void remove_receiver(NodeCollection<Node>& collection, ElementID id);
+//    template <typename Node>
+//    void remove_receiver(NodeCollection<Node>& collection, ElementID id);
 };
 
 
