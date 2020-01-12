@@ -65,12 +65,25 @@ public:
     NodeCollection<Storehouse>::const_iterator storehouse_cbegin() const {return storehouses.cbegin();}
     NodeCollection<Storehouse>::const_iterator storehouse_cend() const {return storehouses.cend();}
 
-    template <typename Node>
-    void do_deliveries(){
-
+    void do_deliveries(Time t) {
+        for (auto &ramp_ : ramps) {
+            ramp_.deliver_goods(t);
+        }
     }
-//    void do_package_passing();
-//    void do_work();
+
+    void do_package_passing() {
+        for (auto &worker_ : workers) {
+            if (worker_.buffer) {
+                worker_.send_package();
+            }
+        }
+    }
+
+    void do_work(Time t) {
+        for (auto &worker_ : workers) {
+            worker_.do_work(t);
+        }
+    }
 
 private:
     NodeCollection<Ramp> ramps;
