@@ -3,6 +3,7 @@
 #include "factory.hpp"
 
 bool Factory::is_consistent() {
+    bool smt = true;
     std::map<const PackageSender *, NodeColor> node_colors;
     for (auto &worker_ : workers) {
         node_colors[&worker_] = NodeColor::UNVISITED;
@@ -12,13 +13,15 @@ bool Factory::is_consistent() {
     }
     try {
         for (auto &ramp_: ramps) {
-            has_reachable_storehouse(&ramp_, node_colors);
+            if(!has_reachable_storehouse(&ramp_, node_colors)){
+                smt = false;
+            }
         }
     } catch (const std::logic_error &e) {
         e.what();
         return false;
     }
-    return true;
+    return smt;
 }
 
 void Factory::do_work(Time t) {
@@ -59,7 +62,6 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
     }
 
     bool does_sender_have_receiver = false;
-
     for (auto receiver_ : sender->receiver_preferences_.get_preferences()) {
         if (receiver_.first->get_receiver_type() == ReceiverType::STOREHOUSE) {
             does_sender_have_receiver = true;
@@ -67,16 +69,15 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
             IPackageReceiver *receiver_ptr = receiver_.first;
             auto worker_ptr = dynamic_cast<Worker *>(receiver_ptr);
             auto sendrecv_ptr = dynamic_cast<PackageSender *>(worker_ptr);
-            if (worker_ptr == sender) {
-                continue;
-            } else if (node_colors[sendrecv_ptr] == NodeColor::UNVISITED) {
+            if (worker_ptr != sender && node_colors[sendrecv_ptr] == NodeColor::UNVISITED) {
                 does_sender_have_receiver = has_reachable_storehouse(sendrecv_ptr, node_colors);
             }
+            else continue;
         }
         node_colors[sender] = NodeColor::VERIFIED;
-    }
-    if(does_sender_have_receiver){
-        return true;
+        if(does_sender_have_receiver){
+            return true;
+        }
     }
     return false;
 }

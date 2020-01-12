@@ -18,18 +18,18 @@ public:
     void add(Node& node) {this -> container.push_back(std::move(node));} // na emplace_back krzyczy standardowo
     void remove_by_id(ElementID id_);
 
-    NodeCollection<Node>::iterator find_by_id(ElementID id_) {return std::find_if(container.begin(),
-            container.end(),[id_] (const Node& node) {return node.get_id() == id_;});}
+    NodeCollection<Node>::iterator find_by_id(ElementID id_) {return std::find_if(this -> container.begin(),
+            this -> container.end(),[id_] (const Node& node) {return node.get_id() == id_;});}
 
-    NodeCollection<Node>::const_iterator find_by_id(ElementID id_) const {return std::find_if(container.cbegin(),
-            container.cend(), [id_] (const Node& node) {return node.get_id() == id_;});}
+    NodeCollection<Node>::const_iterator find_by_id(ElementID id_) const {return std::find_if(this ->container.cbegin(),
+            this ->container.cend(), [id_] (const Node& node) {return node.get_id() == id_;});}
 
-    const_iterator cbegin() const { return container.cbegin(); }
-    const_iterator cend() const { return container.cend(); }
-    iterator begin() { return container.begin(); }
-    const_iterator begin() const { return container.cbegin(); }
-    iterator end() { return container.end(); }
-    const_iterator end() const { return container.cend(); }
+    const_iterator cbegin() const { return this -> container.cbegin(); }
+    const_iterator cend() const { return this -> container.cend(); }
+    iterator begin() { return this -> container.begin(); }
+    const_iterator begin() const { return this -> container.cbegin(); }
+    iterator end() { return this -> container.end(); }
+    const_iterator end() const { return this -> container.cend(); }
 
 private:
     container_t container;
@@ -38,8 +38,8 @@ private:
 template<typename Node>
 void NodeCollection<Node>::remove_by_id(ElementID id_) {
     NodeCollection<Node>::iterator node_to_erase = find_by_id(id_);
-    if (node_to_erase != container.end()) {
-        container.erase(node_to_erase);
+    if (node_to_erase != this -> container.end()) {
+        this -> container.erase(node_to_erase);
     }
 }
 
