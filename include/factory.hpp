@@ -6,40 +6,22 @@
 #include "nodes.hpp"
 #include <algorithm>
 
-class Factory{
-public:
-    void add_ramp(Ramp&& ramp) {ramps.emplace_back(std::move(ramp));}
-    void remove_ramp(ElementID id);
-    NodeCollection<Node>::iterator find_ramp_by_id(ElementID id){return std::find_if(ramps.begin(), ramps.end(), [id] (Ramp&& r){return (r.get_id() == id);});}
-
-    void add_worker(Worker&& worker) {workers.push_back(std::move(worker));}
-    void remove_worker(ElementID id);
-
-    void add_storehouse(Storehouse&& storehouse) {storehouses.emplace_back(std::move(storehouse));}
-    void remove_storehouse(ElementID id);
-
-    void add_worker(Storehouse&& storehouse) {storehouses.emplace_back(std::move(storehouse));}
-
-    void do_deliveries();
-    void do_package_passing();
-    void do_work();
-private:
-    std::list<Ramp> ramps;
-    std::list<Worker> workers;
-    std::list<Storehouse> storehouses;
-};
 
 template <typename Node>
 class NodeCollection{
-
-    //void add(Node& node){std::move(node)}
-    //void remove_by_id(ElementID id_){}
-    //NodeCollection<Node>::iterator find_by_id(ElementID id_){std::find_if()}
-    //NodeCollection<Node>::const_iterator const find_by_id(ElementID id_){}
-
+public:
     using container_t = typename std::list<Node>;
     using iterator = typename container_t::iterator;
     using const_iterator = typename container_t::const_iterator;
+
+    void add(Node& node) {container.push_back(std::move(node));} // na emplace_back krzyczy standardowo
+    void remove_by_id(ElementID id_);
+
+    NodeCollection<Node>::iterator find_by_id(ElementID id_) {return std::find_if(container.begin(),
+            container.end(),[id_] (const Node& node) {return node.get_id() == id_;});}
+
+    NodeCollection<Node>::const_iterator find_by_id(ElementID id_) const {return std::find_if(container.cbegin(),
+            container.cend(), [id_] (const Node& node) {return node.get_id() == id_;});}
 
     const_iterator cbegin() const { return container.cbegin(); }
     const_iterator cend() const { return container.cend(); }
@@ -48,7 +30,52 @@ class NodeCollection{
     iterator end() { return container.end(); }
     const_iterator end() const { return container.cend(); }
 
+private:
     container_t container;
 };
+
+template<typename Node>
+void NodeCollection<Node>::remove_by_id(ElementID id_) {
+    NodeCollection<Node>::iterator node_to_erase = find_by_id(id_);
+    if (node_to_erase != container.end()) {
+        container.erase(node_to_erase);
+    }
+}
+
+class Factory{
+public:
+    void add_ramp(Ramp&& ramp) {ramps.add(ramp);}
+    void remove_ramp(ElementID id) {workers.remove_by_id(id);}
+    NodeCollection<Ramp>::iterator find_ramp_by_id(ElementID id) {return ramps.find_by_id(id);}
+    NodeCollection<Ramp>::const_iterator find_ramp_by_id(ElementID id) const {return ramps.find_by_id(id);}
+    NodeCollection<Ramp>::const_iterator ramp_cbegin() const {return ramps.cbegin();}
+    NodeCollection<Ramp>::const_iterator ramp_cend() const {return ramps.cend();}
+
+    void add_worker(Worker&& worker) {workers.add(worker);}
+    void remove_worker(ElementID id) {workers.remove_by_id(id);}
+    NodeCollection<Worker>::iterator find_worker_by_id(ElementID id) {return workers.find_by_id(id);}
+    NodeCollection<Worker>::const_iterator find_worker_by_id(ElementID id) const {return workers.find_by_id(id);}
+    NodeCollection<Worker>::const_iterator worker_cbegin() const {return workers.cbegin();}
+    NodeCollection<Worker>::const_iterator worker_cend() const {return workers.cend();}
+
+    void add_storehouse(Storehouse&& storehouse) {storehouses.add(storehouse);}
+    void remove_storehouse(ElementID id) {storehouses.remove_by_id(id);}
+    NodeCollection<Storehouse>::iterator find_storehouse_by_id(ElementID id) {return storehouses.find_by_id(id);}
+    NodeCollection<Storehouse>::const_iterator find_storehouse_by_id(ElementID id) const {return storehouses.find_by_id(id);}
+    NodeCollection<Storehouse>::const_iterator storehouse_cbegin() const {return storehouses.cbegin();}
+    NodeCollection<Storehouse>::const_iterator storehouse_cend() const {return storehouses.cend();}
+
+    void do_deliveries();
+    void do_package_passing();
+    void do_work();
+
+private:
+    NodeCollection<Ramp> ramps;
+    NodeCollection<Worker> workers;
+    NodeCollection<Storehouse> storehouses;
+    template <typename Node>
+    void remove_receiver(NodeCollection<Node>& collection, ElementID id);
+};
+
 
 #endif //NET_SIM_FACTORY_HPP
