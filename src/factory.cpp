@@ -68,17 +68,16 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
             auto sendrecv_ptr = dynamic_cast<PackageSender *>(worker_ptr);
             if (worker_ptr == sender) {
                 continue;
-            } else
-                does_sender_have_receiver = true;
-            if (node_colors[sendrecv_ptr] == NodeColor::UNVISITED) {
-                has_reachable_storehouse(sendrecv_ptr, node_colors);
+            } else if (node_colors[sendrecv_ptr] == NodeColor::UNVISITED) {
+                does_sender_have_receiver = has_reachable_storehouse(sendrecv_ptr, node_colors);
             }
         }
-
         node_colors[sender] = NodeColor::VERIFIED;
-
-
-        return false;
+        if (does_sender_have_receiver)
+            return true;
     }
+
+    return false;
+}
 
 
