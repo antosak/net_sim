@@ -3,15 +3,13 @@
 #include "factory.hpp"
 
 bool Factory::is_consistent() {
-    std::map<const PackageSender*, NodeColor> node_colors;
+    std::map<const PackageSender *, NodeColor> node_colors;
     for (auto &worker_ : workers) {
         node_colors[&worker_] = NodeColor::UNVISITED;
     }
     for (auto &ramp_: ramps) {
         node_colors[&ramp_] = NodeColor::UNVISITED;
     }
-
-
 
 
     return false;
@@ -23,7 +21,7 @@ void Factory::do_work(Time t) {
     }
 }
 
-void Factory::do_package_passing(){
+void Factory::do_package_passing() {
     for (auto &worker_ : workers) {
         if (worker_.buffer) {
             worker_.send_package();
@@ -50,54 +48,37 @@ void Factory::remove_receiver(NodeCollection<Node> &collection, ElementID id) {
 bool Factory::has_reachable_storehouse(const PackageSender *sender,
                                        std::map<const PackageSender *, NodeColor> &node_colors) {
 
-    if(node_colors[sender] == NodeColor::VERIFIED)
+    if (node_colors[sender] == NodeColor::VERIFIED)
         return true;
     else
         node_colors[sender] = NodeColor::VISITED;
 
-    if (sender->receiver_preferences_.get_preferences().empty()){
+    if (sender->receiver_preferences_.get_preferences().empty()) {
         throw std::logic_error("Sieć nie jest spójna.");
     }
 
     bool does_sender_have_receiver = false;
 
-    for(auto receiver_ : sender->receiver_preferences_.get_preferences()){
-        if(receiver_.first->get_receiver_type() == ReceiverType::STOREHOUSE) {
+    for (auto receiver_ : sender->receiver_preferences_.get_preferences()) {
+        if (receiver_.first->get_receiver_type() == ReceiverType::STOREHOUSE) {
             does_sender_have_receiver = true;
-        }
-        else {
+        } else {
             IPackageReceiver *receiver_ptr = receiver_.first;
             auto worker_ptr = dynamic_cast<Worker *>(receiver_ptr);
             auto sendrecv_ptr = dynamic_cast<PackageSender *>(worker_ptr);
-            if(worker_ptr == sender){
+            if (worker_ptr == sender) {
+                continue;
+            } else
                 does_sender_have_receiver = true;
+            if (node_colors[sendrecv_ptr] == NodeColor::UNVISITED) {
+                has_reachable_storehouse(sendrecv_ptr, node_colors);
             }
         }
 
-//        auto receiver_id = sender_.first->get_id();
-//        auto receiver_storehouse = find_storehouse_by_id(receiver_id).base();  // TODO TO się wyjebie mogę się założyć. ***Potrzeba jakoś się dostać do odbiorcy.***
-//                if(receiver_storehouse) {
-//                }else{
-//                    auto receiver_worker = find_worker_by_id(receiver_id).base();
-//                    IPackageReceiver* receiver_ptr = receiver_worker;
-//                    auto worker_ptr = dynamic_cast<Worker*>(receiver_ptr);
-//                    auto sendrecv_ptr = dynamic_cast<PackageSender*>(worker_ptr);
-//                    if(worker_ptr == receiver_worker){
-//                        break;
-//                    }else{
-//                        does_sender_have_receiver = true;
-//                    }
-//                    if(node_colors[sendrecv_ptr*]
-//                }
-//        node_colors[sender] = NodeColor::VERIFIED;
+        node_colors[sender] = NodeColor::VERIFIED;
+
+
+        return false;
     }
-
-
-
-
-
-
-    return false;
-}
 
 
