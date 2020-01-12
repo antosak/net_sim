@@ -6,6 +6,7 @@
 #include "nodes.hpp"
 #include <algorithm>
 
+enum class NodeColor { UNVISITED, VISITED, VERIFIED };
 
 template <typename Node>
 class NodeCollection{
@@ -66,10 +67,13 @@ public:
     NodeCollection<Storehouse>::const_iterator storehouse_cend() const {return storehouses.cend();}
 
     void do_deliveries(Time t);
-
     void do_package_passing();
-
     void do_work(Time t);
+
+
+    bool has_reachable_storehouse(const PackageSender* sender, std::map<const PackageSender*, NodeColor>& node_colors);
+    bool is_consistent();
+
 
 private:
     NodeCollection<Ramp> ramps;
