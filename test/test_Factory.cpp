@@ -3,7 +3,7 @@
 
 #include "factory.hpp"
 #include "nodes.hpp"
-/*
+
 // DEBUG
 #include <iostream>
 
@@ -68,7 +68,7 @@ TEST(FactoryTest, IsConsistentMissingLink2) {
     EXPECT_FALSE(factory.is_consistent());
 }
 
-//TEST(FactoryTest, RemoveWorkerNoSuchReceiver) {
+TEST(FactoryTest, RemoveWorkerNoSuchReceiver) {
     //Próba usunięcia nieistniejącego odbiorcy - dopuszczalne.
 
     Factory factory;
@@ -121,7 +121,7 @@ TEST(FactoryTest, RemoveWorkerTwoRemainingReceivers) {
     p[&(*(factory.find_worker_by_id(1)))] = 1.0 / 3.0;
     p[&(*(factory.find_worker_by_id(2)))] = 1.0 / 3.0;
     p[&(*(factory.find_worker_by_id(3)))] = 1.0 / 3.0;
-    r.receiver_preferences_.set_preferences(p);
+    //r.receiver_preferences_.set_preferences(p);
 
 
     factory.remove_worker(1);
@@ -137,4 +137,3 @@ TEST(FactoryTest, RemoveWorkerTwoRemainingReceivers) {
     ASSERT_NE(it, prefs.end());
     EXPECT_DOUBLE_EQ(it->second, 1.0 / 2.0);
 }
-*/

@@ -14,7 +14,8 @@ bool Factory::is_consistent() {
         for (auto &ramp_: ramps) {
             has_reachable_storehouse(&ramp_, node_colors);
         }
-    } catch (const std::logic_error) {
+    } catch (const std::logic_error &e) {
+        e.what();
         return false;
     }
     return true;
@@ -43,11 +44,6 @@ void Factory::do_deliveries(Time t) {
     for (auto &ramp_ : ramps) {
         ramp_.deliver_goods(t);
     }
-}
-
-template<typename Node>
-void Factory::remove_receiver(NodeCollection<Node> &collection, ElementID id) {
-    collection.remove_by_id(id);
 }
 
 bool Factory::has_reachable_storehouse(const PackageSender *sender,
@@ -79,7 +75,10 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
         }
         node_colors[sender] = NodeColor::VERIFIED;
     }
-    return does_sender_have_receiver;
+    if(does_sender_have_receiver){
+        return true;
+    }
+    return false;
 }
 
 

@@ -35,7 +35,7 @@ public:
     using preferences_t = std::map<IPackageReceiver*, double>;
     using const_iterator = preferences_t::const_iterator;
 
-    ReceiverPreferences(ProbabilityGenerator pg = default_probability_generator) : num_generator(pg){};
+    ReceiverPreferences(ProbabilityGenerator pg = probability_generator) : num_generator(pg){};
     void add_receiver(IPackageReceiver* r);
     void remove_receiver(IPackageReceiver* r);
     IPackageReceiver* choose_receiver();
@@ -73,6 +73,10 @@ private:
 
 class Worker : public IPackageReceiver, public PackageSender {
 public:
+    Worker(Worker &&worker) : id(worker.id), pd(worker.pd), q(std::move(worker.q)){
+        process_object = std::move(worker.process_object);
+        pst = worker.pst;
+    }
     void receive_package(Package&& p) override {q->push(std::move(p));}
     Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<IPackageQueue> q_) : id(id_), pd(pd_), q(std::move(q_)){}
     ~Worker(){};
