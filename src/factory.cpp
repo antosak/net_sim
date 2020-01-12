@@ -59,9 +59,32 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
         throw std::logic_error("Sieć nie jest spójna.");
     }
 
-//    bool does_sender_have_receiver = false;
-//
-//    for(auto sender_ : node_colors)
+    bool does_sender_have_receiver = false;
+
+    for(auto sender_ : sender->receiver_preferences_.get_preferences()){
+        auto receiver_id = sender_.first->get_id();
+        auto receiver_storehouse = find_storehouse_by_id(receiver_id).base();  // TODO TO się wyjebie mogę się założyć. ***Potrzeba jakoś się dostać do odbiorcy.***
+                if(receiver_storehouse) {
+                    does_sender_have_receiver = true;
+                }else{
+                    auto receiver_worker = find_worker_by_id(receiver_id).base();
+                    IPackageReceiver* receiver_ptr = receiver_worker;
+                    auto worker_ptr = dynamic_cast<Worker*>(receiver_ptr);
+                    auto sendrecv_ptr = dynamic_cast<PackageSender*>(worker_ptr);
+                    if(worker_ptr == receiver_worker){
+                        break;
+                    }else{
+                        does_sender_have_receiver = true;
+                    }
+                    sendrecv_ptr
+                }
+
+    }
+
+
+
+
+
 
     return false;
 }

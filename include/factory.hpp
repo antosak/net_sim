@@ -11,7 +11,7 @@ enum class NodeColor { UNVISITED, VISITED, VERIFIED };
 template <typename Node>
 class NodeCollection{
 public:
-    using container_t = typename std::list<Node>;
+    using container_t = typename std::vector<Node>;
     using iterator = typename container_t::iterator;
     using const_iterator = typename container_t::const_iterator;
 
