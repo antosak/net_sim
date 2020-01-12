@@ -10,9 +10,13 @@ bool Factory::is_consistent() {
     for (auto &ramp_: ramps) {
         node_colors[&ramp_] = NodeColor::UNVISITED;
     }
-
-
-    return false;
+    try {
+        for (auto &ramp_: ramps) {
+            has_reachable_storehouse(&ramp_,node_colors);
+        }
+    } catch (const std::logic_error)
+    {return false;}
+    return true;
 }
 
 void Factory::do_work(Time t) {
@@ -54,7 +58,7 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
         node_colors[sender] = NodeColor::VISITED;
 
     if (sender->receiver_preferences_.get_preferences().empty()) {
-        throw std::logic_error("Sieć nie jest spójna.");
+        throw std::logic_error("No desired receiver.");
     }
 
     bool does_sender_have_receiver = false;
@@ -73,11 +77,8 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
             }
         }
         node_colors[sender] = NodeColor::VERIFIED;
-        if (does_sender_have_receiver)
-            return true;
     }
-
-    return false;
+    return does_sender_have_receiver;
 }
 
 
