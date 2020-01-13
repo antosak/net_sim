@@ -14,10 +14,10 @@ public:
     using container_t = typename std::list<Node>;
     using iterator = typename container_t::iterator;
     using const_iterator = typename container_t::const_iterator;
-// FIXME add()
+
     void add(Node& node) {this -> container.push_back(std::move(node));} // na emplace_back krzyczy standardowo
     void remove_by_id(ElementID id_);
-////////////////
+
     NodeCollection<Node>::iterator find_by_id(ElementID id_) {return std::find_if(this -> container.begin(),
             this -> container.end(),[id_] (const Node& node) {return node.get_id() == id_;});}
 
@@ -46,14 +46,14 @@ void NodeCollection<Node>::remove_by_id(ElementID id_) {
 class Factory{
 public:
     void add_ramp(Ramp&& ramp) {ramps.add(ramp);}
-    void remove_ramp(ElementID id) {ramps.remove_by_id(id);}
+    void remove_ramp(ElementID id) {remove_receiver(ramps, id);}
     NodeCollection<Ramp>::iterator find_ramp_by_id(ElementID id) {return ramps.find_by_id(id);}
     NodeCollection<Ramp>::const_iterator find_ramp_by_id(ElementID id) const {return ramps.find_by_id(id);}
     NodeCollection<Ramp>::const_iterator ramp_cbegin() const {return ramps.cbegin();}
     NodeCollection<Ramp>::const_iterator ramp_cend() const {return ramps.cend();}
 
     void add_worker(Worker&& worker) {workers.add(worker);}
-    void remove_worker(ElementID id) {workers.remove_by_id(id);}
+    void remove_worker(ElementID id) {remove_receiver(workers, id);}
     NodeCollection<Worker>::iterator find_worker_by_id(ElementID id) {return workers.find_by_id(id);}
     NodeCollection<Worker>::const_iterator find_worker_by_id(ElementID id) const {return workers.find_by_id(id);}
     NodeCollection<Worker>::const_iterator worker_cbegin() const {return workers.cbegin();}
@@ -85,9 +85,9 @@ private:
 
 template<typename Node>
 void Factory::remove_receiver(NodeCollection<Node> &collection, ElementID id) {
-    for (auto &worker_ : workers) {
+    for (auto &worker : workers) {
         try {
-            worker_.receiver_preferences_.ReceiverPreferences::remove_receiver(NodeCollection<Node>::find_by_id(id));
+            worker.receiver_preferences_.ReceiverPreferences::remove_receiver(&(*find_worker_by_id(id)));
         } catch (const std::logic_error &e) {
             std::cout<<e.what();
             continue;
@@ -95,14 +95,24 @@ void Factory::remove_receiver(NodeCollection<Node> &collection, ElementID id) {
     }
     for (auto &ramp_ : ramps) {
         try {
-            ramp_.receiver_preferences_.ReceiverPreferences::remove_receiver(NodeCollection<Node>::find_by_id(id));
+            ramp_.receiver_preferences_.ReceiverPreferences::remove_receiver(&(*find_ramp_by_id(id)));
         } catch (const std::logic_error &e) {
             std::cout<<e.what();
             continue;
         }
     }
     collection.remove_by_id(id);
-}
+//for (auto &e : collection){
+//    auto ramp_with_suspected_receivers = std::find_if(ramps.begin(), ramps.end(), [id] (auto& elem)
+//    {return id == elem.receiver_preferences_.get_preferences()->first;});
+//
+//    auto worker_with_suspected_receivers = std::find_if(workers.begin(), workers.end(), [id] (auto& elem)
+//    {return id == elem.receiver_preferences_.get_preferences()->first;});
+//
+//    if (ramp_with_suspected_receivers == e){
+//        ramp_with_suspected_receivers
+//    }
 
+}
 
 #endif //NET_SIM_FACTORY_HPP
