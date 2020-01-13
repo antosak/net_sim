@@ -1,4 +1,5 @@
 // 35: Michał Antos (302815), Szymon Brożyna (309040)
+// testowa linijka, nowy nieuszkodzony projekt
 #ifndef NET_SIM_NODES_HPP
 #define NET_SIM_NODES_HPP
 
@@ -80,6 +81,7 @@ public:
         process_object = std::move(worker.process_object);
         pst = worker.pst;
     }
+
 
     void receive_package(Package&& p) override {q->push(std::move(p));}
     Worker(ElementID id_, TimeOffset pd_, std::unique_ptr<IPackageQueue> q_) : id(id_), pd(pd_), q(std::move(q_)){}

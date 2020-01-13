@@ -63,23 +63,26 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
     for (auto receiver_ : sender->receiver_preferences_.get_preferences()) {
         if (receiver_.first->get_receiver_type() == ReceiverType::STOREHOUSE) {
             does_sender_have_receiver = true;
+            break;
         } else {
             IPackageReceiver *receiver_ptr = receiver_.first;
             auto worker_ptr = dynamic_cast<Worker *>(receiver_ptr);
             auto sendrecv_ptr = dynamic_cast<PackageSender *>(worker_ptr);
-            if (worker_ptr == sender) {
+            if (sendrecv_ptr == sender) {
                 continue;
             }
-            does_sender_have_receiver = true;
-            if (node_colors[sendrecv_ptr] == NodeColor::UNVISITED) {
-                does_sender_have_receiver = has_reachable_storehouse(sendrecv_ptr, node_colors);
+            else if (node_colors[sendrecv_ptr] == NodeColor::UNVISITED &&
+                has_reachable_storehouse(sendrecv_ptr, node_colors)) {
+                does_sender_have_receiver = true;
+                break;
             }
         }
-        node_colors[sender] = NodeColor::VERIFIED;
+    }
         if (does_sender_have_receiver) {
+            node_colors[sender] = NodeColor::VERIFIED;
             return true;
         } else { throw std::logic_error("There is a different product on the ramp"); }
-    }
+//    }
     return false;
 }
 
