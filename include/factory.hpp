@@ -87,7 +87,7 @@ template<typename Node>
 void Factory::remove_receiver(NodeCollection<Node> &collection, ElementID id) {
     for (auto &worker : workers) {
         try {
-            worker.receiver_preferences_.ReceiverPreferences::remove_receiver(&(*find_worker_by_id(id)));
+            worker.receiver_preferences_.ReceiverPreferences::remove_receiver(&(*find_worker_by_id(id))); //asd
         } catch (const std::logic_error &e) {
             std::cout<<e.what();
             continue;
@@ -95,7 +95,7 @@ void Factory::remove_receiver(NodeCollection<Node> &collection, ElementID id) {
     }
     for (auto &ramp_ : ramps) {
         try {
-            ramp_.receiver_preferences_.ReceiverPreferences::remove_receiver(&(*find_ramp_by_id(id)));
+            ramp_.receiver_preferences_.ReceiverPreferences::remove_receiver(wtf);
         } catch (const std::logic_error &e) {
             std::cout<<e.what();
             continue;
