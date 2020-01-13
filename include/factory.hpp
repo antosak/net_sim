@@ -46,7 +46,7 @@ void NodeCollection<Node>::remove_by_id(ElementID id_) {
 class Factory{
 public:
     void add_ramp(Ramp&& ramp) {ramps.add(ramp);}
-    void remove_ramp(ElementID id) {remove_receiver(ramps, id);}
+    void remove_ramp(ElementID id) {ramps.remove_by_id(id);}
     NodeCollection<Ramp>::iterator find_ramp_by_id(ElementID id) {return ramps.find_by_id(id);}
     NodeCollection<Ramp>::const_iterator find_ramp_by_id(ElementID id) const {return ramps.find_by_id(id);}
     NodeCollection<Ramp>::const_iterator ramp_cbegin() const {return ramps.cbegin();}
@@ -60,7 +60,7 @@ public:
     NodeCollection<Worker>::const_iterator worker_cend() const {return workers.cend();}
 
     void add_storehouse(Storehouse&& storehouse) {storehouses.add(storehouse);}
-    void remove_storehouse(ElementID id) {storehouses.remove_by_id(id);}
+    void remove_storehouse(ElementID id) {remove_receiver(storehouses, id);}
     NodeCollection<Storehouse>::iterator find_storehouse_by_id(ElementID id) {return storehouses.find_by_id(id);}
     NodeCollection<Storehouse>::const_iterator find_storehouse_by_id(ElementID id) const {return storehouses.find_by_id(id);}
     NodeCollection<Storehouse>::const_iterator storehouse_cbegin() const {return storehouses.cbegin();}
@@ -87,7 +87,7 @@ template<typename Node>
 void Factory::remove_receiver(NodeCollection<Node> &collection, ElementID id) {
     for (auto &worker : workers) {
         try {
-            worker.receiver_preferences_.ReceiverPreferences::remove_receiver(&(*find_worker_by_id(id))); //asd
+            worker.receiver_preferences_.ReceiverPreferences::remove_receiver(&(*collection.find_by_id(id)));
         } catch (const std::logic_error &e) {
             std::cout<<e.what();
             continue;
@@ -95,24 +95,13 @@ void Factory::remove_receiver(NodeCollection<Node> &collection, ElementID id) {
     }
     for (auto &ramp_ : ramps) {
         try {
-            ramp_.receiver_preferences_.ReceiverPreferences::remove_receiver(wtf);
+            ramp_.receiver_preferences_.ReceiverPreferences::remove_receiver(&(*collection.find_by_id(id)));
         } catch (const std::logic_error &e) {
             std::cout<<e.what();
             continue;
         }
     }
     collection.remove_by_id(id);
-//for (auto &e : collection){
-//    auto ramp_with_suspected_receivers = std::find_if(ramps.begin(), ramps.end(), [id] (auto& elem)
-//    {return id == elem.receiver_preferences_.get_preferences()->first;});
-//
-//    auto worker_with_suspected_receivers = std::find_if(workers.begin(), workers.end(), [id] (auto& elem)
-//    {return id == elem.receiver_preferences_.get_preferences()->first;});
-//
-//    if (ramp_with_suspected_receivers == e){
-//        ramp_with_suspected_receivers
-//    }
-
 }
 
 #endif //NET_SIM_FACTORY_HPP

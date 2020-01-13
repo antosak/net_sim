@@ -48,8 +48,6 @@ public:
 private:
     const PackageQueueType Type;
     std::list<Package> collection;
-
-
 };
 
 #endif //NET_SIM_STORAGE_TYPES_HPP
