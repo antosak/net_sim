@@ -14,7 +14,8 @@ bool Factory::is_consistent() {
         try {
             has_reachable_storehouse(&ramp_, node_colors);
         } catch (const std::logic_error &e) {
-            e.what();
+            std::cout << e.what();
+
             return false;
         }
     }
@@ -63,7 +64,7 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
     for (auto receiver_ : sender->receiver_preferences_.get_preferences()) {
         if (receiver_.first->get_receiver_type() == ReceiverType::STOREHOUSE) {
             does_sender_have_receiver = true;
-            break;
+            //break;
         } else {
             IPackageReceiver *receiver_ptr = receiver_.first;
             auto worker_ptr = dynamic_cast<Worker *>(receiver_ptr);
@@ -74,16 +75,16 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
             else if (node_colors[sendrecv_ptr] == NodeColor::UNVISITED &&
                 has_reachable_storehouse(sendrecv_ptr, node_colors)) {
                 does_sender_have_receiver = true;
-                break;
+                //break;
             }
         }
     }
         if (does_sender_have_receiver) {
             node_colors[sender] = NodeColor::VERIFIED;
             return true;
-        } else { throw std::logic_error("There is a different product on the ramp"); }
+        } else { throw std::logic_error("YOU SHALL NOT PASS! there is no way to storehouse"); }
 //    }
-    return false;
+//    return false;
 }
 
 

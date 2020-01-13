@@ -64,7 +64,6 @@ TEST(FactoryTest, IsConsistentMissingLink2) {
 
     Worker& w2 = *(factory.find_worker_by_id(2));
     w2.receiver_preferences_.add_receiver(&(*factory.find_worker_by_id(2)));
-
     EXPECT_FALSE(factory.is_consistent());
 }
 
@@ -116,11 +115,15 @@ TEST(FactoryTest, RemoveWorkerTwoRemainingReceivers) {
     factory.add_worker(Worker(3, 1, std::make_unique<PackageQueue>(PackageQueueType::FIFO)));
 
     Ramp& r = *(factory.find_ramp_by_id(1));
+//
+//    ReceiverPreferences::preferences_t p;
 
-    ReceiverPreferences::preferences_t p;
-    p[&(*(factory.find_worker_by_id(1)))] = 1.0 / 3.0;
-    p[&(*(factory.find_worker_by_id(2)))] = 1.0 / 3.0;
-    p[&(*(factory.find_worker_by_id(3)))] = 1.0 / 3.0;
+    r.receiver_preferences_.add_receiver(&(*(factory.find_worker_by_id(1))));
+    r.receiver_preferences_.add_receiver(&(*(factory.find_worker_by_id(2))));
+    r.receiver_preferences_.add_receiver(&(*(factory.find_worker_by_id(3))));
+//    p[&(*(factory.find_worker_by_id(1)))] = 1.0 / 3.0;
+//    p[&(*(factory.find_worker_by_id(2)))] = 1.0 / 3.0;
+//    p[&(*(factory.find_worker_by_id(3)))] = 1.0 / 3.0;
     //r.receiver_preferences_.set_preferences(p);
 
 
