@@ -3,7 +3,6 @@
 #include "factory.hpp"
 
 bool Factory::is_consistent() {
-    bool smt = true;
     std::map<const PackageSender *, NodeColor> node_colors;
     for (auto &worker_ : workers) {
         node_colors[&worker_] = NodeColor::UNVISITED;
@@ -11,17 +10,16 @@ bool Factory::is_consistent() {
     for (auto &ramp_: ramps) {
         node_colors[&ramp_] = NodeColor::UNVISITED;
     }
-    try {
-        for (auto &ramp_: ramps) {
-            if(!has_reachable_storehouse(&ramp_, node_colors)){
-                smt = false;
-            }
+    for (auto &ramp_: ramps) {
+        try {
+            has_reachable_storehouse(&ramp_, node_colors);
+        } catch (const std::logic_error &e) {
+            e.what();
+            return false;
         }
-    } catch (const std::logic_error &e) {
-        e.what();
-        return false;
     }
-    return smt;
+
+    return true;
 }
 
 void Factory::do_work(Time t) {
@@ -69,15 +67,18 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
             IPackageReceiver *receiver_ptr = receiver_.first;
             auto worker_ptr = dynamic_cast<Worker *>(receiver_ptr);
             auto sendrecv_ptr = dynamic_cast<PackageSender *>(worker_ptr);
-            if (worker_ptr != sender && node_colors[sendrecv_ptr] == NodeColor::UNVISITED) {
+            if (worker_ptr == sender) {
+                continue;
+            }
+            does_sender_have_receiver = true;
+            if (node_colors[sendrecv_ptr] == NodeColor::UNVISITED) {
                 does_sender_have_receiver = has_reachable_storehouse(sendrecv_ptr, node_colors);
             }
-            else continue;
         }
         node_colors[sender] = NodeColor::VERIFIED;
-        if(does_sender_have_receiver){
+        if (does_sender_have_receiver) {
             return true;
-        }
+        } else { throw std::logic_error("There is a different product on the ramp"); }
     }
     return false;
 }
