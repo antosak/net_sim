@@ -46,8 +46,7 @@ void Ramp::deliver_goods(Time t) {
     if (buffer != std::nullopt){
         throw std::logic_error("There is a different product on the ramp");
     }
-    if (((t - 1) % di) == 0) { //TODO; dodałem -1, bo zaczynamy symulacje od 1. O ile zawsze dla czasu 1 (na pocztku
-        // TODO; symulacji) pojawia sie produkt na wszystkich rampach to taki warunek raczej jest ok
+    if (((t - 1) % di) == 0) {
         Package pack = Package();
         push_package(std::move(pack));
     }

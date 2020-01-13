@@ -36,7 +36,7 @@
 //    ++t;
 //    w.receive_package(Package());
 //    w.do_work(t);
-//    auto& buffer = w.get_sending_buffer();
+//    auto &buffer = w.get_sending_buffer();
 //
 //
 //    ASSERT_TRUE(buffer.has_value());
@@ -133,7 +133,7 @@
 //// w sytuacji, gdy zachodzi potrzeba wypisania obiektu niestandardowego typu
 //// - w tym przypadku `IPackageStockpile::const_iterator`.
 //// zob. https://github.com/google/googlemock/blob/master/googlemock/docs/v1_5/CookBook.md#teaching-google-mock-how-to-print-your-values
-//void PrintTo(const IPackageStockpile::const_iterator& it, ::std::ostream* os) {
+//void PrintTo(const IPackageStockpile::const_iterator &it, ::std::ostream *os) {
 //    *os << it->get_id();
 //}
 //
@@ -142,7 +142,7 @@
 //    // dlatego do celów testowych stworzona została implementacja zawierająca
 //    // metodę `push_package()` w sekcji publicznej.
 //public:
-//    void push_package(Package&& package) { PackageSender::push_package(std::move(package)); } //TODO; ????
+//    void push_package(Package &&package) { PackageSender::push_package(std::move(package)); } //TODO; ????
 //};
 //
 //TEST(PackageSenderTest, SendPackage) {
