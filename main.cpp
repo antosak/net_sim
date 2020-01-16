@@ -11,7 +11,11 @@
 int main() {
     auto recv = std::make_unique<Storehouse>(1);
     std::cout << "Hello, World!" << std::endl;
+
+    auto tokens = parse_line("Ala ma kota.");
+    for (const auto &token : tokens) {
+        std::cout << token << std::endl;
+    }
+
     return 0;
-
-
 }

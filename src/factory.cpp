@@ -1,5 +1,6 @@
 // 35: Michał Antos (302815), Szymon Brożyna (309040)
 
+#include <sstream>
 #include "factory.hpp"
 
 bool Factory::is_consistent() {
@@ -83,3 +84,84 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
 }
 
 
+//auto IO::save_factory_structure(Factory &factory, std::ostream &os) {
+//return os -> zapisz linie
+//}
+
+Factory load_factory_structure(std::istream &is) {
+    Factory factory;
+    std::string line;
+    std::vector<std::string> tokens;
+    std::map<std::string, std::string> map;
+
+    while (std::getline(is, line)) {
+        if (line.empty() || line.at(0) == ';') {
+            continue;
+        } else {
+            tokens = parse_line(line);
+            add_element_from_string(tokens,factory);
+        }
+    }
+return factory;
+}
+
+
+std::vector<std::string> parse_line(std::string line, char delimiter) {
+    std::vector<std::string> tokens;
+    std::string token;
+
+    std::istringstream token_stream(line);
+
+    while (std::getline(token_stream, token, delimiter)) {
+        tokens.push_back(token);
+    }
+
+    return tokens;
+}
+
+void add_element_from_string(std::vector<std::string> tokens, Factory &factory) {
+    if (tokens[0] == "LOADING_RAMP") {
+        int id = std::stoi(parse_line(tokens[1], '=')[1]);
+        int di = std::stoi(parse_line(tokens[2], '=')[1]);
+        factory.add_ramp(Ramp(id, di));
+    }
+
+    if (tokens[0] == "WORKER") {
+        int id = std::stoi(parse_line(tokens[1], '=')[1]);
+        int pd = std::stoi(parse_line(tokens[2], '=')[1]);
+        std::string qt_str = parse_line(tokens[3], '=')[1];
+        PackageQueueType qt;
+        if (qt_str == "FIFO")
+            qt = PackageQueueType::FIFO;
+        else if (qt_str == "LIFO")
+            qt = PackageQueueType::LIFO;
+
+        factory.add_worker(Worker(id, pd, std::make_unique<PackageQueue>(qt)));
+
+    }
+
+    if (tokens[0] == "STOREHOUSE") {
+        int id = std::stoi(parse_line(tokens[1], '=')[1]);
+        factory.add_storehouse(Storehouse(id));
+    }
+
+    if (tokens[0] == "LINK") {
+        std::string src = parse_line(parse_line(tokens[1], '=')[1], '-')[0];
+        std::string dest = parse_line(parse_line(tokens[2], '=')[1], '-')[0];
+        int src_id = std::stoi(parse_line(parse_line(tokens[1], '=')[1], '-')[1]);
+        int dest_id = std::stoi(parse_line(parse_line(tokens[2], '=')[1], '-')[1]);
+
+        if (src == "ramp") {
+            factory.find_ramp_by_id(src_id)->receiver_preferences_.add_receiver(&(*factory.find_worker_by_id(dest_id)));
+        } else if (src == "worker") {
+            if (dest == "worker") {
+                factory.find_worker_by_id(src_id)->receiver_preferences_.add_receiver(
+                        &(*factory.find_worker_by_id(dest_id)));
+            } else if (dest == "store") {
+                factory.find_ramp_by_id(src_id)->receiver_preferences_.add_receiver(
+                        &(*factory.find_storehouse_by_id(dest_id)));
+            }
+
+        }
+    }
+}

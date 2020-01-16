@@ -5,8 +5,12 @@
 
 #include "nodes.hpp"
 #include <algorithm>
+#include <string>
+#include <iostream>
+#include <vector>
 
 enum class NodeColor { UNVISITED, VISITED, VERIFIED };
+enum class IOType {RAMP, WORKER, STOREHOUSE, LINK};
 
 template <typename Node>
 class NodeCollection{
@@ -14,7 +18,6 @@ public:
     using container_t = typename std::list<Node>;
     using iterator = typename container_t::iterator;
     using const_iterator = typename container_t::const_iterator;
-
     void add(Node& node) {this -> container.push_back(std::move(node));}
     void remove_by_id(ElementID id_);
 
@@ -102,4 +105,15 @@ void Factory::remove_receiver(NodeCollection<Node> &collection, ElementID id) {
     collection.remove_by_id(id);
 }
 
+Factory load_factory_structure(std::istream &is);
+//    auto save_factory_structure(Factory &factory, std::ostream &os);
+
+std::vector<std::string> parse_line(std::string line, char delimiter = ' ');
+void add_element_from_string(std::vector<std::string> tokens, Factory &factory);
+
+//    struct ParsedLineData {
+//        IOType element_type;
+//        //     parameters;
+//    };
+//};
 #endif //NET_SIM_FACTORY_HPP
