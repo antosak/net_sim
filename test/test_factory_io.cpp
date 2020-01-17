@@ -4,7 +4,7 @@
 #include "factory.hpp"
 
 #include <set>
-/*
+
 //using ::testing::Return;
 //using ::testing::_;
 using ::testing::ContainerEq;
@@ -43,6 +43,7 @@ TEST(FactoryIOTest, ParseStorehouse) {
     EXPECT_EQ(1, s.get_id());
 }
 
+// TODO: ten test postanowił nie przejsc
 TEST(FactoryIOTest, ParseLinkOneReceiver) {
     std::ostringstream oss;
     oss << "LOADING_RAMP id=1 delivery-interval=3" << "\n"
@@ -111,7 +112,7 @@ TEST(FactoryIOTest, ParseLinkMultipleReceivers) {
     EXPECT_DOUBLE_EQ(prefs[key1], 0.5);
     EXPECT_DOUBLE_EQ(prefs[key2], 0.5);
 }
-
+/*
 //TEST(FactoryIOTest, ParseLinkMultipleReceiversWithDefinedProbabilities) {
 //    std::ostringstream oss;
 //    oss << "LOADING_RAMP id=1 delivery-interval=3" << "\n"

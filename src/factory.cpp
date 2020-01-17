@@ -80,7 +80,7 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
     if (does_sender_have_receiver) {
         node_colors[sender] = NodeColor::VERIFIED;
         return true;
-    } else { throw std::logic_error("YOU SHALL NOT PASS! there is no way to storehouse"); }
+    } else { throw std::logic_error("YOU SHALL NOT PASS! There is no way to the storehouse"); }
 }
 
 
@@ -104,7 +104,6 @@ Factory load_factory_structure(std::istream &is) {
     }
 return factory;
 }
-
 
 std::vector<std::string> parse_line(std::string line, char delimiter) {
     std::vector<std::string> tokens;

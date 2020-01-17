@@ -89,6 +89,7 @@ public:
     Time get_package_processing_start_time() const {return pst;}
     ReceiverType get_receiver_type() const override {return ReceiverType::WORKER;}
     ElementID get_id() const override {return id;}
+    IPackageQueue* get_queue() const { return q.get();}
     auto size() {return q->size();}
     const_iterator cbegin() const override {return q->cbegin();}
     const_iterator cend() const override { return q->cend();}
