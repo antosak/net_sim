@@ -5,7 +5,7 @@
 #include "simulation.hpp"
 #include "helpers.hpp"
 #include "reports.hpp"
-/*
+
 using ::testing::Return;
 using ::testing::_;
 
@@ -32,7 +32,6 @@ TEST(SimulationTest, Simulate) {
 
     // Magazyn zawiera półprodukt.
     auto storehouse_it = factory.storehouse_cbegin();
-    ASSERT_NE(storehouse_it->cbegin(), storehouse_it->cend());
+    ASSERT_NE(storehouse_it->cbegin(), storehouse_it->cend()); //TODO: tu się wywala
     EXPECT_EQ(storehouse_it->cbegin()->get_id(), 1);
 }
-*/
