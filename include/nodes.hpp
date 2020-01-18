@@ -95,7 +95,7 @@ public:
     const_iterator cend() const override { return q->cend();}
     const_iterator begin() const override {return q->begin();}
     const_iterator end() const override {return q->end();}
-    std::optional<Package> &get_processing_buffer() const { return process_object; }
+    std::optional<Package> &get_processing_buffer() const { return (std::optional<Package> &) process_object.value(); }
 
 private:
     ElementID id;
