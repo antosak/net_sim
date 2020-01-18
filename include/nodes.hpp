@@ -121,4 +121,6 @@ private:
 
 };
 
+std::string str(ReceiverType receiverType);
+
 #endif //NET_SIM_NODES_HPP

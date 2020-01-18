@@ -68,5 +68,15 @@ void Worker::do_work(Time t) {
     } // case where package has been received and nothing is being worked on
 }
 
+std::string str(ReceiverType receiverType){
+    if(receiverType==ReceiverType::WORKER){
+        return "worker";
+    }else if(receiverType==ReceiverType::STOREHOUSE){
+        return "storehouse";
+    }else{
+        throw std::logic_error("Zjebałeś");
+    }
+}
+
 
 

@@ -106,7 +106,7 @@ void Factory::remove_receiver(NodeCollection<Node> &collection, ElementID id) {
 }
 
 Factory load_factory_structure(std::istream &is);
-//    auto save_factory_structure(Factory &factory, std::ostream &os);
+void save_factory_structure(Factory &factory, std::ostream &os);
 
 std::vector<std::string> parse_line(std::string line, char delimiter = ' ');
 void add_element_from_string(std::vector<std::string> tokens, Factory &factory);

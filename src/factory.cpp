@@ -84,9 +84,48 @@ bool Factory::has_reachable_storehouse(const PackageSender *sender,
 }
 
 
-//auto IO::save_factory_structure(Factory &factory, std::ostream &os) {
-//return os -> zapisz linie
-//}
+void save_factory_structure(Factory &factory, std::ostream &os) {
+    os<<"; == LOADING RAMPS ==";
+    os<<"";
+    for(auto it = factory.ramp_cbegin(); it != factory.ramp_cend(); ++it){
+        os<<"LOADING_RAMP id="<<it->get_id()<<" delivery-interval="<<it->get_delivery_interval();
+    }
+    os<<"";
+//####################################
+    os<<"; == WORKERS ==";
+    os<<"";
+    for(auto it = factory.worker_cbegin(); it != factory.worker_cend(); ++it){
+        os<<"WORKER id="<<it->get_id()<<" processing-time="<<
+            it->get_processing_duration()<<" queue-type="<<it->get_queue();
+    }
+    os<<"";
+//####################################
+    os<<"; == STOREHOUSES ==";
+    os<<"";
+    for(auto it = factory.storehouse_cbegin(); it != factory.storehouse_cend(); ++it){
+        os<<"STOREHOUSE id="<<it->get_id();
+    }
+    os<<"";
+//####################################
+    os<<"; == LINKS ==";
+    os<<"";
+    for(auto it = factory.ramp_cbegin(); it != factory.ramp_cend(); ++it){
+        for(auto &receiver : it->receiver_preferences_.get_preferences()){
+            os<<"LINK src=ramp-"<<it->get_id()<<" dest="<<
+                str(receiver.first->get_receiver_type())<<"-"<<receiver.first->get_id();
+        }
+        os<<"";
+    }
+    for(auto it = factory.worker_cbegin(); it != factory.worker_cend(); ++it){
+        for(auto &receiver : it->receiver_preferences_.get_preferences()){
+            os<<"LINK src=worker-"<<it->get_id()<<" dest="<<
+              str(receiver.first->get_receiver_type())<<"-"<<receiver.first->get_id();
+        }
+        os<<"";
+    }
+//####################################
+os.flush();
+}
 
 Factory load_factory_structure(std::istream &is) {
     Factory factory;
