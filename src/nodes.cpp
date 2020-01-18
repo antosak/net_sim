@@ -87,5 +87,3 @@ std::string str(PackageQueueType packageQueueType){
         throw std::logic_error("Error");
     }
 }
-
-
