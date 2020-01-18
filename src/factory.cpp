@@ -151,13 +151,19 @@ void add_element_from_string(std::vector<std::string> tokens, Factory &factory) 
         int dest_id = std::stoi(parse_line(parse_line(tokens[2], '=')[1], '-')[1]);
 
         if (src == "ramp") {
-            factory.find_ramp_by_id(src_id)->receiver_preferences_.add_receiver(&(*factory.find_worker_by_id(dest_id)));
+            if (dest == "worker") {
+                factory.find_ramp_by_id(src_id)->receiver_preferences_.add_receiver(
+                        &(*factory.find_worker_by_id(dest_id)));
+            } else if (dest == "store") {
+                factory.find_ramp_by_id(src_id)->receiver_preferences_.add_receiver(
+                        &(*factory.find_storehouse_by_id(dest_id)));
+            }
         } else if (src == "worker") {
             if (dest == "worker") {
                 factory.find_worker_by_id(src_id)->receiver_preferences_.add_receiver(
                         &(*factory.find_worker_by_id(dest_id)));
             } else if (dest == "store") {
-                factory.find_ramp_by_id(src_id)->receiver_preferences_.add_receiver(
+                factory.find_worker_by_id(src_id)->receiver_preferences_.add_receiver(
                         &(*factory.find_storehouse_by_id(dest_id)));
             }
 
