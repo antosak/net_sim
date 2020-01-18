@@ -54,7 +54,7 @@ void Ramp::deliver_goods(Time t) {
 
 void Worker::do_work(Time t) {
     if (process_object) {
-        bool is_product_done = (get_processing_duration() == (t - get_package_processing_start_time() + 1));
+        bool is_product_done = (get_processing_duration() == (t - get_package_processing_start_time()));
         if (is_product_done) {
             push_package(std::move(process_object.value()));
             process_object.reset();

@@ -6,6 +6,6 @@
 #include "factory.hpp"
 #include "types.hpp"
 
-void simulate(Factory& factory, TimeOffset d, std::function<void(Factory&, Time)>);
+void simulate(Factory &factory, TimeOffset d, std::function<void(Factory &, Time)>);
 
 #endif //NET_SIM_SIMULATION_HPP
