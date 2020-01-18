@@ -18,7 +18,7 @@ TEST(FactoryIOTest, ParseRamp) {
     auto factory = load_factory_structure(iss);
 
     ASSERT_EQ(std::next(factory.ramp_cbegin(), 1), factory.ramp_cend());
-    const auto& r = *(factory.ramp_cbegin());
+    const auto &r = *(factory.ramp_cbegin());
     EXPECT_EQ(1, r.get_id());
     EXPECT_EQ(3, r.get_delivery_interval());
 }
@@ -28,7 +28,7 @@ TEST(FactoryIOTest, ParseWorker) {
     auto factory = load_factory_structure(iss);
 
     ASSERT_EQ(std::next(factory.worker_cbegin(), 1), factory.worker_cend());
-    const auto& w = *(factory.worker_cbegin());
+    const auto &w = *(factory.worker_cbegin());
     EXPECT_EQ(1, w.get_id());
     EXPECT_EQ(2, w.get_processing_duration());
     EXPECT_EQ(PackageQueueType::FIFO, w.get_queue()->get_queue_type());
@@ -39,7 +39,7 @@ TEST(FactoryIOTest, ParseStorehouse) {
     auto factory = load_factory_structure(iss);
 
     ASSERT_EQ(std::next(factory.storehouse_cbegin(), 1), factory.storehouse_cend());
-    const auto& s = *(factory.storehouse_cbegin());
+    const auto &s = *(factory.storehouse_cbegin());
     EXPECT_EQ(1, s.get_id());
 }
 
@@ -53,14 +53,14 @@ TEST(FactoryIOTest, ParseLinkOneReceiver) {
     auto factory = load_factory_structure(iss);
 
     ASSERT_EQ(std::next(factory.ramp_cbegin(), 1), factory.ramp_cend());
-    const auto& r = *(factory.ramp_cbegin());
+    const auto &r = *(factory.ramp_cbegin());
 
     ASSERT_EQ(std::next(factory.storehouse_cbegin(), 1), factory.storehouse_cend());
-    const auto& s = *(factory.storehouse_cbegin());
+    const auto &s = *(factory.storehouse_cbegin());
 
     auto prefs = r.receiver_preferences_.get_preferences();
     ASSERT_EQ(1U, prefs.size());
-    auto key = dynamic_cast<IPackageReceiver*>(const_cast<Storehouse*>(&s));
+    auto key = dynamic_cast<IPackageReceiver *>(const_cast<Storehouse *>(&s));
     ASSERT_NE(prefs.find(key), prefs.end());
     EXPECT_DOUBLE_EQ(prefs[key], 1.0);
 }
@@ -74,14 +74,14 @@ TEST(FactoryIOTest, ParseLinkOneReceiverWithDefinedProbability) {
     auto factory = load_factory_structure(iss);
 
     ASSERT_EQ(std::next(factory.ramp_cbegin(), 1), factory.ramp_cend());
-    const auto& r = *(factory.ramp_cbegin());
+    const auto &r = *(factory.ramp_cbegin());
 
     ASSERT_EQ(std::next(factory.storehouse_cbegin(), 1), factory.storehouse_cend());
-    const auto& s = *(factory.storehouse_cbegin());
+    const auto &s = *(factory.storehouse_cbegin());
 
     auto prefs = r.receiver_preferences_.get_preferences();
     ASSERT_EQ(1U, prefs.size());
-    auto key = dynamic_cast<IPackageReceiver*>(const_cast<Storehouse*>(&s));
+    auto key = dynamic_cast<IPackageReceiver *>(const_cast<Storehouse *>(&s));
     ASSERT_NE(prefs.find(key), prefs.end());
     EXPECT_DOUBLE_EQ(prefs[key], 1.0);
 }
@@ -97,16 +97,16 @@ TEST(FactoryIOTest, ParseLinkMultipleReceivers) {
     auto factory = load_factory_structure(iss);
 
     ASSERT_EQ(std::next(factory.ramp_cbegin(), 1), factory.ramp_cend());
-    const auto& r = *(factory.ramp_cbegin());
+    const auto &r = *(factory.ramp_cbegin());
 
     ASSERT_EQ(std::next(factory.storehouse_cbegin(), 2), factory.storehouse_cend());
-    const auto& s1 = *(factory.storehouse_cbegin());
-    const auto& s2 = *(std::next(factory.storehouse_cbegin(), 1));
+    const auto &s1 = *(factory.storehouse_cbegin());
+    const auto &s2 = *(std::next(factory.storehouse_cbegin(), 1));
 
     auto prefs = r.receiver_preferences_.get_preferences();
     ASSERT_EQ(2U, prefs.size());
-    auto key1 = dynamic_cast<IPackageReceiver*>(const_cast<Storehouse*>(&s1));
-    auto key2 = dynamic_cast<IPackageReceiver*>(const_cast<Storehouse*>(&s2));
+    auto key1 = dynamic_cast<IPackageReceiver *>(const_cast<Storehouse *>(&s1));
+    auto key2 = dynamic_cast<IPackageReceiver *>(const_cast<Storehouse *>(&s2));
     ASSERT_NE(prefs.find(key1), prefs.end());
     ASSERT_NE(prefs.find(key2), prefs.end());
     EXPECT_DOUBLE_EQ(prefs[key1], 0.5);
@@ -195,7 +195,7 @@ TEST(FactoryIOTest, LoadAndSaveTest) {
     Factory factory;
     try {
         factory = load_factory_structure(iss);
-    } catch (std::exception& e) {
+    } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
         FAIL();
     } catch (...) {
@@ -205,7 +205,6 @@ TEST(FactoryIOTest, LoadAndSaveTest) {
 
     std::ostringstream oss;
     save_factory_structure(factory, oss);
-
     std::vector<std::string> output_lines;
     //
     std::string structure_str = oss.str();

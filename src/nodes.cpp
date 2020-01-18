@@ -72,11 +72,20 @@ std::string str(ReceiverType receiverType){
     if(receiverType==ReceiverType::WORKER){
         return "worker";
     }else if(receiverType==ReceiverType::STOREHOUSE){
-        return "storehouse";
+        return "store";
     }else{
-        throw std::logic_error("Zjebałeś");
+        throw std::logic_error("Error");
     }
 }
 
+std::string str(PackageQueueType packageQueueType){
+    if(packageQueueType==PackageQueueType::FIFO){
+        return "FIFO";
+    }else if(packageQueueType==PackageQueueType::LIFO){
+        return "LIFO";
+    }else{
+        throw std::logic_error("Error");
+    }
+}
 
 

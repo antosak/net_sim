@@ -122,5 +122,6 @@ private:
 };
 
 std::string str(ReceiverType receiverType);
+std::string str(PackageQueueType packageQueueType);
 
 #endif //NET_SIM_NODES_HPP
