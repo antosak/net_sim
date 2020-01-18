@@ -87,3 +87,13 @@ std::string str(PackageQueueType packageQueueType){
         throw std::logic_error("Error");
     }
 }
+
+std::string str_rep(ReceiverType receiverType){
+    if(receiverType==ReceiverType::WORKER){
+        return "worker";
+    }else if(receiverType==ReceiverType::STOREHOUSE){
+        return "storehouse";
+    }else{
+        throw std::logic_error("Error");
+    }
+}

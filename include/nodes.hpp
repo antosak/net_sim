@@ -95,7 +95,7 @@ public:
     const_iterator cend() const override { return q->cend();}
     const_iterator begin() const override {return q->begin();}
     const_iterator end() const override {return q->end();}
-    const std::optional<Package> &get_processing_buffer() { return process_object; }
+    std::optional<Package> &get_processing_buffer() const { return process_object; }
 
 private:
     ElementID id;
@@ -116,6 +116,7 @@ public:
     const_iterator cend() const override { return d->cend();}
     const_iterator begin() const override {return d->begin();}
     const_iterator end() const override {return d->end();}
+    IPackageStockpile* get_queue() const { return d.get();}
 private:
     ElementID id;
     std::unique_ptr<IPackageStockpile> d;
@@ -124,5 +125,6 @@ private:
 
 std::string str(ReceiverType receiverType);
 std::string str(PackageQueueType packageQueueType);
+std::string str_rep(ReceiverType receiverType);
 
 #endif //NET_SIM_NODES_HPP
