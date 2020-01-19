@@ -15,4 +15,12 @@ private:
     std::set<Time> turns;
 };
 
+class IntervalReportNotifier{
+public:
+    IntervalReportNotifier(TimeOffset to_) : to(to_) {}
+    bool should_generate_report(Time t) {return t - 1 % to == 0;};
+private:
+    TimeOffset to;
+};
+
 #endif //NET_SIM_SIMULATION_HPP

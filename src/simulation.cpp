@@ -6,12 +6,13 @@ void simulate(Factory &factory, TimeOffset d, std::function<void(Factory &, Time
     bool consistency = factory.is_consistent();
     if (!consistency){
         throw std::logic_error("Net is inconsistent");
-    }
-    for (TimeOffset turn = 1; turn <= d; turn++) {
-        factory.do_deliveries(turn);
-        factory.do_package_passing();
-        factory.do_work(turn);
-        rf(factory, turn);
+    }else {
+        for (TimeOffset turn = 1; turn <= d; turn++) {
+            factory.do_deliveries(turn);
+            factory.do_package_passing();
+            factory.do_work(turn);
+            rf(factory, turn);
+        }
     }
 }
 
