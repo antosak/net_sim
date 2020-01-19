@@ -26,11 +26,13 @@ public:
 
     explicit Package(ElementID id);
 
-    Package(const Package&) = delete;
-    Package(Package&&) noexcept;
+    Package(const Package &) = delete;
 
-    Package& operator=(Package&) = delete;
-    Package& operator=(Package&&) noexcept;
+    Package(Package &&) noexcept;
+
+    Package &operator=(Package &) = delete;
+
+    Package &operator=(Package &&) noexcept;
 
     ~Package();
 
