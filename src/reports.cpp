@@ -1,6 +1,5 @@
-//
-// Created by MICHAŁ on 11.12.2019.
-//
+// 35: Michał Antos (302815), Szymon Brożyna (309040)
+
 #include "reports.hpp"
 
 void generate_structure_report(const Factory& factory, std::ostream& os){
@@ -51,10 +50,11 @@ void generate_simulation_turn_report(const Factory& factory, std::ostream& os, T
             os<<"(empty)";
         }
         os<<"\n  Queue: ";
-        if((it->get_queue())->cbegin() != (it->get_queue())->cbegin() ) {
+        if((it->get_queue())->cbegin() != (it->get_queue())->cend() ) {
             for (auto &package: *it->get_queue()) {
                 os << "#" << package.get_id() << ", ";
             }
+            os.seekp(-2,os.cur);
         }else{
             os<<"(empty)";
         }

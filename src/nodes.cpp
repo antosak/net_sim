@@ -61,7 +61,7 @@ void Worker::do_work(Time t) {
         }
     } // case where worker works on a package
     else {
-        if(q) {
+        if(q->cbegin() != q->cend()) {
             process_object = std::optional<Package>(q->pop());
             pst = t;
             bool is_product_done = (get_processing_duration() == (t - get_package_processing_start_time()+1));
