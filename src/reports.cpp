@@ -45,6 +45,7 @@ void generate_structure_report(const Factory& factory, std::ostream& os){
 //####################################
     os.flush();
 }
+
 void generate_simulation_turn_report(const Factory& factory, std::ostream& os, Time t){
     os<<"=== [ Turn: "<<t<<" ] ===\n";
     os<<"\n";
