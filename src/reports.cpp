@@ -2,6 +2,11 @@
 
 #include "reports.hpp"
 
+bool my_sort(std::pair<IPackageReceiver*,double> a, std::pair<IPackageReceiver*,double> b) {
+    return a.first->get_id() < b.first->get_id();
+}
+
+
 void generate_structure_report(const Factory& factory, std::ostream& os){
     os<<"\n";
     os<<"== LOADING RAMPS ==\n";
@@ -22,12 +27,9 @@ void generate_structure_report(const Factory& factory, std::ostream& os){
             str(it->get_queue()->get_queue_type())<<"\n  Receivers:\n";
         std::vector<std::pair<IPackageReceiver*,double>> sorte;
         for(auto &receiver : it->receiver_preferences_.get_preferences()){
-            if(receiver.first->get_id() == 1){
-                sorte.insert(sorte.begin(), receiver);
-            }else{
-                sorte.insert(sorte.end(), receiver);
-            }
+            sorte.push_back(receiver);
         }
+        sort(sorte.begin(), sorte.end(), my_sort);
         for(auto& elem : sorte) {
             os << "    " << str_rep(elem.first->get_receiver_type()) << " #" << elem.first->get_id() << "\n";
         }

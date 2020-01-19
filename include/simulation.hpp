@@ -9,6 +9,7 @@
 void simulate(Factory &factory, TimeOffset d, std::function<void(Factory &, Time)>);
 
 class SpecificTurnsReportNotifier {
+public:
     SpecificTurnsReportNotifier(std::set<Time> turns_) : turns(turns_) {}
     bool should_generate_report(Time t);
 private:
