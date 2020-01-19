@@ -1,5 +1,5 @@
 // 35: Michał Antos (302815), Szymon Brożyna (309040)
-// testowa linijka, nowy nieuszkodzony projekt
+
 #ifndef NET_SIM_NODES_HPP
 #define NET_SIM_NODES_HPP
 

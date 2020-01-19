@@ -424,7 +424,28 @@
 		<Unit filename="E:/Projects/C++/net_sim/test/main_gtest.cpp">
 			<Option target="net_sim__test"/>
 		</Unit>
+		<Unit filename="E:/Projects/C++/net_sim/test/test_Factory.cpp">
+			<Option target="net_sim__test"/>
+		</Unit>
 		<Unit filename="E:/Projects/C++/net_sim/test/test_all.cpp">
+			<Option target="net_sim__test"/>
+		</Unit>
+		<Unit filename="E:/Projects/C++/net_sim/test/test_factory_io.cpp">
+			<Option target="net_sim__test"/>
+		</Unit>
+		<Unit filename="E:/Projects/C++/net_sim/test/test_nodes.cpp">
+			<Option target="net_sim__test"/>
+		</Unit>
+		<Unit filename="E:/Projects/C++/net_sim/test/test_package.cpp">
+			<Option target="net_sim__test"/>
+		</Unit>
+		<Unit filename="E:/Projects/C++/net_sim/test/test_reports.cpp">
+			<Option target="net_sim__test"/>
+		</Unit>
+		<Unit filename="E:/Projects/C++/net_sim/test/test_simulate.cpp">
+			<Option target="net_sim__test"/>
+		</Unit>
+		<Unit filename="E:/Projects/C++/net_sim/test/test_storage_types.cpp">
 			<Option target="net_sim__test"/>
 		</Unit>
 		<Unit filename="E:/Projects/C++/net_sim/CMakeLists.txt">

@@ -101,7 +101,7 @@ void generate_simulation_turn_report(const Factory &factory, std::ostream &os, T
         os << "\n";
     }
     os << "\n";
-//####################################
+
     os << "== STOREHOUSES ==\n";
     os << "\n";
     for (auto it = factory.storehouse_cbegin(); it != factory.storehouse_cend(); ++it) {
@@ -119,6 +119,6 @@ void generate_simulation_turn_report(const Factory &factory, std::ostream &os, T
     }
 
     os << "\n";
-//####################################
+
     os.flush();
 }

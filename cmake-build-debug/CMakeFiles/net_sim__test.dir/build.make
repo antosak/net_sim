@@ -196,6 +196,104 @@ CMakeFiles/net_sim__test.dir/src/storage_types.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim__test.dir/src/storage_types.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\C++\net_sim\src\storage_types.cpp -o CMakeFiles\net_sim__test.dir\src\storage_types.cpp.s
 
+CMakeFiles/net_sim__test.dir/test/test_nodes.cpp.obj: CMakeFiles/net_sim__test.dir/flags.make
+CMakeFiles/net_sim__test.dir/test/test_nodes.cpp.obj: CMakeFiles/net_sim__test.dir/includes_CXX.rsp
+CMakeFiles/net_sim__test.dir/test/test_nodes.cpp.obj: ../test/test_nodes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/net_sim__test.dir/test/test_nodes.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim__test.dir\test\test_nodes.cpp.obj -c E:\Projects\C++\net_sim\test\test_nodes.cpp
+
+CMakeFiles/net_sim__test.dir/test/test_nodes.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net_sim__test.dir/test/test_nodes.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Projects\C++\net_sim\test\test_nodes.cpp > CMakeFiles\net_sim__test.dir\test\test_nodes.cpp.i
+
+CMakeFiles/net_sim__test.dir/test/test_nodes.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim__test.dir/test/test_nodes.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\C++\net_sim\test\test_nodes.cpp -o CMakeFiles\net_sim__test.dir\test\test_nodes.cpp.s
+
+CMakeFiles/net_sim__test.dir/test/test_Factory.cpp.obj: CMakeFiles/net_sim__test.dir/flags.make
+CMakeFiles/net_sim__test.dir/test/test_Factory.cpp.obj: CMakeFiles/net_sim__test.dir/includes_CXX.rsp
+CMakeFiles/net_sim__test.dir/test/test_Factory.cpp.obj: ../test/test_Factory.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/net_sim__test.dir/test/test_Factory.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim__test.dir\test\test_Factory.cpp.obj -c E:\Projects\C++\net_sim\test\test_Factory.cpp
+
+CMakeFiles/net_sim__test.dir/test/test_Factory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net_sim__test.dir/test/test_Factory.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Projects\C++\net_sim\test\test_Factory.cpp > CMakeFiles\net_sim__test.dir\test\test_Factory.cpp.i
+
+CMakeFiles/net_sim__test.dir/test/test_Factory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim__test.dir/test/test_Factory.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\C++\net_sim\test\test_Factory.cpp -o CMakeFiles\net_sim__test.dir\test\test_Factory.cpp.s
+
+CMakeFiles/net_sim__test.dir/test/test_factory_io.cpp.obj: CMakeFiles/net_sim__test.dir/flags.make
+CMakeFiles/net_sim__test.dir/test/test_factory_io.cpp.obj: CMakeFiles/net_sim__test.dir/includes_CXX.rsp
+CMakeFiles/net_sim__test.dir/test/test_factory_io.cpp.obj: ../test/test_factory_io.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/net_sim__test.dir/test/test_factory_io.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim__test.dir\test\test_factory_io.cpp.obj -c E:\Projects\C++\net_sim\test\test_factory_io.cpp
+
+CMakeFiles/net_sim__test.dir/test/test_factory_io.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net_sim__test.dir/test/test_factory_io.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Projects\C++\net_sim\test\test_factory_io.cpp > CMakeFiles\net_sim__test.dir\test\test_factory_io.cpp.i
+
+CMakeFiles/net_sim__test.dir/test/test_factory_io.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim__test.dir/test/test_factory_io.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\C++\net_sim\test\test_factory_io.cpp -o CMakeFiles\net_sim__test.dir\test\test_factory_io.cpp.s
+
+CMakeFiles/net_sim__test.dir/test/test_package.cpp.obj: CMakeFiles/net_sim__test.dir/flags.make
+CMakeFiles/net_sim__test.dir/test/test_package.cpp.obj: CMakeFiles/net_sim__test.dir/includes_CXX.rsp
+CMakeFiles/net_sim__test.dir/test/test_package.cpp.obj: ../test/test_package.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/net_sim__test.dir/test/test_package.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim__test.dir\test\test_package.cpp.obj -c E:\Projects\C++\net_sim\test\test_package.cpp
+
+CMakeFiles/net_sim__test.dir/test/test_package.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net_sim__test.dir/test/test_package.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Projects\C++\net_sim\test\test_package.cpp > CMakeFiles\net_sim__test.dir\test\test_package.cpp.i
+
+CMakeFiles/net_sim__test.dir/test/test_package.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim__test.dir/test/test_package.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\C++\net_sim\test\test_package.cpp -o CMakeFiles\net_sim__test.dir\test\test_package.cpp.s
+
+CMakeFiles/net_sim__test.dir/test/test_simulate.cpp.obj: CMakeFiles/net_sim__test.dir/flags.make
+CMakeFiles/net_sim__test.dir/test/test_simulate.cpp.obj: CMakeFiles/net_sim__test.dir/includes_CXX.rsp
+CMakeFiles/net_sim__test.dir/test/test_simulate.cpp.obj: ../test/test_simulate.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/net_sim__test.dir/test/test_simulate.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim__test.dir\test\test_simulate.cpp.obj -c E:\Projects\C++\net_sim\test\test_simulate.cpp
+
+CMakeFiles/net_sim__test.dir/test/test_simulate.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net_sim__test.dir/test/test_simulate.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Projects\C++\net_sim\test\test_simulate.cpp > CMakeFiles\net_sim__test.dir\test\test_simulate.cpp.i
+
+CMakeFiles/net_sim__test.dir/test/test_simulate.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim__test.dir/test/test_simulate.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\C++\net_sim\test\test_simulate.cpp -o CMakeFiles\net_sim__test.dir\test\test_simulate.cpp.s
+
+CMakeFiles/net_sim__test.dir/test/test_storage_types.cpp.obj: CMakeFiles/net_sim__test.dir/flags.make
+CMakeFiles/net_sim__test.dir/test/test_storage_types.cpp.obj: CMakeFiles/net_sim__test.dir/includes_CXX.rsp
+CMakeFiles/net_sim__test.dir/test/test_storage_types.cpp.obj: ../test/test_storage_types.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/net_sim__test.dir/test/test_storage_types.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim__test.dir\test\test_storage_types.cpp.obj -c E:\Projects\C++\net_sim\test\test_storage_types.cpp
+
+CMakeFiles/net_sim__test.dir/test/test_storage_types.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net_sim__test.dir/test/test_storage_types.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Projects\C++\net_sim\test\test_storage_types.cpp > CMakeFiles\net_sim__test.dir\test\test_storage_types.cpp.i
+
+CMakeFiles/net_sim__test.dir/test/test_storage_types.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim__test.dir/test/test_storage_types.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\C++\net_sim\test\test_storage_types.cpp -o CMakeFiles\net_sim__test.dir\test\test_storage_types.cpp.s
+
+CMakeFiles/net_sim__test.dir/test/test_reports.cpp.obj: CMakeFiles/net_sim__test.dir/flags.make
+CMakeFiles/net_sim__test.dir/test/test_reports.cpp.obj: CMakeFiles/net_sim__test.dir/includes_CXX.rsp
+CMakeFiles/net_sim__test.dir/test/test_reports.cpp.obj: ../test/test_reports.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/net_sim__test.dir/test/test_reports.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\net_sim__test.dir\test\test_reports.cpp.obj -c E:\Projects\C++\net_sim\test\test_reports.cpp
+
+CMakeFiles/net_sim__test.dir/test/test_reports.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/net_sim__test.dir/test/test_reports.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Projects\C++\net_sim\test\test_reports.cpp > CMakeFiles\net_sim__test.dir\test\test_reports.cpp.i
+
+CMakeFiles/net_sim__test.dir/test/test_reports.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/net_sim__test.dir/test/test_reports.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Projects\C++\net_sim\test\test_reports.cpp -o CMakeFiles\net_sim__test.dir\test\test_reports.cpp.s
+
 # Object files for target net_sim__test
 net_sim__test_OBJECTS = \
 "CMakeFiles/net_sim__test.dir/test/test_all.cpp.obj" \
@@ -207,7 +305,14 @@ net_sim__test_OBJECTS = \
 "CMakeFiles/net_sim__test.dir/src/reports.cpp.obj" \
 "CMakeFiles/net_sim__test.dir/src/simulation.cpp.obj" \
 "CMakeFiles/net_sim__test.dir/src/types.cpp.obj" \
-"CMakeFiles/net_sim__test.dir/src/storage_types.cpp.obj"
+"CMakeFiles/net_sim__test.dir/src/storage_types.cpp.obj" \
+"CMakeFiles/net_sim__test.dir/test/test_nodes.cpp.obj" \
+"CMakeFiles/net_sim__test.dir/test/test_Factory.cpp.obj" \
+"CMakeFiles/net_sim__test.dir/test/test_factory_io.cpp.obj" \
+"CMakeFiles/net_sim__test.dir/test/test_package.cpp.obj" \
+"CMakeFiles/net_sim__test.dir/test/test_simulate.cpp.obj" \
+"CMakeFiles/net_sim__test.dir/test/test_storage_types.cpp.obj" \
+"CMakeFiles/net_sim__test.dir/test/test_reports.cpp.obj"
 
 # External object files for target net_sim__test
 net_sim__test_EXTERNAL_OBJECTS =
@@ -222,13 +327,20 @@ net_sim__test.exe: CMakeFiles/net_sim__test.dir/src/reports.cpp.obj
 net_sim__test.exe: CMakeFiles/net_sim__test.dir/src/simulation.cpp.obj
 net_sim__test.exe: CMakeFiles/net_sim__test.dir/src/types.cpp.obj
 net_sim__test.exe: CMakeFiles/net_sim__test.dir/src/storage_types.cpp.obj
+net_sim__test.exe: CMakeFiles/net_sim__test.dir/test/test_nodes.cpp.obj
+net_sim__test.exe: CMakeFiles/net_sim__test.dir/test/test_Factory.cpp.obj
+net_sim__test.exe: CMakeFiles/net_sim__test.dir/test/test_factory_io.cpp.obj
+net_sim__test.exe: CMakeFiles/net_sim__test.dir/test/test_package.cpp.obj
+net_sim__test.exe: CMakeFiles/net_sim__test.dir/test/test_simulate.cpp.obj
+net_sim__test.exe: CMakeFiles/net_sim__test.dir/test/test_storage_types.cpp.obj
+net_sim__test.exe: CMakeFiles/net_sim__test.dir/test/test_reports.cpp.obj
 net_sim__test.exe: CMakeFiles/net_sim__test.dir/build.make
 net_sim__test.exe: googletest-master/googlemock/libgmockd.a
 net_sim__test.exe: googletest-master/googlemock/gtest/libgtestd.a
 net_sim__test.exe: CMakeFiles/net_sim__test.dir/linklibs.rsp
 net_sim__test.exe: CMakeFiles/net_sim__test.dir/objects1.rsp
 net_sim__test.exe: CMakeFiles/net_sim__test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable net_sim__test.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\Projects\C++\net_sim\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable net_sim__test.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\net_sim__test.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
