@@ -20,8 +20,16 @@ void generate_structure_report(const Factory& factory, std::ostream& os){
     for(auto it = factory.worker_cbegin(); it != factory.worker_cend(); ++it){
         os<<"WORKER #"<<it->get_id()<<"\n  Processing time: "<<it->get_processing_duration()<<"\n  Queue type: "<<
             str(it->get_queue()->get_queue_type())<<"\n  Receivers:\n";
+        std::vector<std::pair<IPackageReceiver*,double>> sorte;
         for(auto &receiver : it->receiver_preferences_.get_preferences()){
-            os<<"    "<<str_rep(receiver.first->get_receiver_type())<<" #"<<receiver.first->get_id()<<"\n";
+            if(receiver.first->get_id() == 1){
+                sorte.insert(sorte.begin(), receiver);
+            }else{
+                sorte.insert(sorte.end(), receiver);
+            }
+        }
+        for(auto& elem : sorte) {
+            os << "    " << str_rep(elem.first->get_receiver_type()) << " #" << elem.first->get_id() << "\n";
         }
         os<<"\n";
     }

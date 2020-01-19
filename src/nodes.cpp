@@ -2,7 +2,7 @@
 #include "nodes.hpp"
 
 void ReceiverPreferences::add_receiver(IPackageReceiver *r) {
-    probabilities[r] = 0;
+    probabilities.emplace_hint(probabilities.begin(), std::pair<IPackageReceiver*, double> (r, 0));
     double new_prob = (double) 1 / probabilities.size();
     for (auto &prob : probabilities) {
         prob.second = new_prob;
