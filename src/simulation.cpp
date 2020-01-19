@@ -14,3 +14,12 @@ void simulate(Factory &factory, TimeOffset d, std::function<void(Factory &, Time
         rf(factory, turn);
     }
 }
+
+bool SpecificTurnsReportNotifier::should_generate_report(Time t) {
+    for(auto turn : turns){
+        if(t == turn){
+            return true;
+        }
+    }
+    return false;
+}

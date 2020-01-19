@@ -43,6 +43,10 @@ public:
     using preferences_t = std::map<IPackageReceiver *, double>;
     using const_iterator = preferences_t::const_iterator;
 
+    bool operator < (std::pair<std::pair<IPackageReceiver *, double>&, std::pair<IPackageReceiver *, double>&> x){
+        return x.first.first->get_id() < x.second.first->get_id();
+    }
+
     ReceiverPreferences(ProbabilityGenerator pg = probability_generator) : num_generator(pg) {};
 
     void add_receiver(IPackageReceiver *r);
