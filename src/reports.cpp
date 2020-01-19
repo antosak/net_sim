@@ -33,32 +33,32 @@ void generate_structure_report(const Factory& factory, std::ostream& os){
     for(auto it = factory.storehouse_cbegin(); it != factory.storehouse_cend(); ++it){
         os<<"STOREHOUSE #"<<it->get_id();
         os<<"\n";
+        os<<"\n";
     }
-    os<<"\n";
 //####################################
     os.flush();
 }
 void generate_simulation_turn_report(const Factory& factory, std::ostream& os, Time t){
-    os<<"=== [ Turn: "<<t<<"] ===\n";
+    os<<"=== [ Turn: "<<t<<" ] ===\n";
     os<<"\n";
     os<<"== WORKERS ==\n";
     os<<"\n";
     for(auto it = factory.worker_cbegin(); it != factory.worker_cend(); ++it){
         os<<"WORKER #"<<it->get_id()<<"\n  PBuffer: ";
         if(it->get_processing_buffer()){
-            os<<"# (pt = "<<it->get_processing_duration()<<")";
+            os<<"#"<<it->get_processing_buffer()->get_id()<<" (pt = "<<it->get_package_processing_time(t)<<")";
         }else{
             os<<"(empty)";
         }
         os<<"\n  Queue: ";
-        if(it->get_queue()) {
+        if((it->get_queue())->cbegin() != (it->get_queue())->cbegin() ) {
             for (auto &package: *it->get_queue()) {
                 os << "#" << package.get_id() << ", ";
             }
         }else{
             os<<"(empty)";
         }
-        os.seekp(-2,os.cur);
+
         os<<"\n  SBuffer: ";
         if(it->get_sending_buffer()){
             os<<"#"<<it->get_sending_buffer()->get_id()<<"\n";
@@ -73,17 +73,18 @@ void generate_simulation_turn_report(const Factory& factory, std::ostream& os, T
     os<<"\n";
     for(auto it = factory.storehouse_cbegin(); it != factory.storehouse_cend(); ++it){
         os<<"STOREHOUSE #"<<it->get_id();
-        if(it->get_queue()){
-            os<<"\n  Stock: ";
+        os<<"\n  Stock: ";
+        if((it->get_queue())->cbegin() != (it->get_queue())->cend()){
             for(auto &package: *it->get_queue()){
                 os<<"#"<<package.get_id()<<", ";
             }
+            os.seekp(-2,os.cur);
         }else{
-            os<<"(empty) ";
+            os<<"(empty)";
         }
         os<<"\n";
     }
-    os.seekp(-2,os.cur);
+
     os<<"\n";
 //####################################
     os.flush();

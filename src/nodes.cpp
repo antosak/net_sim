@@ -38,7 +38,7 @@ void PackageSender::send_package() {
     if (buffer) {
         auto chosen_one = receiver_preferences_.choose_receiver();
         chosen_one->receive_package(std::move(buffer.value()));
-        buffer.reset();
+        buffer = std::nullopt;
     }
 }
 
@@ -54,16 +54,21 @@ void Ramp::deliver_goods(Time t) {
 
 void Worker::do_work(Time t) {
     if (process_object) {
-        bool is_product_done = (get_processing_duration() == (t - get_package_processing_start_time()));
+        bool is_product_done = (get_processing_duration() == (t - get_package_processing_start_time()+1));
         if (is_product_done) {
             push_package(std::move(process_object.value()));
-            process_object.reset();
+            process_object = std::nullopt;
         }
     } // case where worker works on a package
     else {
         if(q) {
             process_object = std::optional<Package>(q->pop());
             pst = t;
+            bool is_product_done = (get_processing_duration() == (t - get_package_processing_start_time()+1));
+            if (is_product_done) {
+                push_package(std::move(process_object.value()));
+                process_object = std::nullopt;
+            }
         }
     } // case where package has been received and nothing is being worked on
 }

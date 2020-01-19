@@ -58,6 +58,7 @@ public:
     const std::optional<Package>& get_sending_buffer() const {return buffer;};
     ReceiverPreferences receiver_preferences_;
     std::optional<Package> buffer = std::nullopt;
+
 protected:
     void push_package(Package&& p){buffer = std::optional<Package>(std::move(p));}
 
@@ -86,6 +87,7 @@ public:
     ~Worker(){};
     void do_work(Time t);
     TimeOffset get_processing_duration() const {return pd;}
+    Time get_package_processing_time(Time t) const {return t-pst+1;}
     Time get_package_processing_start_time() const {return pst;}
     ReceiverType get_receiver_type() const override {return ReceiverType::WORKER;}
     ElementID get_id() const override {return id;}
@@ -95,7 +97,7 @@ public:
     const_iterator cend() const override { return q->cend();}
     const_iterator begin() const override {return q->begin();}
     const_iterator end() const override {return q->end();}
-    std::optional<Package> &get_processing_buffer() const { return (std::optional<Package> &) process_object.value(); }
+    const std::optional<Package> &get_processing_buffer() const { return process_object; }
 
 private:
     ElementID id;
