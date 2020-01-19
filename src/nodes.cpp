@@ -43,7 +43,7 @@ void PackageSender::send_package() {
 }
 
 void Ramp::deliver_goods(Time t) {
-    if (buffer != std::nullopt){
+    if (buffer != std::nullopt) {
         throw std::logic_error("There is a different product on the ramp");
     }
     if (((t - 1) % di) == 0) {
@@ -54,17 +54,17 @@ void Ramp::deliver_goods(Time t) {
 
 void Worker::do_work(Time t) {
     if (process_object) {
-        bool is_product_done = (get_processing_duration() == (t - get_package_processing_start_time()+1));
+        bool is_product_done = (get_processing_duration() == (t - get_package_processing_start_time() + 1));
         if (is_product_done) {
             push_package(std::move(process_object.value()));
             process_object = std::nullopt;
         }
     } // case where worker works on a package
     else {
-        if(q->cbegin() != q->cend()) {
+        if (q->cbegin() != q->cend()) {
             process_object = std::optional<Package>(q->pop());
             pst = t;
-            bool is_product_done = (get_processing_duration() == (t - get_package_processing_start_time()+1));
+            bool is_product_done = (get_processing_duration() == (t - get_package_processing_start_time() + 1));
             if (is_product_done) {
                 push_package(std::move(process_object.value()));
                 process_object = std::nullopt;
@@ -73,32 +73,32 @@ void Worker::do_work(Time t) {
     } // case where package has been received and nothing is being worked on
 }
 
-std::string str(ReceiverType receiverType){
-    if(receiverType==ReceiverType::WORKER){
+std::string str(ReceiverType receiverType) {
+    if (receiverType == ReceiverType::WORKER) {
         return "worker";
-    }else if(receiverType==ReceiverType::STOREHOUSE){
+    } else if (receiverType == ReceiverType::STOREHOUSE) {
         return "store";
-    }else{
+    } else {
         throw std::logic_error("Error");
     }
 }
 
-std::string str(PackageQueueType packageQueueType){
-    if(packageQueueType==PackageQueueType::FIFO){
+std::string str(PackageQueueType packageQueueType) {
+    if (packageQueueType == PackageQueueType::FIFO) {
         return "FIFO";
-    }else if(packageQueueType==PackageQueueType::LIFO){
+    } else if (packageQueueType == PackageQueueType::LIFO) {
         return "LIFO";
-    }else{
+    } else {
         throw std::logic_error("Error");
     }
 }
 
-std::string str_rep(ReceiverType receiverType){
-    if(receiverType==ReceiverType::WORKER){
+std::string str_rep(ReceiverType receiverType) {
+    if (receiverType == ReceiverType::WORKER) {
         return "worker";
-    }else if(receiverType==ReceiverType::STOREHOUSE){
+    } else if (receiverType == ReceiverType::STOREHOUSE) {
         return "storehouse";
-    }else{
+    } else {
         throw std::logic_error("Error");
     }
 }

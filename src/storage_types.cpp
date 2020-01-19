@@ -3,7 +3,7 @@
 
 Package PackageQueue::pop() {
     Package package;
-    switch (Type){
+    switch (Type) {
         case PackageQueueType::FIFO:
             package = std::move(collection.front());
             collection.pop_front();

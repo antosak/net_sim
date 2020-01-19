@@ -8,8 +8,8 @@
 
 using ::testing::ContainerEq;
 
-void perform_report_check(std::function<void(std::ostringstream&)>& reporting_function,
-                          std::vector<std::string>& expected_report_lines) {
+void perform_report_check(std::function<void(std::ostringstream &)> &reporting_function,
+                          std::vector<std::string> &expected_report_lines) {
     // Wygeneruj raport.
     std::ostringstream report_oss;
     reporting_function(report_oss);
@@ -23,7 +23,7 @@ void perform_report_check(std::function<void(std::ostringstream&)>& reporting_fu
     }
 
     std::ostringstream expected_report_oss;
-    for (auto& line : expected_report_lines) {
+    for (auto &line : expected_report_lines) {
         expected_report_oss << line << "\n";
     }
 
@@ -41,15 +41,15 @@ void perform_report_check(std::function<void(std::ostringstream&)>& reporting_fu
     }
 }
 
-void perform_turn_report_check(const Factory& factory, Time t, std::vector<std::string>& expected_report_lines) {
-    std::function<void(std::ostringstream&)> reporting_function = [&factory, t](
-            std::ostringstream& oss) { generate_simulation_turn_report(factory, oss, t); };
+void perform_turn_report_check(const Factory &factory, Time t, std::vector<std::string> &expected_report_lines) {
+    std::function<void(std::ostringstream &)> reporting_function = [&factory, t](
+            std::ostringstream &oss) { generate_simulation_turn_report(factory, oss, t); };
     perform_report_check(reporting_function, expected_report_lines);
 }
 
-void perform_structure_report_check(const Factory& factory, std::vector<std::string>& expected_report_lines) {
-    std::function<void(std::ostringstream&)> reporting_function = [&factory](
-            std::ostringstream& oss) { generate_structure_report(factory, oss); };
+void perform_structure_report_check(const Factory &factory, std::vector<std::string> &expected_report_lines) {
+    std::function<void(std::ostringstream &)> reporting_function = [&factory](
+            std::ostringstream &oss) { generate_structure_report(factory, oss); };
     perform_report_check(reporting_function, expected_report_lines);
 }
 
@@ -62,10 +62,10 @@ TEST(ReportsTest, StructureReport_R1W1S1) {
     factory.add_worker(Worker(1, 1, std::make_unique<PackageQueue>(PackageQueueType::FIFO)));
     factory.add_storehouse(Storehouse(1));
 
-    Ramp& r = *(factory.find_ramp_by_id(1));
+    Ramp &r = *(factory.find_ramp_by_id(1));
     r.receiver_preferences_.add_receiver(&(*factory.find_worker_by_id(1)));
 
-    Worker& w = *(factory.find_worker_by_id(1));
+    Worker &w = *(factory.find_worker_by_id(1));
     w.receiver_preferences_.add_receiver(&(*factory.find_storehouse_by_id(1)));
 
     // -----------------------------------------------------------------------
@@ -109,17 +109,17 @@ TEST(ReportsTest, StructureReport_R2W2S2) {
     factory.add_storehouse(Storehouse(1));
     factory.add_storehouse(Storehouse(2));
 
-    Ramp& r1 = *(factory.find_ramp_by_id(1));
+    Ramp &r1 = *(factory.find_ramp_by_id(1));
     r1.receiver_preferences_.add_receiver(&(*factory.find_worker_by_id(1)));
 
-    Ramp& r2 = *(factory.find_ramp_by_id(2));
+    Ramp &r2 = *(factory.find_ramp_by_id(2));
     r2.receiver_preferences_.add_receiver(&(*factory.find_worker_by_id(1)));
     r2.receiver_preferences_.add_receiver(&(*factory.find_worker_by_id(2)));
 
-    Worker& w1 = *(factory.find_worker_by_id(1));
+    Worker &w1 = *(factory.find_worker_by_id(1));
     w1.receiver_preferences_.add_receiver(&(*factory.find_storehouse_by_id(1)));
 
-    Worker& w2 = *(factory.find_worker_by_id(2));
+    Worker &w2 = *(factory.find_worker_by_id(2));
     w2.receiver_preferences_.add_receiver(&(*factory.find_storehouse_by_id(1)));
     w2.receiver_preferences_.add_receiver(&(*factory.find_storehouse_by_id(2)));
 
@@ -176,10 +176,10 @@ TEST(ReportsTest, TurnReportNoPackages) {
     factory.add_worker(Worker(1, 1, std::make_unique<PackageQueue>(PackageQueueType::FIFO)));
     factory.add_storehouse(Storehouse(1));
 
-    Ramp& r = *(factory.find_ramp_by_id(1));
+    Ramp &r = *(factory.find_ramp_by_id(1));
     r.receiver_preferences_.add_receiver(&(*factory.find_worker_by_id(1)));
 
-    Worker& w = *(factory.find_worker_by_id(1));
+    Worker &w = *(factory.find_worker_by_id(1));
     w.receiver_preferences_.add_receiver(&(*factory.find_storehouse_by_id(1)));
 
     // Ustaw warunki początkowe symulacji.
@@ -216,10 +216,10 @@ TEST(ReportsTest, TurnReportPackageInProcessingBuffer) {
     factory.add_worker(Worker(1, 2, std::make_unique<PackageQueue>(PackageQueueType::FIFO)));
     factory.add_storehouse(Storehouse(1));
 
-    Ramp& r = *(factory.find_ramp_by_id(1));
+    Ramp &r = *(factory.find_ramp_by_id(1));
     r.receiver_preferences_.add_receiver(&(*factory.find_worker_by_id(1)));
 
-    Worker& w = *(factory.find_worker_by_id(1));
+    Worker &w = *(factory.find_worker_by_id(1));
     w.receiver_preferences_.add_receiver(&(*factory.find_storehouse_by_id(1)));
 
     // Ustaw warunki początkowe symulacji.
@@ -259,10 +259,10 @@ TEST(ReportsTest, TurnReportPackageInQueue) {
     factory.add_worker(Worker(1, 2, std::make_unique<PackageQueue>(PackageQueueType::FIFO)));
     factory.add_storehouse(Storehouse(1));
 
-    Ramp& r = *(factory.find_ramp_by_id(1));
+    Ramp &r = *(factory.find_ramp_by_id(1));
     r.receiver_preferences_.add_receiver(&(*factory.find_worker_by_id(1)));
 
-    Worker& w = *(factory.find_worker_by_id(1));
+    Worker &w = *(factory.find_worker_by_id(1));
     w.receiver_preferences_.add_receiver(&(*factory.find_storehouse_by_id(1)));
 
     // Ustaw warunki początkowe symulacji.
@@ -301,10 +301,10 @@ TEST(ReportsTest, TurnReportPackageInSendingBuffer) {
     factory.add_worker(Worker(1, 1, std::make_unique<PackageQueue>(PackageQueueType::FIFO)));
     factory.add_storehouse(Storehouse(1));
 
-    Ramp& r = *(factory.find_ramp_by_id(1));
+    Ramp &r = *(factory.find_ramp_by_id(1));
     r.receiver_preferences_.add_receiver(&(*factory.find_worker_by_id(1)));
 
-    Worker& w = *(factory.find_worker_by_id(1));
+    Worker &w = *(factory.find_worker_by_id(1));
     w.receiver_preferences_.add_receiver(&(*factory.find_storehouse_by_id(1)));
 
     // Ustaw warunki początkowe symulacji.
@@ -343,7 +343,7 @@ TEST(ReportsTest, TurnReportPackageInStock) {
     factory.add_ramp(Ramp(1, 10));
     factory.add_storehouse(Storehouse(1));
 
-    Ramp& r = *(factory.find_ramp_by_id(1));
+    Ramp &r = *(factory.find_ramp_by_id(1));
     r.receiver_preferences_.add_receiver(&(*factory.find_storehouse_by_id(1)));
 
     // Ustaw warunki początkowe symulacji.
