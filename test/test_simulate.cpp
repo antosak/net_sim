@@ -24,7 +24,14 @@ TEST(SimulationTest, Simulate) {
     Worker& w = *(factory.find_worker_by_id(1));
     w.receiver_preferences_.add_receiver(&(*factory.find_storehouse_by_id(1)));
 
-    simulate(factory, 3, [](Factory&, TimeOffset) {});
+    SpecificTurnsReportNotifier spec_notifier(std::set<Time>{1});
+    simulate(factory, 3, [&spec_notifier](Factory& f, TimeOffset t_offset) {
+        if (spec_notifier.should_generate_report(t_offset)) {
+            generate_structure_report(f, std::cout);
+        }
+    });
+
+    //simulate(factory, 3, [](Factory&, TimeOffset) {});
 
     // Robotnik ma pustą kolejkę i bufor.
     EXPECT_EQ(w.cbegin(), w.cend());

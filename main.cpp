@@ -9,13 +9,17 @@
 
 
 int main() {
-    auto recv = std::make_unique<Storehouse>(1);
-    std::cout << "Hello, World!" << std::endl;
+    Factory factory;
+/* inicjalizacja fabryki */
 
-    auto tokens = parse_line("Ala ma kota.");
-    for (const auto &token : tokens) {
-        std::cout << token << std::endl;
-    }
+// Testowanie z użyciem "wydmuszki" funkcji raportującej.
+    simulate(factory, 3, [](Factory&, TimeOffset) {});
 
-    return 0;
+// Testowanie z użyciem konkretnego obiektu klasy raportującej.
+    SpecificTurnsReportNotifier spec_notifier(std::set<Time>{1});
+    simulate(factory, 3, [&spec_notifier](Factory& f, TimeOffset t_offset) {
+        if (spec_notifier.should_generate_report(t_offset)) {
+            generate_structure_report(f, std::cout);
+        }
+    });
 }
